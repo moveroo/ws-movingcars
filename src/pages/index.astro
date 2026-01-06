@@ -110,8 +110,8 @@ const testimonials = [
   title="Moving Cars | Interstate Car Transport Australia"
   description="Professional interstate car transport across Australia. Fully insured, door-to-door service. Get a free quote for Sydney, Melbourne, Brisbane, Perth & more."
 >
-  <!-- Hero Section - Dynamic Split Design -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <!-- Hero Section - Mobile-First Responsive Design -->
+  <section class="relative overflow-hidden">
     <!-- Background Gradient -->
     <div
       class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-950)] via-[var(--color-primary-900)] to-[var(--color-primary-800)]"
@@ -143,36 +143,42 @@ const testimonials = [
       </div>
     </div>
 
-    <div class="container mx-auto px-6 lg:px-8 relative z-10 py-20">
+    <!-- Hero Content Container -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-12 sm:py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left Content -->
         <div>
           <span
-            class="inline-block px-4 py-2 mb-6 rounded-full bg-[var(--color-accent-500)]/10 border border-[var(--color-accent-500)]/30 text-[var(--color-accent-400)] font-semibold text-sm uppercase tracking-wider"
+            class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 rounded-full bg-[var(--color-accent-500)]/10 border border-[var(--color-accent-500)]/30 text-[var(--color-accent-400)] font-semibold text-xs sm:text-sm uppercase tracking-wider"
           >
             🚗 Australia's #1 Car Transport
           </span>
 
           <h1
-            class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-[1.1]"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-[1.1]"
           >
             <span class="text-gradient">Interstate</span><br />
-            Car Transport<br />
-            <span class="text-[var(--color-neutral-300)]">Made Simple</span>
+            <span class="text-white">Car Transport</span><br />
+            <span class="text-[var(--color-neutral-400)]">Made Simple</span>
           </h1>
 
           <p
-            class="text-lg lg:text-xl text-[var(--color-neutral-300)] mb-10 max-w-lg leading-relaxed"
+            class="text-base sm:text-lg lg:text-xl text-[var(--color-neutral-300)] mb-6 sm:mb-10 max-w-lg leading-relaxed"
           >
             Professional, reliable car transport across Australia. Door-to-door service with full
             transit insurance. <strong class="text-white">Get your free quote in 60 seconds.</strong
             >
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/quote/" class="btn btn-primary btn-lg">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="/quote/" class="btn btn-primary sm:btn-lg text-center">
               Get a Free Quote
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                class="w-4 h-4 sm:w-5 sm:h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -180,22 +186,30 @@ const testimonials = [
                   d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
-            <a href="/routes/" class="btn btn-accent btn-lg"> Browse Routes </a>
+            <a href="/routes/" class="btn btn-accent sm:btn-lg text-center">Browse Routes</a>
           </div>
 
           <!-- Quick Stats -->
-          <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-6">
-            <div>
-              <div class="text-3xl font-bold text-white">50k+</div>
-              <div class="text-sm text-[var(--color-neutral-400)]">Cars Delivered</div>
+          <div
+            class="mt-8 sm:mt-12 pt-6 sm:pt-8 pb-8 sm:pb-12 lg:pb-16 border-t border-white/10 grid grid-cols-3 gap-2 sm:gap-6"
+          >
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">50k+</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+                Cars Delivered
+              </div>
             </div>
-            <div>
-              <div class="text-3xl font-bold text-white">4.9★</div>
-              <div class="text-sm text-[var(--color-neutral-400)]">Customer Rating</div>
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">4.9★</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+                Customer Rating
+              </div>
             </div>
-            <div>
-              <div class="text-3xl font-bold text-white">100%</div>
-              <div class="text-sm text-[var(--color-neutral-400)]">Fully Insured</div>
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">100%</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+                Fully Insured
+              </div>
             </div>
           </div>
         </div>
@@ -262,21 +276,6 @@ const testimonials = [
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Wave Divider -->
-    <div class="absolute bottom-0 left-0 right-0">
-      <svg
-        viewBox="0 0 1440 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-auto"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0 60L60 55C120 50 240 40 360 45C480 50 600 70 720 75C840 80 960 70 1080 60C1200 50 1320 40 1380 35L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V60Z"
-          fill="var(--color-neutral-50)"></path>
-      </svg>
     </div>
   </section>
 
