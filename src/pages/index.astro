@@ -1,120 +1,549 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const popularRoutes = [
+  {
+    origin: 'Sydney',
+    destination: 'Melbourne',
+    slug: '/sydney-to-melbourne/',
+    days: '3-5 days',
+  },
+  {
+    origin: 'Melbourne',
+    destination: 'Brisbane',
+    slug: '/melbourne-to-brisbane/',
+    days: '5-7 days',
+  },
+  {
+    origin: 'Perth',
+    destination: 'Sydney',
+    slug: '/perth-to-sydney/',
+    days: '7-10 days',
+  },
+  {
+    origin: 'Brisbane',
+    destination: 'Adelaide',
+    slug: '/brisbane-to-adelaide/',
+    days: '5-7 days',
+  },
+  {
+    origin: 'Sydney',
+    destination: 'Perth',
+    slug: '/sydney-to-perth/',
+    days: '7-10 days',
+  },
+  {
+    origin: 'Melbourne',
+    destination: 'Adelaide',
+    slug: '/melbourne-to-adelaide/',
+    days: '2-4 days',
+  },
+  {
+    origin: 'Darwin',
+    destination: 'Melbourne',
+    slug: '/darwin-to-melbourne/',
+    days: '7-10 days',
+  },
+  {
+    origin: 'Hobart',
+    destination: 'Sydney',
+    slug: '/hobart-to-sydney/',
+    days: '5-7 days',
+  },
+];
+
+const services = [
+  {
+    icon: '🚛',
+    title: 'Open Carrier Transport',
+    description:
+      'Cost-effective transport on multi-car carriers. Safe and reliable for most vehicles.',
+    link: '/services/open-carrier/',
+  },
+  {
+    icon: '🔒',
+    title: 'Enclosed Transport',
+    description: 'Premium protection for luxury, classic, and high-value vehicles. Fully enclosed.',
+    link: '/services/enclosed/',
+  },
+  {
+    icon: '🚪',
+    title: 'Door-to-Door Delivery',
+    description: 'We pick up and deliver straight to your door. Maximum convenience guaranteed.',
+    link: '/services/door-to-door/',
+  },
+];
+
+const trustBadges = [
+  { icon: '🛡️', title: 'Fully Insured', text: 'Complete transit coverage' },
+  { icon: '⭐', title: '10+ Years', text: 'Industry experience' },
+  { icon: '🚗', title: '50,000+', text: 'Cars transported' },
+  { icon: '🇦🇺', title: 'Australian Owned', text: 'Local business' },
+];
+
+const testimonials = [
+  {
+    quote:
+      'Fantastic service! My car arrived in perfect condition. The team kept me informed every step of the way.',
+    author: 'Sarah M.',
+    location: 'Sydney to Perth',
+    rating: 5,
+  },
+  {
+    quote:
+      'Very professional and reasonably priced. I would definitely use Moving Cars again for my next interstate move.',
+    author: 'James T.',
+    location: 'Melbourne to Brisbane',
+    rating: 5,
+  },
+  {
+    quote:
+      "Transported my classic car with their enclosed service. Couldn't be happier with the care they took.",
+    author: 'Michael K.',
+    location: 'Adelaide to Sydney',
+    rating: 5,
+  },
+];
 ---
 
 <Layout
   title="Moving Cars | Interstate Car Transport Australia"
-  description="Professional interstate car transport across Australia. Get a free quote for car shipping from Sydney, Melbourne, Brisbane, Perth, and all major cities."
+  description="Professional interstate car transport across Australia. Fully insured, door-to-door service. Get a free quote for Sydney, Melbourne, Brisbane, Perth & more."
 >
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">
-        Interstate Car Transport
-        <span class="text-amber-400">Made Easy</span>
-      </h1>
-      <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-        Professional, reliable car transport across Australia. Door-to-door service with full
-        transit insurance. Get your free quote today.
-      </p>
-      <a
-        href="/quote/"
-        class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-10 rounded-lg text-lg transition-colors"
+  <!-- Hero Section - Dynamic Split Design -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background Gradient -->
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-950)] via-[var(--color-primary-900)] to-[var(--color-primary-800)]"
+    >
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <!-- Gradient Orbs -->
+      <div
+        class="absolute top-20 right-1/4 w-96 h-96 bg-[var(--color-accent-500)]/20 rounded-full blur-3xl"
       >
-        Get a Free Quote
-      </a>
+      </div>
+      <div
+        class="absolute bottom-20 left-1/4 w-80 h-80 bg-[var(--color-secondary-500)]/10 rounded-full blur-3xl"
+      >
+      </div>
+
+      <!-- Geometric Pattern -->
+      <div
+        class="absolute inset-0 opacity-5 bg-[radial-gradient(circle,_rgba(255,255,255,0.3)_1px,_transparent_1px)] bg-[size:30px_30px]"
+      >
+      </div>
+
+      <!-- Diagonal Line -->
+      <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[var(--color-accent-500)]/5 to-transparent transform skew-x-12"
+      >
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-8 relative z-10 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div>
+          <span
+            class="inline-block px-4 py-2 mb-6 rounded-full bg-[var(--color-accent-500)]/10 border border-[var(--color-accent-500)]/30 text-[var(--color-accent-400)] font-semibold text-sm uppercase tracking-wider"
+          >
+            🚗 Australia's #1 Car Transport
+          </span>
+
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-[1.1]"
+          >
+            <span class="text-gradient">Interstate</span><br />
+            Car Transport<br />
+            <span class="text-[var(--color-neutral-300)]">Made Simple</span>
+          </h1>
+
+          <p
+            class="text-lg lg:text-xl text-[var(--color-neutral-300)] mb-10 max-w-lg leading-relaxed"
+          >
+            Professional, reliable car transport across Australia. Door-to-door service with full
+            transit insurance. <strong class="text-white">Get your free quote in 60 seconds.</strong
+            >
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/quote/" class="btn btn-primary btn-lg">
+              Get a Free Quote
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="/routes/" class="btn btn-accent btn-lg"> Browse Routes </a>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-6">
+            <div>
+              <div class="text-3xl font-bold text-white">50k+</div>
+              <div class="text-sm text-[var(--color-neutral-400)]">Cars Delivered</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-white">4.9★</div>
+              <div class="text-sm text-[var(--color-neutral-400)]">Customer Rating</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-white">100%</div>
+              <div class="text-sm text-[var(--color-neutral-400)]">Fully Insured</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content - Feature Cards -->
+        <div class="hidden lg:block relative">
+          <div class="space-y-4">
+            <!-- Feature Card 1 -->
+            <div
+              class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transform hover:translate-x-2 transition-transform"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[var(--color-accent-500)]/20 flex items-center justify-center text-2xl"
+                >
+                  🚚
+                </div>
+                <div>
+                  <div class="font-bold text-white">Door-to-Door Service</div>
+                  <div class="text-sm text-[var(--color-neutral-400)]">
+                    We pick up and deliver to your door
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div
+              class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 ml-8 transform hover:translate-x-2 transition-transform"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[var(--color-secondary-500)]/20 flex items-center justify-center text-2xl"
+                >
+                  🛡️
+                </div>
+                <div>
+                  <div class="font-bold text-white">Fully Insured</div>
+                  <div class="text-sm text-[var(--color-neutral-400)]">
+                    Complete transit protection
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div
+              class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 ml-4 transform hover:translate-x-2 transition-transform"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[var(--color-accent-500)]/20 flex items-center justify-center text-2xl"
+                >
+                  📍
+                </div>
+                <div>
+                  <div class="font-bold text-white">Real-Time Tracking</div>
+                  <div class="text-sm text-[var(--color-neutral-400)]">
+                    Know where your car is 24/7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave Divider -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg
+        viewBox="0 0 1440 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full h-auto"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 60L60 55C120 50 240 40 360 45C480 50 600 70 720 75C840 80 960 70 1080 60C1200 50 1320 40 1380 35L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V60Z"
+          fill="var(--color-neutral-50)"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Trust Badges Section -->
+  <section class="py-16 bg-[var(--color-neutral-50)]">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        {
+          trustBadges.map((badge) => (
+            <div class="trust-badge">
+              <span class="text-4xl mb-3">{badge.icon}</span>
+              <span class="trust-badge-title">{badge.title}</span>
+              <span class="trust-badge-text">{badge.text}</span>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+  <section class="section bg-white">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block px-4 py-1.5 mb-4 rounded-full bg-[var(--color-accent-500)]/10 text-[var(--color-accent-600)] font-semibold text-sm uppercase tracking-wider"
+        >
+          Our Services
+        </span>
+        <h2 class="section-title">How We Can Help</h2>
+        <p class="section-subtitle mx-auto">
+          Choose the transport option that best fits your needs. All services include full transit
+          insurance.
+        </p>
+      </div>
+
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="bg-slate-50 p-8 rounded-xl text-center">
-          <div class="text-4xl mb-4">🚗</div>
-          <h3 class="font-bold text-xl mb-2">Open Carrier</h3>
-          <p class="text-slate-600">
-            Cost-effective transport on multi-car carriers. Safe and reliable for most vehicles.
-          </p>
-        </div>
-        <div class="bg-slate-50 p-8 rounded-xl text-center">
-          <div class="text-4xl mb-4">🔒</div>
-          <h3 class="font-bold text-xl mb-2">Enclosed Transport</h3>
-          <p class="text-slate-600">
-            Premium protection for luxury, classic, and high-value vehicles.
-          </p>
-        </div>
-        <div class="bg-slate-50 p-8 rounded-xl text-center">
-          <div class="text-4xl mb-4">🚪</div>
-          <h3 class="font-bold text-xl mb-2">Door-to-Door</h3>
-          <p class="text-slate-600">
-            We pick up from your address and deliver straight to your destination.
-          </p>
-        </div>
+        {
+          services.map((service) => (
+            <a href={service.link} class="card group cursor-pointer">
+              <span class="text-5xl mb-4 block">{service.icon}</span>
+              <h3 class="text-xl font-bold mb-2 group-hover:text-[var(--color-accent-600)] transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-[var(--color-neutral-500)] mb-4">{service.description}</p>
+              <span class="inline-flex items-center text-[var(--color-accent-600)] font-medium">
+                Learn more
+                <svg
+                  class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <!-- Popular Routes Section -->
-  <section class="py-16 bg-slate-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Popular Routes</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        <a
-          href="/sydney-to-melbourne/"
-          class="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+  <section class="section-dark section diagonal-top" style="margin-top: -40px;">
+    <div class="container mx-auto px-6 lg:px-8 pt-16">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block px-4 py-1.5 mb-4 rounded-full bg-[var(--color-accent-500)]/20 text-[var(--color-accent-400)] font-semibold text-sm uppercase tracking-wider"
         >
-          <p class="font-semibold">Sydney → Melbourne</p>
-          <p class="text-sm text-slate-500">3-5 days</p>
-        </a>
-        <a
-          href="/sydney-to-brisbane/"
-          class="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
-        >
-          <p class="font-semibold">Sydney → Brisbane</p>
-          <p class="text-sm text-slate-500">3-5 days</p>
-        </a>
-        <a
-          href="/melbourne-to-perth/"
-          class="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
-        >
-          <p class="font-semibold">Melbourne → Perth</p>
-          <p class="text-sm text-slate-500">7-10 days</p>
-        </a>
-        <a
-          href="/brisbane-to-sydney/"
-          class="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
-        >
-          <p class="font-semibold">Brisbane → Sydney</p>
-          <p class="text-sm text-slate-500">3-5 days</p>
-        </a>
+          Popular Routes
+        </span>
+        <h2 class="section-title section-title-light">Australia-Wide Coverage</h2>
+        <p class="section-subtitle section-subtitle-light mx-auto">
+          We transport vehicles on all major routes across Australia.
+        </p>
       </div>
-      <div class="text-center mt-8">
-        <a href="/routes/" class="text-blue-600 hover:underline font-semibold">View All Routes →</a>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        {
+          popularRoutes.map((route) => (
+            <a href={route.slug} class="card-dark card group">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="font-semibold text-white group-hover:text-[var(--color-accent-400)] transition-colors">
+                    {route.origin} → {route.destination}
+                  </p>
+                  <p class="text-sm text-[var(--color-neutral-400)]">{route.days}</p>
+                </div>
+                <svg
+                  class="w-5 h-5 text-[var(--color-neutral-500)] group-hover:text-[var(--color-accent-400)] group-hover:translate-x-1 transition-all"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/routes/"
+          class="inline-flex items-center text-[var(--color-accent-400)] font-semibold hover:text-[var(--color-accent-300)] transition-colors"
+        >
+          View All Routes
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Trust Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto grid md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-4xl font-bold text-amber-500">10+</p>
-          <p class="text-slate-600">Years Experience</p>
+  <!-- How It Works Section -->
+  <section class="section bg-white diagonal-top" style="margin-top: -40px;">
+    <div class="container mx-auto px-6 lg:px-8 pt-16">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block px-4 py-1.5 mb-4 rounded-full bg-[var(--color-secondary-500)]/10 text-[var(--color-secondary-600)] font-semibold text-sm uppercase tracking-wider"
+        >
+          How It Works
+        </span>
+        <h2 class="section-title">3 Simple Steps</h2>
+        <p class="section-subtitle mx-auto">
+          Getting your car transported interstate has never been easier.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div
+            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-400)] to-[var(--color-accent-600)] text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg"
+          >
+            1
+          </div>
+          <h3 class="text-xl font-bold mb-3">Get a Quote</h3>
+          <p class="text-[var(--color-neutral-500)]">
+            Fill out our simple form with your pickup and delivery details. Instant quote in 60
+            seconds.
+          </p>
         </div>
-        <div>
-          <p class="text-4xl font-bold text-amber-500">50K+</p>
-          <p class="text-slate-600">Cars Transported</p>
+
+        <div class="text-center">
+          <div
+            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-400)] to-[var(--color-accent-600)] text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg"
+          >
+            2
+          </div>
+          <h3 class="text-xl font-bold mb-3">Book & Prepare</h3>
+          <p class="text-[var(--color-neutral-500)]">
+            Confirm your booking and prepare your vehicle. We'll coordinate a convenient pickup
+            time.
+          </p>
         </div>
-        <div>
-          <p class="text-4xl font-bold text-amber-500">🇦🇺</p>
-          <p class="text-slate-600">Australian Owned</p>
+
+        <div class="text-center">
+          <div
+            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-400)] to-[var(--color-accent-600)] text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6 shadow-lg"
+          >
+            3
+          </div>
+          <h3 class="text-xl font-bold mb-3">We Deliver</h3>
+          <p class="text-[var(--color-neutral-500)]">
+            Track your vehicle in real-time as we safely transport it to your destination.
+          </p>
         </div>
-        <div>
-          <p class="text-4xl font-bold text-amber-500">100%</p>
-          <p class="text-slate-600">Insured</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section bg-[var(--color-neutral-100)]">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block px-4 py-1.5 mb-4 rounded-full bg-[var(--color-accent-500)]/10 text-[var(--color-accent-600)] font-semibold text-sm uppercase tracking-wider"
+        >
+          Testimonials
+        </span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle mx-auto">
+          Don't just take our word for it — here's what real customers think.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {
+          testimonials.map((testimonial) => (
+            <div class="card">
+              <div class="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map(() => (
+                  <svg
+                    class="w-5 h-5 text-[var(--color-secondary-500)]"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-[var(--color-neutral-600)] mb-4 italic leading-relaxed">
+                "{testimonial.quote}"
+              </p>
+              <div class="pt-4 border-t border-[var(--color-neutral-200)]">
+                <p class="font-semibold text-[var(--color-neutral-900)]">{testimonial.author}</p>
+                <p class="text-sm text-[var(--color-neutral-500)]">{testimonial.location}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-dark section">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div
+        class="max-w-4xl mx-auto text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 md:p-16"
+      >
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+          Ready to Transport Your Car?
+        </h2>
+        <p class="text-[var(--color-neutral-300)] mb-10 max-w-xl mx-auto text-lg">
+          Get a free, no-obligation quote in under 60 seconds. Our team is standing by to help with
+          your interstate car transport needs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/quote/" class="btn btn-primary btn-lg">
+            Get Your Free Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="tel:1300123456" class="btn btn-secondary btn-lg">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            Call 1300 123 456
+          </a>
         </div>
       </div>
     </div>

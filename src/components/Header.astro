@@ -1,0 +1,181 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<!-- Top Utility Bar -->
+<div class="bg-[var(--color-primary-950)] text-sm py-2.5">
+  <div class="container mx-auto px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center gap-6 text-[var(--color-neutral-300)]">
+      <a
+        href="tel:1300123456"
+        class="flex items-center gap-2 hover:text-[var(--color-accent-400)] transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          ></path>
+        </svg>
+        <span class="hidden sm:inline">1300 123 456</span>
+      </a>
+      <a
+        href="mailto:info@movingcars.com.au"
+        class="flex items-center gap-2 hover:text-[var(--color-accent-400)] transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          ></path>
+        </svg>
+        <span class="hidden md:inline">info@movingcars.com.au</span>
+      </a>
+    </div>
+    <div class="flex items-center gap-4 text-[var(--color-neutral-400)]">
+      <span class="hidden lg:inline text-xs">Australia's Trusted Car Transport</span>
+      <div class="flex gap-3">
+        <a
+          href="#"
+          class="hover:text-[var(--color-accent-400)] transition-colors"
+          aria-label="Facebook"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="hover:text-[var(--color-accent-400)] transition-colors"
+          aria-label="Instagram"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke-width="2"></rect>
+            <path stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<header
+  class:list={[
+    'bg-[var(--color-primary-900)]/95 backdrop-blur-md text-white sticky top-0 z-50 border-b border-white/10',
+    className,
+  ]}
+>
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20 lg:h-24">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-accent-400)] to-[var(--color-accent-600)] flex items-center justify-center text-white font-bold text-xl"
+        >
+          MC
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="text-xl lg:text-2xl font-extrabold tracking-tight group-hover:text-[var(--color-accent-400)] transition-colors"
+          >
+            MOVING CARS
+          </span>
+          <span class="text-xs text-[var(--color-neutral-400)] hidden lg:block">
+            Interstate Transport Specialists
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a
+          href="/"
+          class="font-medium text-[var(--color-neutral-200)] hover:text-[var(--color-accent-400)] transition-colors link-underline"
+        >
+          Home
+        </a>
+        <a
+          href="/routes/"
+          class="font-medium text-[var(--color-neutral-200)] hover:text-[var(--color-accent-400)] transition-colors link-underline"
+        >
+          Routes
+        </a>
+        <a
+          href="/services/"
+          class="font-medium text-[var(--color-neutral-200)] hover:text-[var(--color-accent-400)] transition-colors link-underline"
+        >
+          Services
+        </a>
+        <a
+          href="/about/"
+          class="font-medium text-[var(--color-neutral-200)] hover:text-[var(--color-accent-400)] transition-colors link-underline"
+        >
+          About
+        </a>
+        <a
+          href="/contact/"
+          class="font-medium text-[var(--color-neutral-200)] hover:text-[var(--color-accent-400)] transition-colors link-underline"
+        >
+          Contact
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:block">
+        <a href="/quote/" class="btn btn-primary">
+          Get a Free Quote
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+        aria-label="Toggle menu"
+        id="mobile-menu-toggle"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="lg:hidden hidden bg-[var(--color-primary-900)]" id="mobile-menu">
+    <nav class="container mx-auto px-6 py-6 flex flex-col gap-4">
+      <a href="/" class="font-medium py-3 border-b border-white/10">Home</a>
+      <a href="/routes/" class="font-medium py-3 border-b border-white/10">Routes</a>
+      <a href="/services/" class="font-medium py-3 border-b border-white/10">Services</a>
+      <a href="/about/" class="font-medium py-3 border-b border-white/10">About</a>
+      <a href="/contact/" class="font-medium py-3 border-b border-white/10">Contact</a>
+      <a href="/quote/" class="btn btn-primary text-center mt-2">Get a Free Quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
