@@ -120,7 +120,19 @@ Use this as a foundation for future programmatic site builds.
 
 ---
 
-## 8. Migration Specifics
+## 8. Analytics & Tracking
+
+- [ ] **Brain Analytics**: Implement `brain-analytics.js` for unified tracking.
+  - Copy `public/brain-analytics.js` from Moving Again project.
+  - Create `BrainAnalytics.astro` component.
+  - Include in `Layout.astro` with `defer` attribute.
+  - _Reference_: See Moving Again's implementation for event tracking patterns.
+- [ ] **Google Analytics / GTM**: If using, load with `defer` or `async`.
+- [ ] **Search Console**: Register site and submit sitemap after launch.
+
+---
+
+## 9. Migration Specifics
 
 - [ ] **Sitemap**: Verify `sitemap-index.xml` includes all routes.
 - [ ] **Redirects**: Prepare `_redirects` or `vercel.json` for URL changes.
