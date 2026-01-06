@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const PRODUCTION_DOMAIN = 'https://movingcars.com.au';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = `${PRODUCTION_DOMAIN}${currentPath}`;
+
+const {
+  title = 'Moving Cars | Interstate Car Transport Australia',
+  description = 'Professional interstate car transport across Australia. Get a free quote for car shipping from Sydney, Melbourne, Brisbane, Perth, and all major cities.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicons (placeholder) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="bg-slate-900 text-white py-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold">Moving Cars</a>
+        <nav class="hidden md:flex gap-6">
+          <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+          <a href="/routes/" class="hover:text-amber-400 transition-colors">Routes</a>
+          <a href="/contact/" class="hover:text-amber-400 transition-colors">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="bg-slate-900 text-white py-8">
+      <div class="container mx-auto px-4 text-center text-sm text-slate-400">
+        <p>&copy; {new Date().getFullYear()} Moving Cars. All rights reserved.</p>
+        <p class="mt-2">Australian Owned & Operated</p>
+      </div>
+    </footer>
+  </body>
+</html>
