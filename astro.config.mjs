@@ -9,8 +9,8 @@ export default defineConfig({
   site: 'https://movingcars.com.au',
   output: 'static',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()]
+  integrations: [sitemap()],
 });
