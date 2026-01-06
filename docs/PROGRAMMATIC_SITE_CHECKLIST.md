@@ -116,7 +116,9 @@ Use this as a foundation for future programmatic site builds.
   - _Fixes PERF001_.
 - [ ] **Images**: Use Astro's `<Image />` component with `srcset`.
   - _Fixes MOB004_.
-- [ ] **Font Loading**: Self-host with `@fontsource` + `font-display: swap`.
+- [ ] **Font Loading**: ALWAYS self-host with `@fontsource` +
+      `font-display: swap`.
+  - **NEVER** use Google Fonts CDN (performance & privacy request).
 
 ---
 
