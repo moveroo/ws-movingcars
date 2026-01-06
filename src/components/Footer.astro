@@ -1,4 +1,6 @@
 ---
+import DevLabel from './DevLabel.astro';
+
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
@@ -16,7 +18,8 @@ const services = [
 ];
 ---
 
-<footer class="bg-[var(--color-primary-900)] text-white">
+<footer class="bg-[var(--color-primary-900)] text-white relative">
+  <DevLabel name="Footer" position="top-right" />
   <!-- Main Footer -->
   <div class="container mx-auto px-4" style="padding-top: 5rem; padding-bottom: 4rem;">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

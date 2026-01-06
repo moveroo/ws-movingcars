@@ -1,4 +1,6 @@
 ---
+import DevLabel from './DevLabel.astro';
+
 interface Props {
   class?: string;
 }
@@ -73,6 +75,7 @@ const { class: className } = Astro.props;
     className,
   ]}
 >
+  <DevLabel name="Header" position="bottom-right" />
   <div class="container mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-20 lg:h-24">
       <!-- Logo -->

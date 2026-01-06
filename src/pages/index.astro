@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DevLabel from '../components/DevLabel.astro';
 
 const popularRoutes = [
   {
@@ -110,9 +111,10 @@ const testimonials = [
   title="Moving Cars | Interstate Car Transport Australia"
   description="Professional interstate car transport across Australia. Fully insured, door-to-door service. Get a free quote for Sydney, Melbourne, Brisbane, Perth & more."
 >
-  <!-- Hero Section - Mobile-First Responsive Design -->
-  <section class="relative overflow-hidden">
-    <!-- Background Gradient -->
+  <!-- Hero Section - Mobile-First Responsiv  <!-- Hero Section -->
+  <section class="relative min-h-[600px] flex items-center overflow-hidden">
+    <DevLabel name="Hero Section" />
+    <!-- Background Image with Overlay -->
     <div
       class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-950)] via-[var(--color-primary-900)] to-[var(--color-primary-800)]"
     >
@@ -280,7 +282,8 @@ const testimonials = [
   </section>
 
   <!-- Trust Badges Section -->
-  <section class="py-16 bg-[var(--color-neutral-50)]">
+  <section class="section bg-white relative">
+    <DevLabel name="Trust Badges" />
     <div class="container mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
         {
@@ -297,7 +300,8 @@ const testimonials = [
   </section>
 
   <!-- Services Section -->
-  <section class="section bg-white">
+  <section class="section bg-white relative">
+    <DevLabel name="Services" />
     <div class="container mx-auto px-6 lg:px-8">
       <div class="text-center mb-14">
         <span
@@ -345,7 +349,8 @@ const testimonials = [
   </section>
 
   <!-- Popular Routes Section -->
-  <section class="section-dark section diagonal-top" style="margin-top: -40px;">
+  <section class="section-dark section diagonal-top relative" style="margin-top: -40px;">
+    <DevLabel name="Service Area / Routes" />
     <div class="container mx-auto px-6 lg:px-8 pt-16">
       <div class="text-center mb-14">
         <span
@@ -408,7 +413,8 @@ const testimonials = [
   </section>
 
   <!-- How It Works Section -->
-  <section class="section bg-white diagonal-top" style="margin-top: -40px;">
+  <section class="section bg-white diagonal-top relative" style="margin-top: -40px;">
+    <DevLabel name="Features" />
     <div class="container mx-auto px-6 lg:px-8 pt-16">
       <div class="text-center mb-14">
         <span
@@ -465,7 +471,8 @@ const testimonials = [
   </section>
 
   <!-- Testimonials Section -->
-  <section class="section bg-[var(--color-neutral-100)]">
+  <section class="section bg-[var(--color-neutral-100)] relative">
+    <DevLabel name="Testimonials" />
     <div class="container mx-auto px-6 lg:px-8">
       <div class="text-center mb-14">
         <span
@@ -509,7 +516,8 @@ const testimonials = [
   </section>
 
   <!-- CTA Section -->
-  <section class="section-dark section">
+  <section class="section-dark section relative">
+    <DevLabel name="CTA" />
     <div class="container mx-auto px-6 lg:px-8">
       <div
         class="max-w-4xl mx-auto text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 md:p-16"
