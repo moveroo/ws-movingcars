@@ -1,0 +1,22 @@
+{
+  "analyzedAt": "2026-01-13T02:04:24.481Z",
+  "totalPages": 2,
+  "issuesByType": {
+    "missing-telephone": [],
+    "missing-faq-schema": [],
+    "missing-breadcrumb": [],
+    "missing-rating": []
+  },
+  "allResults": [
+    {
+      "file": "[...slug].astro",
+      "hasLocalBusiness": false,
+      "issues": []
+    },
+    {
+      "file": "index.astro",
+      "hasLocalBusiness": false,
+      "issues": []
+    }
+  ]
+}

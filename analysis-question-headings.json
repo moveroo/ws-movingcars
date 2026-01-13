@@ -1,0 +1,49 @@
+{
+  "analyzedAt": "2026-01-13T02:04:25.185Z",
+  "summary": {
+    "totalPages": 2,
+    "totalHeadings": 9,
+    "totalQuestions": 3,
+    "totalStatements": 6
+  },
+  "detailedPages": [
+    {
+      "file": "index.astro",
+      "totalHeadings": 9,
+      "questionHeadings": 3,
+      "statementHeadings": 6,
+      "suggestions": [
+        {
+          "original": "{service.title}",
+          "suggested": "What Is {service.title}?",
+          "level": 3
+        },
+        {
+          "original": "Australia-Wide Coverage",
+          "suggested": "What Areas Do You Cover?",
+          "level": 2
+        },
+        {
+          "original": "3 Simple Steps",
+          "suggested": "How Does 3 Simple Steps Work?",
+          "level": 2
+        },
+        {
+          "original": "Get a Quote",
+          "suggested": "How Does Get A Quote Work?",
+          "level": 3
+        },
+        {
+          "original": "Book & Prepare",
+          "suggested": "How Does Book & Prepare Work?",
+          "level": 3
+        },
+        {
+          "original": "We Deliver",
+          "suggested": "What Is We Deliver?",
+          "level": 3
+        }
+      ]
+    }
+  ]
+}

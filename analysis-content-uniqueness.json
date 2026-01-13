@@ -1,0 +1,20 @@
+{
+  "analyzedAt": "2026-01-13T02:04:25.563Z",
+  "summary": {
+    "totalPages": 2,
+    "thinContent": 2,
+    "highSimilarityPairs": 0,
+    "averageWordCount": 136
+  },
+  "thinContent": [
+    {
+      "file": "[...slug].astro",
+      "wordCount": 0
+    },
+    {
+      "file": "index.astro",
+      "wordCount": 271
+    }
+  ],
+  "highSimilarity": []
+}
