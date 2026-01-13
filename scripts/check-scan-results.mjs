@@ -51,7 +51,9 @@ async function apiRequest(endpoint, options = {}) {
     return response.json();
   } else {
     const text = await response.text();
-    throw new Error(`API returned non-JSON response: ${text.substring(0, 200)}`);
+    throw new Error(
+      `API returned non-JSON response: ${text.substring(0, 200)}`
+    );
   }
 }
 
@@ -79,15 +81,19 @@ function displayPageResults(results, scanId) {
     console.log('\n📋 Action Items:\n');
 
     results.action_items.forEach((category) => {
-      const categoryName = category.category || category.name || 'Uncategorized';
+      const categoryName =
+        category.category || category.name || 'Uncategorized';
       const categoryScore =
-        category.category_score !== undefined ? ` (${category.category_score}/100)` : '';
+        category.category_score !== undefined
+          ? ` (${category.category_score}/100)`
+          : '';
       console.log(`\n${categoryName}${categoryScore}:`);
 
       if (category.issues && Array.isArray(category.issues)) {
         category.issues.forEach((issue) => {
           const icon = issue.status === 'fail' ? '🔴' : '🟡';
-          const checkName = issue.check_name || issue.title || issue.name || 'Issue';
+          const checkName =
+            issue.check_name || issue.title || issue.name || 'Issue';
           console.log(`  ${icon} ${checkName}`);
           if (issue.issue_detected) {
             console.log(`     📋 ${issue.issue_detected}`);
@@ -139,11 +145,15 @@ function displayCrawlResults(crawl) {
   }
 
   if (crawl.issues && crawl.issues.length > 0) {
-    console.log(`\n⚠️  Issues Found: ${crawl.issues_count || crawl.issues.length} types\n`);
+    console.log(
+      `\n⚠️  Issues Found: ${crawl.issues_count || crawl.issues.length} types\n`
+    );
 
     crawl.issues.forEach((issue) => {
       const issueType = issue.type || 'Unknown Issue';
-      const issueName = issueType.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+      const issueName = issueType
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, (l) => l.toUpperCase());
 
       console.log(`\n${issueName}:`);
       console.log(`  Count: ${issue.count || 'N/A'}`);
@@ -166,7 +176,9 @@ function displayCrawlResults(crawl) {
   if (crawl.audits && crawl.audits.length > 0) {
     console.log('\n📄 Page Scores (sorted by lowest first):\n');
 
-    const sortedAudits = [...crawl.audits].sort((a, b) => (a.score || 0) - (b.score || 0));
+    const sortedAudits = [...crawl.audits].sort(
+      (a, b) => (a.score || 0) - (b.score || 0)
+    );
 
     sortedAudits.forEach((audit) => {
       const score = audit.score !== undefined ? `${audit.score}/100` : 'N/A';
@@ -182,7 +194,9 @@ function displayCrawlResults(crawl) {
 const scanId = process.argv[2];
 
 if (!scanId) {
-  console.error('❌ Please provide a scan ID: node scripts/check-scan-results.mjs 437');
+  console.error(
+    '❌ Please provide a scan ID: node scripts/check-scan-results.mjs 437'
+  );
   process.exit(1);
 }
 
@@ -192,7 +206,10 @@ if (!scanId) {
     console.log(`\n🔍 Checking page audit ID: ${scanId}...\n`);
     try {
       const auditResults = await apiRequest(`/audit/${scanId}`);
-      if (auditResults.status === 'completed' || auditResults.overall_score !== undefined) {
+      if (
+        auditResults.status === 'completed' ||
+        auditResults.overall_score !== undefined
+      ) {
         displayPageResults(auditResults, scanId);
         return;
       }
@@ -207,7 +224,9 @@ if (!scanId) {
     displayCrawlResults(crawl);
   } catch (error) {
     console.error(`\n❌ Error fetching results: ${error.message}`);
-    console.error(`\n💡 Make sure the scan ID is correct and the scan has completed.`);
+    console.error(
+      `\n💡 Make sure the scan ID is correct and the scan has completed.`
+    );
     process.exit(1);
   }
 })();

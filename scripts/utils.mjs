@@ -39,7 +39,10 @@ export function findPageFiles() {
       const res = join(dir, dirent.name);
       if (dirent.isDirectory()) {
         files.push(...getFiles(res));
-      } else if (dirent.name.endsWith('.astro') && !dirent.name.startsWith('_')) {
+      } else if (
+        dirent.name.endsWith('.astro') &&
+        !dirent.name.startsWith('_')
+      ) {
         files.push(res);
       }
     }

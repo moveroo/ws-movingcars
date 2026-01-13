@@ -83,7 +83,10 @@ function fixBreadcrumb(filePath) {
   }
 
   // Remove breadcrumbItems if not used (but keep if used in schema)
-  if (!content.includes('breadcrumbItems') && content.includes('const breadcrumbItems')) {
+  if (
+    !content.includes('breadcrumbItems') &&
+    content.includes('const breadcrumbItems')
+  ) {
     // Remove the breadcrumbItems definition
     content = content.replace(
       /\/\/ Breadcrumb navigation\s*const breadcrumbItems = \[[\s\S]*?\];\s*\n?/g,

@@ -22,7 +22,9 @@ function findComponentFiles() {
   const componentsDir = join(projectRoot, 'src', 'components');
   try {
     const files = fs.readdirSync(componentsDir, { recursive: true });
-    return files.filter((file) => file.endsWith('.astro')).map((file) => join(componentsDir, file));
+    return files
+      .filter((file) => file.endsWith('.astro'))
+      .map((file) => join(componentsDir, file));
   } catch (e) {
     // Components dir might not exist in all projects
     return [];
@@ -89,7 +91,16 @@ function processImageElement(el, tagName, fileName, fullContent, images) {
 
   if (image.hasAlt) {
     // Check if generic
-    const genericAlts = ['image', 'img', 'photo', 'picture', 'logo', 'icon', 'graphic', ''];
+    const genericAlts = [
+      'image',
+      'img',
+      'photo',
+      'picture',
+      'logo',
+      'icon',
+      'graphic',
+      '',
+    ];
     // If alt is dynamic variable (starts with {), assume it's likely okay/contextual, or we can't judge it statically.
     // We only flag explicit generic strings.
 
@@ -120,7 +131,9 @@ function generateAltSuggestion(src, currentAlt, content) {
     .pop()
     .replace(/\.(jpg|jpeg|png|gif|svg|webp)$/i, '');
 
-  const cleanFilename = filename.replace(/[-_]/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  const cleanFilename = filename
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (l) => l.toUpperCase());
 
   // Context-based suggestions
   if (cleanSrc.includes('logo')) return 'Brand logo';
@@ -132,8 +145,12 @@ function generateAltSuggestion(src, currentAlt, content) {
 
 // Main execution
 async function main() {
-  console.log('\n🔍 Analyzing Image Alt Text Across All Pages (JSDOM-Enhanced)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '\n🔍 Analyzing Image Alt Text Across All Pages (JSDOM-Enhanced)\n'
+  );
+  console.log(
+    '======================================================================\n'
+  );
 
   const pageFiles = findPageFiles();
   const componentFiles = findComponentFiles();
@@ -160,9 +177,13 @@ async function main() {
   const goodAlt = allImages.filter((img) => img.hasAlt && !img.isGeneric);
 
   // Output results
-  console.log('======================================================================');
+  console.log(
+    '======================================================================'
+  );
   console.log('📊 ALT TEXT ANALYSIS RESULTS');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   console.log(`Total Images Found: ${allImages.length}`);
   console.log(
@@ -176,9 +197,13 @@ async function main() {
   );
 
   if (missingAlt.length > 0) {
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('❌ IMAGES WITH MISSING ALT TEXT');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     missingAlt.slice(0, 10).forEach((img) => {
       console.log(`📄 ${img.file}`);
@@ -188,9 +213,13 @@ async function main() {
   }
 
   if (genericAlt.length > 0) {
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('⚠️  IMAGES WITH GENERIC ALT TEXT');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     genericAlt.slice(0, 10).forEach((img) => {
       console.log(`📄 ${img.file}`);

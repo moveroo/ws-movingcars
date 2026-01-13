@@ -64,7 +64,10 @@ function addSchema(filePath) {
   const originalContent = content;
 
   // Check if schema already exists
-  if (content.includes('BreadcrumbList') && content.includes('itemListElement')) {
+  if (
+    content.includes('BreadcrumbList') &&
+    content.includes('itemListElement')
+  ) {
     return { fixed: false, reason: 'Schema already exists' };
   }
 
@@ -104,7 +107,8 @@ function addSchema(filePath) {
   />
 `;
 
-  content = content.substring(0, layoutEnd) + schema + content.substring(layoutEnd);
+  content =
+    content.substring(0, layoutEnd) + schema + content.substring(layoutEnd);
 
   if (content !== originalContent) {
     if (!isDryRun) {

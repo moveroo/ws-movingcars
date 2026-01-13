@@ -65,7 +65,10 @@ function isQuestion(text) {
     'should',
   ];
   const lowerText = text.toLowerCase().trim();
-  return questionWords.some((word) => lowerText.startsWith(word)) || lowerText.endsWith('?');
+  return (
+    questionWords.some((word) => lowerText.startsWith(word)) ||
+    lowerText.endsWith('?')
+  );
 }
 
 // Helper: Capitalize first letter of each word
@@ -90,11 +93,13 @@ function suggestQuestion(text) {
   const conversions = [
     {
       pattern: /^routes?\s+from\s+(.+)$/i,
-      suggestion: (m) => `What Routes Are Available from ${capitalizeWords(m[1])}?`,
+      suggestion: (m) =>
+        `What Routes Are Available from ${capitalizeWords(m[1])}?`,
     },
     {
       pattern: /^routes?\s+to\s+(.+)$/i,
-      suggestion: (m) => `What Routes Are Available to ${capitalizeWords(m[1])}?`,
+      suggestion: (m) =>
+        `What Routes Are Available to ${capitalizeWords(m[1])}?`,
     },
     {
       pattern: /^popular\s+(.+)$/i,
@@ -122,10 +127,18 @@ function suggestQuestion(text) {
     {
       pattern: /^how\s+(.+)$/i,
       suggestion: (m) =>
-        m[1].toLowerCase().includes('work') ? `How Does ${m[1]}?` : `How Does ${m[1]} Work?`,
+        m[1].toLowerCase().includes('work')
+          ? `How Does ${m[1]}?`
+          : `How Does ${m[1]} Work?`,
     },
-    { pattern: /^how\s+to\s+(.+)$/i, suggestion: (m) => `How Do You ${capitalizeWords(m[1])}?` },
-    { pattern: /^why\s+(.+)$/i, suggestion: (m) => `Why ${capitalizeWords(m[1])}?` },
+    {
+      pattern: /^how\s+to\s+(.+)$/i,
+      suggestion: (m) => `How Do You ${capitalizeWords(m[1])}?`,
+    },
+    {
+      pattern: /^why\s+(.+)$/i,
+      suggestion: (m) => `Why ${capitalizeWords(m[1])}?`,
+    },
     {
       pattern: /^(.+)\s+options?$/i,
       suggestion: (m) => `What Are ${capitalizeWords(m[1])} Options?`,
@@ -134,7 +147,10 @@ function suggestQuestion(text) {
       pattern: /^(.+)\s+process$/i,
       suggestion: (m) => `How Does the ${capitalizeWords(m[1])} Process Work?`,
     },
-    { pattern: /^(.+)\s+coverage$/i, suggestion: () => 'What Areas Do You Cover?' },
+    {
+      pattern: /^(.+)\s+coverage$/i,
+      suggestion: () => 'What Areas Do You Cover?',
+    },
     { pattern: /^coverage$/i, suggestion: () => 'What Areas Do You Cover?' },
     {
       pattern: /^(.+)\s+service$/i,
@@ -142,7 +158,8 @@ function suggestQuestion(text) {
     },
     {
       pattern: /^moving\s+to\s+or\s+from\s+(.+)$/i,
-      suggestion: (m) => `What Routes Are Available to or from ${capitalizeWords(m[1])}?`,
+      suggestion: (m) =>
+        `What Routes Are Available to or from ${capitalizeWords(m[1])}?`,
     },
   ];
 
@@ -199,8 +216,12 @@ function analyzePage(filePath) {
 
 // Main execution
 async function main() {
-  console.log('\n🔍 Analyzing Question Headings Across All Pages (JSDOM-Enhanced)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '\n🔍 Analyzing Question Headings Across All Pages (JSDOM-Enhanced)\n'
+  );
+  console.log(
+    '======================================================================\n'
+  );
 
   const pageFiles = findPageFiles();
   console.log(`📋 Found ${pageFiles.length} page files\n`);
@@ -231,9 +252,13 @@ async function main() {
   });
 
   // Output results
-  console.log('======================================================================');
+  console.log(
+    '======================================================================'
+  );
   console.log('📊 ANALYSIS RESULTS');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   console.log(`Total Headings Found: ${totalHeadings}`);
   console.log(
@@ -243,16 +268,24 @@ async function main() {
     `  📝 Statement Headings: ${totalStatements} (${Math.round((totalStatements / (totalHeadings || 1)) * 100)}%)\n`
   );
 
-  console.log(`Pages with Conversion Suggestions: ${pagesWithSuggestions.length}\n`);
+  console.log(
+    `Pages with Conversion Suggestions: ${pagesWithSuggestions.length}\n`
+  );
 
   if (pagesWithSuggestions.length > 0) {
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('💡 CONVERSION SUGGESTIONS (Top 5 Pages)');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     pagesWithSuggestions.slice(0, 5).forEach((analysis) => {
       console.log(`📄 ${analysis.file}`);
-      console.log(`   Headings: ${analysis.totalHeadings} total, ${analysis.questionHeadings} Qs`);
+      console.log(
+        `   Headings: ${analysis.totalHeadings} total, ${analysis.questionHeadings} Qs`
+      );
       console.log(`   Suggestions: ${analysis.suggestions.length}\n`);
 
       analysis.suggestions.slice(0, 3).forEach((s) => {

@@ -35,18 +35,23 @@ function fixBreadcrumbPlacement(filePath) {
     /---\n\n\/\/ Breadcrumb data for schema\nconst breadcrumbItems = \[/
   );
   if (!breadcrumbMatch) {
-    return { fixed: false, reason: 'No breadcrumb code found or already correct' };
+    return {
+      fixed: false,
+      reason: 'No breadcrumb code found or already correct',
+    };
   }
 
   // Find frontmatter end
   const frontmatterEnd = content.indexOf('---\n', 4);
-  if (frontmatterEnd === -1) return { fixed: false, reason: 'No frontmatter found' };
+  if (frontmatterEnd === -1)
+    return { fixed: false, reason: 'No frontmatter found' };
 
   // Extract breadcrumb code
   const breadcrumbCodeMatch = content.match(
     /\/\/ Breadcrumb data for schema\nconst breadcrumbItems = \[[\s\S]*?\];/
   );
-  if (!breadcrumbCodeMatch) return { fixed: false, reason: 'Could not extract breadcrumb code' };
+  if (!breadcrumbCodeMatch)
+    return { fixed: false, reason: 'Could not extract breadcrumb code' };
 
   const breadcrumbCode = breadcrumbCodeMatch[0];
   const breadcrumbStart = breadcrumbCodeMatch.index;
@@ -58,7 +63,8 @@ function fixBreadcrumbPlacement(filePath) {
 
   // Insert into frontmatter (before closing ---)
   const frontmatterContent = beforeBreadcrumb.substring(0, frontmatterEnd);
-  const afterFrontmatter = beforeBreadcrumb.substring(frontmatterEnd) + afterBreadcrumb;
+  const afterFrontmatter =
+    beforeBreadcrumb.substring(frontmatterEnd) + afterBreadcrumb;
 
   // Find last non-empty line in frontmatter
   const frontmatterLines = frontmatterContent.split('\n');

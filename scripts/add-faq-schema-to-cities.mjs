@@ -66,14 +66,17 @@ function extractFAQs(content) {
   const faqs = [];
   // Match <details> elements - handle multiline content
   // Pattern: <details> ... <summary>question</summary> ... <div>answer</div> ... </details>
-  const detailsRegex = /<details[^>]*class="bg-gray-50[^"]*"[^>]*>([\s\S]*?)<\/details>/g;
+  const detailsRegex =
+    /<details[^>]*class="bg-gray-50[^"]*"[^>]*>([\s\S]*?)<\/details>/g;
   let match;
 
   while ((match = detailsRegex.exec(content)) !== null) {
     const detailsContent = match[1];
 
     // Extract question from <summary>
-    const summaryMatch = detailsContent.match(/<summary[^>]*>([\s\S]*?)<\/summary>/);
+    const summaryMatch = detailsContent.match(
+      /<summary[^>]*>([\s\S]*?)<\/summary>/
+    );
     if (!summaryMatch) continue;
 
     let question = summaryMatch[1];
@@ -154,11 +157,17 @@ ${faqs
   } else {
     // Add faqs array before closing ---
     const beforeDash = content.substring(0, frontmatterEnd).trimEnd();
-    content = beforeDash + '\n\n' + faqData + '\n---' + content.substring(frontmatterEnd + 3);
+    content =
+      beforeDash +
+      '\n\n' +
+      faqData +
+      '\n---' +
+      content.substring(frontmatterEnd + 3);
   }
 
   // Add FAQPage schema script (after BreadcrumbList schema if it exists, otherwise after Layout opening)
-  const breadcrumbSchemaRegex = /<!-- BreadcrumbList Schema -->[\s\S]*?<\/script>/;
+  const breadcrumbSchemaRegex =
+    /<!-- BreadcrumbList Schema -->[\s\S]*?<\/script>/;
   const layoutMatch = content.match(/<Layout[^>]*>\s*\n/);
 
   if (!layoutMatch) {
@@ -169,7 +178,10 @@ ${faqs
   const afterLayout = content.substring(layoutEnd);
 
   // Check if FAQPage schema already added
-  if (afterLayout.includes('FAQPage Schema') || afterLayout.includes('FAQPage')) {
+  if (
+    afterLayout.includes('FAQPage Schema') ||
+    afterLayout.includes('FAQPage')
+  ) {
     return { fixed: false, reason: 'FAQPage schema already present' };
   }
 
@@ -199,7 +211,10 @@ ${faqs
   />
 `;
 
-  content = content.substring(0, insertIndex) + faqSchema + content.substring(insertIndex);
+  content =
+    content.substring(0, insertIndex) +
+    faqSchema +
+    content.substring(insertIndex);
 
   if (content !== originalContent) {
     if (!isDryRun) {

@@ -52,7 +52,8 @@
 
   /* Typography */
   --font-family-sans:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
   --font-family-heading: 'Montserrat', var(--font-family-sans);
 
   /* Spacing Scale */
@@ -69,7 +70,8 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-glow: 0 0 20px rgba(0, 174, 199, 0.3);
   --shadow-glow-strong: 0 0 40px rgba(0, 174, 199, 0.4);
 }
@@ -138,13 +140,21 @@ h6 {
 }
 
 .btn-accent {
-  background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-600) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-500) 0%,
+    var(--color-accent-600) 100%
+  );
   color: white;
   box-shadow: 0 4px 14px rgba(0, 174, 199, 0.35);
 }
 
 .btn-accent:hover {
-  background: linear-gradient(135deg, var(--color-accent-400) 0%, var(--color-accent-500) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-400) 0%,
+    var(--color-accent-500) 100%
+  );
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 174, 199, 0.45);
 }
@@ -200,7 +210,11 @@ h6 {
 }
 
 .section-dark {
-  background: linear-gradient(180deg, var(--color-primary-900) 0%, var(--color-primary-800) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-900) 0%,
+    var(--color-primary-800) 100%
+  );
   color: white;
 }
 
@@ -250,7 +264,11 @@ h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-accent-400) 0%, var(--color-accent-500) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-400) 0%,
+    var(--color-accent-500) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

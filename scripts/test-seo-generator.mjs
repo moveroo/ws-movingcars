@@ -39,12 +39,18 @@ function generateSEOTitle(baseTitle, options = {}) {
   if (cleanTitle.includes(' | ')) {
     const parts = cleanTitle.split(' | ');
     cleanTitle = parts[0];
-    if (parts[1] && cleanTitle.length + parts[1].length + 3 < TITLE_WITHOUT_SUFFIX_MAX) {
+    if (
+      parts[1] &&
+      cleanTitle.length + parts[1].length + 3 < TITLE_WITHOUT_SUFFIX_MAX
+    ) {
       cleanTitle = `${cleanTitle} | ${parts[1]}`;
     }
   }
 
-  if (keywords.length > 0 && cleanTitle.length < TITLE_WITHOUT_SUFFIX_MAX - 10) {
+  if (
+    keywords.length > 0 &&
+    cleanTitle.length < TITLE_WITHOUT_SUFFIX_MAX - 10
+  ) {
     const keyword = keywords[0];
     if (!cleanTitle.toLowerCase().includes(keyword.toLowerCase())) {
       const withKeyword = `${cleanTitle} ${keyword}`;
@@ -128,7 +134,10 @@ function generateSEODescription(content, options = {}) {
 
   if (description.length > DESC_MAX_LENGTH) {
     if (includeCTA) {
-      description = description.replace(/\s*Get your free quote today\.?\s*/i, '');
+      description = description.replace(
+        /\s*Get your free quote today\.?\s*/i,
+        ''
+      );
     }
     if (description.length > DESC_MAX_LENGTH) {
       const truncated = description.substring(0, DESC_MAX_LENGTH - 3);
@@ -170,7 +179,8 @@ function generateSEODescription(content, options = {}) {
 
 function generateRouteSEO(route) {
   // For route pages, don't add state abbreviations - the route itself is clear
-  const baseTitle = route.title || `Backloading ${route.origin} to ${route.destination}`;
+  const baseTitle =
+    route.title || `Backloading ${route.origin} to ${route.destination}`;
   const title = generateSEOTitle(baseTitle, {
     includeSuffix: true,
     keywords: [], // Don't add extra keywords for routes - keep it simple
@@ -185,7 +195,11 @@ function generateRouteSEO(route) {
       service: 'Interstate backloading',
       savings: 'up to 60%',
       transitTime: route.transitDays || '3-7 business days',
-      keyFeatures: ['transit insurance included', 'door-to-door service', 'professional handling'],
+      keyFeatures: [
+        'transit insurance included',
+        'door-to-door service',
+        'professional handling',
+      ],
     },
     {
       tone: 'professional',
@@ -203,7 +217,13 @@ function generateRouteSEO(route) {
 
 // Main function
 function testRoute(routeSlug) {
-  const routePath = join(projectRoot, 'src', 'content', 'routes', `${routeSlug}.md`);
+  const routePath = join(
+    projectRoot,
+    'src',
+    'content',
+    'routes',
+    `${routeSlug}.md`
+  );
 
   if (!fs.existsSync(routePath)) {
     console.error(`❌ Route file not found: ${routePath}`);
@@ -267,8 +287,12 @@ function testRoute(routeSlug) {
   // Comparison
   console.log('\n\n📊 COMPARISON:\n');
   console.log('Title:');
-  console.log(`  Current:  ${currentTitle.padEnd(60)} (${currentTitle.length + 18} chars)`);
-  console.log(`  Generated: ${optimized.title.padEnd(60)} (${optimized.titleLength} chars)`);
+  console.log(
+    `  Current:  ${currentTitle.padEnd(60)} (${currentTitle.length + 18} chars)`
+  );
+  console.log(
+    `  Generated: ${optimized.title.padEnd(60)} (${optimized.titleLength} chars)`
+  );
   console.log(
     `  Status: ${optimized.titleLength <= 60 && optimized.titleLength >= 45 ? '✅ Optimal' : '⚠️  Needs adjustment'}`
   );

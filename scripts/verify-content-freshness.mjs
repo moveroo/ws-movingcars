@@ -23,7 +23,9 @@ const srcDir = join(projectRoot, 'src');
 
 // Check if dist exists (need to build first)
 if (!statSync(distDir).isDirectory()) {
-  console.error('❌ dist/ directory not found. Please run "npm run build" first.');
+  console.error(
+    '❌ dist/ directory not found. Please run "npm run build" first.'
+  );
   process.exit(1);
 }
 
@@ -65,7 +67,8 @@ function isValidISODate(dateString) {
     const date = new Date(dateString);
     // ISO 8601 can have Z (UTC) or timezone offset (+HH:MM or -HH:MM)
     const hasTime = dateString.includes('T');
-    const hasTimezone = dateString.includes('Z') || /[+-]\d{2}:\d{2}$/.test(dateString);
+    const hasTimezone =
+      dateString.includes('Z') || /[+-]\d{2}:\d{2}$/.test(dateString);
     return !isNaN(date.getTime()) && hasTime && hasTimezone;
   } catch {
     return false;
@@ -188,7 +191,9 @@ function analyzePage(htmlPath) {
   }
 
   // Check for Schema.org dateModified
-  const schemaMatch = htmlContent.match(/"dateModified"\s*:\s*["']([^"']+)["']/i);
+  const schemaMatch = htmlContent.match(
+    /"dateModified"\s*:\s*["']([^"']+)["']/i
+  );
   if (schemaMatch) {
     results.pagesWithSchemaDate++;
   }
@@ -244,7 +249,9 @@ console.log(
 );
 
 if (results.pagesMissingMetaTag.length > 0) {
-  console.log(`\n❌ Pages Missing Meta Tag (${results.pagesMissingMetaTag.length}):`);
+  console.log(
+    `\n❌ Pages Missing Meta Tag (${results.pagesMissingMetaTag.length}):`
+  );
   results.pagesMissingMetaTag.slice(0, 10).forEach((path) => {
     console.log(`   - ${path}`);
   });
@@ -254,7 +261,9 @@ if (results.pagesMissingMetaTag.length > 0) {
 }
 
 if (results.pagesWithInvalidDate.length > 0) {
-  console.log(`\n⚠️  Pages with Invalid Date Format (${results.pagesWithInvalidDate.length}):`);
+  console.log(
+    `\n⚠️  Pages with Invalid Date Format (${results.pagesWithInvalidDate.length}):`
+  );
   results.pagesWithInvalidDate.slice(0, 5).forEach(({ path, date }) => {
     console.log(`   - ${path}: ${date}`);
   });
@@ -268,24 +277,35 @@ if (results.pagesWithBuildTimeOnly.length > 0) {
     console.log(`   - ${path}`);
   });
   if (results.pagesWithBuildTimeOnly.length > 10) {
-    console.log(`   ... and ${results.pagesWithBuildTimeOnly.length - 10} more`);
+    console.log(
+      `   ... and ${results.pagesWithBuildTimeOnly.length - 10} more`
+    );
   }
 }
 
 // Final assessment
 console.log('\n📋 Assessment:');
-if (results.pagesMissingMetaTag.length === 0 && results.pagesWithInvalidDate.length === 0) {
+if (
+  results.pagesMissingMetaTag.length === 0 &&
+  results.pagesWithInvalidDate.length === 0
+) {
   console.log('✅ All pages have valid article:modified_time meta tags');
 
   if (results.pagesWithBuildTime > results.pagesWithGitDate) {
-    console.log('⚠️  Many pages are using build time instead of Git commit dates');
-    console.log('   This is expected for pages that were just created or modified');
+    console.log(
+      '⚠️  Many pages are using build time instead of Git commit dates'
+    );
+    console.log(
+      '   This is expected for pages that were just created or modified'
+    );
   } else {
     console.log('✅ Most pages are using Git commit dates (good!)');
   }
 
   if (results.pagesWithSchemaDate > 0) {
-    console.log(`✅ ${results.pagesWithSchemaDate} pages also have Schema.org dateModified`);
+    console.log(
+      `✅ ${results.pagesWithSchemaDate} pages also have Schema.org dateModified`
+    );
   }
 
   console.log('\n💡 If crawler still reports "No content date detected":');

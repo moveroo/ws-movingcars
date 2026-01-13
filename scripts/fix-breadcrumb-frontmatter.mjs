@@ -34,14 +34,18 @@ function fixBreadcrumbPlacement(filePath) {
   const wrongPattern =
     /---\n\n\/\/ Breadcrumb data for schema\nconst breadcrumbItems = \[[\s\S]*?\];\n\n\n<Layout/;
   if (!wrongPattern.test(content)) {
-    return { fixed: false, reason: 'No breadcrumb code found or already correct' };
+    return {
+      fixed: false,
+      reason: 'No breadcrumb code found or already correct',
+    };
   }
 
   // Extract the breadcrumb code
   const breadcrumbMatch = content.match(
     /---\n\n\/\/ Breadcrumb data for schema\n(const breadcrumbItems = \[[\s\S]*?\]);/
   );
-  if (!breadcrumbMatch) return { fixed: false, reason: 'Could not extract breadcrumb code' };
+  if (!breadcrumbMatch)
+    return { fixed: false, reason: 'Could not extract breadcrumb code' };
 
   const breadcrumbCode = breadcrumbMatch[1];
   const breadcrumbStart = breadcrumbMatch.index;
@@ -50,7 +54,8 @@ function fixBreadcrumbPlacement(filePath) {
   // Find the closing --- before breadcrumb code
   const beforeBreadcrumb = content.substring(0, breadcrumbStart);
   const frontmatterEnd = beforeBreadcrumb.lastIndexOf('---\n');
-  if (frontmatterEnd === -1) return { fixed: false, reason: 'Could not find frontmatter end' };
+  if (frontmatterEnd === -1)
+    return { fixed: false, reason: 'Could not find frontmatter end' };
 
   // Get content after breadcrumb code
   const afterBreadcrumb = content.substring(breadcrumbEnd);

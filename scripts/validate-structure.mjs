@@ -17,17 +17,31 @@ const __dirname = dirname(__filename);
 
 const scripts = [
   { name: 'Headings', script: 'analyze-heading-structure.mjs', critical: true },
-  { name: 'Internal Links', script: 'analyze-internal-links.mjs', critical: true },
+  {
+    name: 'Internal Links',
+    script: 'analyze-internal-links.mjs',
+    critical: true,
+  },
   { name: 'Schema', script: 'check-schema-issues.mjs', critical: false }, // Schema is often partial during dev
   { name: 'Alt Text', script: 'analyze-image-alt-text.mjs', critical: false },
-  { name: 'Question Headings', script: 'analyze-question-headings.mjs', critical: false },
-  { name: 'Content Uniqueness', script: 'analyze-content-uniqueness.mjs', critical: false },
+  {
+    name: 'Question Headings',
+    script: 'analyze-question-headings.mjs',
+    critical: false,
+  },
+  {
+    name: 'Content Uniqueness',
+    script: 'analyze-content-uniqueness.mjs',
+    critical: false,
+  },
 ];
 
 async function runScript(item) {
   return new Promise((resolve) => {
     console.log(`\n🚀 Running ${item.name} Check...`);
-    const child = spawn('node', [join(__dirname, item.script)], { stdio: 'inherit' });
+    const child = spawn('node', [join(__dirname, item.script)], {
+      stdio: 'inherit',
+    });
 
     child.on('close', (code) => {
       resolve({ ...item, code });

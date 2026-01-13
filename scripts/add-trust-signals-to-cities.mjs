@@ -60,7 +60,8 @@ function addTrustSignalsToCityPage(cityName) {
   }
 
   // Add import
-  const importPattern = /(import\s+Layout\s+from\s+['"]\.\.\/layouts\/Layout\.astro['"];)/;
+  const importPattern =
+    /(import\s+Layout\s+from\s+['"]\.\.\/layouts\/Layout\.astro['"];)/;
   const importMatch = content.match(importPattern);
 
   if (importMatch) {

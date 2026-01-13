@@ -41,7 +41,8 @@ function changeLocalBusinessToOrganization(filePath) {
 
   // Check if file uses Organization schemaType (already changed) but still has address/priceRange
   const hasOrganization = content.includes('schemaType="Organization"');
-  const hasAddress = content.includes('address:') && content.includes('PostalAddress');
+  const hasAddress =
+    content.includes('address:') && content.includes('PostalAddress');
   const hasPriceRange = content.includes('priceRange:');
 
   if (!hasOrganization && !content.includes('LocalBusiness')) {
@@ -50,7 +51,10 @@ function changeLocalBusinessToOrganization(filePath) {
 
   // Change schemaType="LocalBusiness" to schemaType="Organization" if not already changed
   if (content.includes('schemaType="LocalBusiness"')) {
-    content = content.replace(/schemaType="LocalBusiness"/g, 'schemaType="Organization"');
+    content = content.replace(
+      /schemaType="LocalBusiness"/g,
+      'schemaType="Organization"'
+    );
     fixed = true;
   }
 
@@ -65,21 +69,36 @@ function changeLocalBusinessToOrganization(filePath) {
       let schemaDataContent = match[1];
 
       // Remove address field (multiline, local-specific)
-      schemaDataContent = schemaDataContent.replace(/address:\s*\{[\s\S]*?\},?\s*/g, '');
+      schemaDataContent = schemaDataContent.replace(
+        /address:\s*\{[\s\S]*?\},?\s*/g,
+        ''
+      );
 
       // Remove priceRange field
-      schemaDataContent = schemaDataContent.replace(/priceRange:\s*['"$]+,\s*/g, '');
-      schemaDataContent = schemaDataContent.replace(/priceRange:\s*['"$]+/g, '');
+      schemaDataContent = schemaDataContent.replace(
+        /priceRange:\s*['"$]+,\s*/g,
+        ''
+      );
+      schemaDataContent = schemaDataContent.replace(
+        /priceRange:\s*['"$]+/g,
+        ''
+      );
 
       // Clean up extra commas and whitespace
       schemaDataContent = schemaDataContent.replace(/,\s*,/g, ',');
       schemaDataContent = schemaDataContent.replace(/,\s*\n\s*\}/g, '\n  }');
       schemaDataContent = schemaDataContent.replace(/\{\s*,\s*\n/g, '{\n');
-      schemaDataContent = schemaDataContent.replace(/\n\s*,\s*\n\s*\}/g, '\n  }');
+      schemaDataContent = schemaDataContent.replace(
+        /\n\s*,\s*\n\s*\}/g,
+        '\n  }'
+      );
 
       // Keep areaServed and name - both are valid for Organization
 
-      content = content.replace(schemaDataRegex, `schemaData={{${schemaDataContent}}}`);
+      content = content.replace(
+        schemaDataRegex,
+        `schemaData={{${schemaDataContent}}}`
+      );
       fixed = true;
     }
   }
@@ -112,7 +131,9 @@ async function main() {
       const result = changeLocalBusinessToOrganization(filePath);
       if (result.fixed) {
         results.fixed.push(relativePath);
-        console.log(`  ✅ ${isDryRun ? 'Would change' : 'Changed'} LocalBusiness to Organization`);
+        console.log(
+          `  ✅ ${isDryRun ? 'Would change' : 'Changed'} LocalBusiness to Organization`
+        );
       } else {
         results.skipped.push({ file: relativePath, reason: result.reason });
         console.log(`  ⏭️  ${result.reason}`);

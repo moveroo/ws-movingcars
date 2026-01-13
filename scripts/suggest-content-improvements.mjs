@@ -147,7 +147,9 @@ function generateSuggestions(filename) {
 
   // 3. Content quality suggestions
   const commonPhrases = analysisData.commonPhrases || [];
-  const pageCommonPhrases = commonPhrases.filter((cp) => cp.pages.includes(filename));
+  const pageCommonPhrases = commonPhrases.filter((cp) =>
+    cp.pages.includes(filename)
+  );
 
   if (pageCommonPhrases.length > 0) {
     suggestions.push({
@@ -210,7 +212,9 @@ async function main() {
   const targetFile = process.argv[2];
 
   console.log('\n💡 Generating Content Improvement Suggestions\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   if (targetFile) {
     // Analyze single page
@@ -224,12 +228,18 @@ async function main() {
   } else {
     // Analyze all pages
     const allPages = analysisData.allPages.map((p) => p.file);
-    const allSuggestions = allPages.map((file) => generateSuggestions(file)).filter((s) => s);
+    const allSuggestions = allPages
+      .map((file) => generateSuggestions(file))
+      .filter((s) => s);
 
     // Sort by priority (thin content + high similarity first)
     allSuggestions.sort((a, b) => {
-      const aPriority = a.suggestions.filter((s) => s.priority === 'high').length;
-      const bPriority = b.suggestions.filter((s) => s.priority === 'high').length;
+      const aPriority = a.suggestions.filter(
+        (s) => s.priority === 'high'
+      ).length;
+      const bPriority = b.suggestions.filter(
+        (s) => s.priority === 'high'
+      ).length;
       if (aPriority !== bPriority) return bPriority - aPriority;
       return a.wordCount - b.wordCount; // Thin content first
     });
@@ -237,9 +247,13 @@ async function main() {
     console.log(`📋 Analyzing ${allSuggestions.length} pages\n`);
 
     // Show top 10 pages needing improvement
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('🎯 TOP 10 PAGES NEEDING IMPROVEMENT');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     allSuggestions.slice(0, 10).forEach((suggestion, idx) => {
       console.log(`${idx + 1}. ${suggestion.file}`);
@@ -251,9 +265,13 @@ async function main() {
     });
 
     // Show detailed suggestions for top 5
-    console.log('\n======================================================================');
+    console.log(
+      '\n======================================================================'
+    );
     console.log('📝 DETAILED SUGGESTIONS (Top 5 Pages)');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     allSuggestions.slice(0, 5).forEach((suggestion) => {
       displaySuggestions(suggestion);
@@ -261,7 +279,10 @@ async function main() {
     });
 
     // Save all suggestions
-    const outputPath = join(projectRoot, 'content-improvement-suggestions.json');
+    const outputPath = join(
+      projectRoot,
+      'content-improvement-suggestions.json'
+    );
     fs.writeFileSync(
       outputPath,
       JSON.stringify(
@@ -281,13 +302,16 @@ async function main() {
 
 function displaySuggestions(suggestion) {
   console.log(`📄 ${suggestion.file}`);
-  console.log(`   City: ${suggestion.cityName}${suggestion.state ? ` (${suggestion.state})` : ''}`);
+  console.log(
+    `   City: ${suggestion.cityName}${suggestion.state ? ` (${suggestion.state})` : ''}`
+  );
   console.log(`   Word Count: ${suggestion.wordCount} words`);
   console.log(`   Similar Pages: ${suggestion.similarPages}`);
   console.log(`   Title: ${suggestion.title || 'N/A'}\n`);
 
   suggestion.suggestions.forEach((sug) => {
-    const priorityIcon = sug.priority === 'high' ? '🔴' : sug.priority === 'medium' ? '🟡' : '🟢';
+    const priorityIcon =
+      sug.priority === 'high' ? '🔴' : sug.priority === 'medium' ? '🟡' : '🟢';
     console.log(`${priorityIcon} ${sug.title}`);
     if (sug.current) {
       console.log(`   Current: ${sug.current}`);

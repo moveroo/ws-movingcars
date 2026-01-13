@@ -109,7 +109,9 @@ function main() {
   console.log('\n📊 Meta Description Length Analysis\n');
   console.log('='.repeat(60));
 
-  console.log(`\n✅ Ideal Length (120-160 chars): ${results.ideal.length} pages`);
+  console.log(
+    `\n✅ Ideal Length (120-160 chars): ${results.ideal.length} pages`
+  );
   console.log(`🟡 Too Short (< 120 chars): ${results.tooShort.length} pages`);
   console.log(`🔴 Too Long (> 160 chars): ${results.tooLong.length} pages`);
   console.log(`❌ Missing: ${results.missing.length} pages`);

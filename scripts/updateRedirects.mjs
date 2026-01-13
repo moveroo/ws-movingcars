@@ -20,7 +20,8 @@ const newRouteRedirects = JSON.parse(fs.readFileSync(newRedirectsPath, 'utf8'));
 const generalRedirects = vercelJson.redirects.filter((r) => {
   // Keep redirects that are NOT route-to-route redirects
   const isRouteRedirect =
-    r.source.match(/^\/[a-z-]+-to-[a-z-]+\/$/) && r.destination.match(/^\/[a-z-]+-to-[a-z-]+\/$/);
+    r.source.match(/^\/[a-z-]+-to-[a-z-]+\/$/) &&
+    r.destination.match(/^\/[a-z-]+-to-[a-z-]+\/$/);
   return !isRouteRedirect;
 });
 
@@ -59,7 +60,11 @@ newRouteRedirects.forEach((redirect) => {
 });
 
 // Combine all redirects
-const allRedirects = [...generalRedirects, ...newRouteRedirects, ...oldToNewRedirects];
+const allRedirects = [
+  ...generalRedirects,
+  ...newRouteRedirects,
+  ...oldToNewRedirects,
+];
 
 // Remove duplicates
 const seen = new Set();
@@ -76,6 +81,10 @@ console.log(`Total unique redirects: ${uniqueRedirects.length}`);
 vercelJson.redirects = uniqueRedirects;
 
 // Write back
-fs.writeFileSync(vercelJsonPath, JSON.stringify(vercelJson, null, 2) + '\n', 'utf8');
+fs.writeFileSync(
+  vercelJsonPath,
+  JSON.stringify(vercelJson, null, 2) + '\n',
+  'utf8'
+);
 
 console.log('✅ Updated vercel.json with new redirects');

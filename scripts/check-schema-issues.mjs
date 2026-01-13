@@ -52,7 +52,9 @@ function analyzeSchema(filePath) {
   // Also check for "schema-org" integration props if used (usually via component props)
   // But usually schema is output as JSON-LD.
 
-  const allSchemaText = schemas.map((s) => (s._raw ? s._raw : JSON.stringify(s))).join(' ');
+  const allSchemaText = schemas
+    .map((s) => (s._raw ? s._raw : JSON.stringify(s)))
+    .join(' ');
 
   // CHECK: LocalBusiness
   const hasLocalBusiness = allSchemaText.includes('LocalBusiness');
@@ -69,7 +71,8 @@ function analyzeSchema(filePath) {
   // CHECK: FAQ Content matching
   const detailsTags = doc.querySelectorAll('details');
   const faqCount = Array.from(detailsTags).filter(
-    (d) => d.textContent.toLowerCase().includes('faq') || d.querySelector('summary')
+    (d) =>
+      d.textContent.toLowerCase().includes('faq') || d.querySelector('summary')
   ).length;
 
   if (faqCount > 0) {
@@ -106,7 +109,8 @@ function analyzeSchema(filePath) {
     issues.push({
       type: 'missing-rating',
       severity: 'low',
-      message: 'LocalBusiness could include aggregateRating for star snippets (optional)',
+      message:
+        'LocalBusiness could include aggregateRating for star snippets (optional)',
     });
   }
 
@@ -155,7 +159,9 @@ async function main() {
 
   // High priority: Missing telephone
   if (issuesByType['missing-telephone'].length > 0) {
-    console.log('\n🔴 HIGH PRIORITY: Missing Telephone in LocalBusiness Schema');
+    console.log(
+      '\n🔴 HIGH PRIORITY: Missing Telephone in LocalBusiness Schema'
+    );
     console.log('─'.repeat(70));
     issuesByType['missing-telephone'].forEach((issue) => {
       console.log(`  ❌ ${issue.file}`);
@@ -181,7 +187,9 @@ async function main() {
     const toShow = issuesByType['missing-breadcrumb'].slice(0, 5);
     toShow.forEach((issue) => console.log(`  💡 ${issue.file}`));
     if (issuesByType['missing-breadcrumb'].length > 5) {
-      console.log(`  ... and ${issuesByType['missing-breadcrumb'].length - 5} more pages`);
+      console.log(
+        `  ... and ${issuesByType['missing-breadcrumb'].length - 5} more pages`
+      );
     }
     totalIssues += issuesByType['missing-breadcrumb'].length;
   }
@@ -190,11 +198,19 @@ async function main() {
   console.log('\n' + '='.repeat(70));
   console.log('\n📊 SUMMARY\n');
   console.log(`Total Pages Analyzed: ${files.length}`);
-  console.log(`Pages with Issues: ${results.filter((r) => r.issues.length > 0).length}`);
+  console.log(
+    `Pages with Issues: ${results.filter((r) => r.issues.length > 0).length}`
+  );
   console.log(`\nIssue Breakdown:`);
-  console.log(`  🔴 Missing Telephone: ${issuesByType['missing-telephone'].length}`);
-  console.log(`  🟡 Missing FAQ Schema: ${issuesByType['missing-faq-schema'].length}`);
-  console.log(`  🔵 Missing Breadcrumbs: ${issuesByType['missing-breadcrumb'].length}`);
+  console.log(
+    `  🔴 Missing Telephone: ${issuesByType['missing-telephone'].length}`
+  );
+  console.log(
+    `  🟡 Missing FAQ Schema: ${issuesByType['missing-faq-schema'].length}`
+  );
+  console.log(
+    `  🔵 Missing Breadcrumbs: ${issuesByType['missing-breadcrumb'].length}`
+  );
 
   if (totalIssues === 0) {
     console.log('\n✅ No critical schema issues found!');

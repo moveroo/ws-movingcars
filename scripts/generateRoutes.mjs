@@ -230,7 +230,9 @@ routes.forEach((route, index) => {
   }
 });
 
-console.log(`\n✅ Generated ${routes.length} route pages in src/content/routes/`);
+console.log(
+  `\n✅ Generated ${routes.length} route pages in src/content/routes/`
+);
 
 // Output redirects for vercel.json
 console.log(`\n📝 ${redirects.length} redirects to add to vercel.json:`);

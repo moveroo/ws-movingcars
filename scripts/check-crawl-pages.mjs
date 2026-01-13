@@ -102,7 +102,9 @@ async function main() {
         const audit = crawl.audits[i];
         const auditId = audit.audit_id || audit.id;
 
-        process.stdout.write(`\r⏳ Processing ${i + 1}/${crawl.audits.length}: ${audit.url}`);
+        process.stdout.write(
+          `\r⏳ Processing ${i + 1}/${crawl.audits.length}: ${audit.url}`
+        );
 
         try {
           // Get full audit details
@@ -115,12 +117,14 @@ async function main() {
             score: details.overall_score || audit.score,
             failCount:
               details.action_items?.reduce(
-                (sum, cat) => sum + cat.issues.filter((i) => i.status === 'fail').length,
+                (sum, cat) =>
+                  sum + cat.issues.filter((i) => i.status === 'fail').length,
                 0
               ) || 0,
             warningCount:
               details.action_items?.reduce(
-                (sum, cat) => sum + cat.issues.filter((i) => i.status === 'warning').length,
+                (sum, cat) =>
+                  sum + cat.issues.filter((i) => i.status === 'warning').length,
                 0
               ) || 0,
             categoryScores: details.category_scores || {},
@@ -145,20 +149,27 @@ async function main() {
     console.log(`\n\n✅ Complete!`);
     console.log(`📁 Output directory: ${outputDir}/`);
     console.log(`📄 Summary saved: ${outputDir}/summary.json`);
-    console.log(`📄 Individual pages: ${crawl.audits?.length || 0} JSON files\n`);
+    console.log(
+      `📄 Individual pages: ${crawl.audits?.length || 0} JSON files\n`
+    );
 
     // Display summary stats
     console.log('📊 Summary Statistics:\n');
 
-    const avgScore = summary.reduce((sum, p) => sum + (p.score || 0), 0) / summary.length;
+    const avgScore =
+      summary.reduce((sum, p) => sum + (p.score || 0), 0) / summary.length;
     const minScore = Math.min(...summary.map((p) => p.score || 0));
     const maxScore = Math.max(...summary.map((p) => p.score || 0));
 
     console.log(`  Average Score: ${avgScore.toFixed(1)}/100`);
     console.log(`  Lowest Score: ${minScore}/100`);
     console.log(`  Highest Score: ${maxScore}/100`);
-    console.log(`  Total Fails: ${summary.reduce((sum, p) => sum + p.failCount, 0)}`);
-    console.log(`  Total Warnings: ${summary.reduce((sum, p) => sum + p.warningCount, 0)}\n`);
+    console.log(
+      `  Total Fails: ${summary.reduce((sum, p) => sum + p.failCount, 0)}`
+    );
+    console.log(
+      `  Total Warnings: ${summary.reduce((sum, p) => sum + p.warningCount, 0)}\n`
+    );
 
     // Show lowest scoring pages
     const sorted = [...summary].sort((a, b) => (a.score || 0) - (b.score || 0));
@@ -166,7 +177,9 @@ async function main() {
     sorted.slice(0, 5).forEach((page) => {
       console.log(`  ${page.score}/100 - ${page.url}`);
       if (page.failCount > 0) {
-        console.log(`    Fails: ${page.failCount}, Warnings: ${page.warningCount}`);
+        console.log(
+          `    Fails: ${page.failCount}, Warnings: ${page.warningCount}`
+        );
       }
     });
     console.log('');

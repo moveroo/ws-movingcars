@@ -76,7 +76,10 @@ function updateBreadcrumbStyle(filePath) {
   const filename = basename(filePath, '.astro');
 
   // Check if breadcrumbs exist
-  if (!content.includes('breadcrumbItems') && !content.includes('Breadcrumbs')) {
+  if (
+    !content.includes('breadcrumbItems') &&
+    !content.includes('Breadcrumbs')
+  ) {
     return { fixed: false, reason: 'No breadcrumbs found' };
   }
 
@@ -105,8 +108,14 @@ function updateBreadcrumbStyle(filePath) {
   const afterHero = content.substring(heroEndIndex);
 
   // Check if breadcrumb already exists after hero
-  if (afterHero.includes('<!-- Breadcrumb -->') || afterHero.includes('bg-[#800005]')) {
-    return { fixed: false, reason: 'Breadcrumb already in correct style/position' };
+  if (
+    afterHero.includes('<!-- Breadcrumb -->') ||
+    afterHero.includes('bg-[#800005]')
+  ) {
+    return {
+      fixed: false,
+      reason: 'Breadcrumb already in correct style/position',
+    };
   }
 
   // Generate breadcrumb HTML (matching route page style)
@@ -127,7 +136,10 @@ function updateBreadcrumbStyle(filePath) {
 `;
 
   // Insert breadcrumb after hero section
-  content = content.substring(0, heroEndIndex) + breadcrumbHtml + content.substring(heroEndIndex);
+  content =
+    content.substring(0, heroEndIndex) +
+    breadcrumbHtml +
+    content.substring(heroEndIndex);
 
   // Remove Breadcrumbs import if no longer used
   if (!content.includes('<Breadcrumbs')) {
@@ -171,7 +183,9 @@ async function main() {
       const result = updateBreadcrumbStyle(filePath);
       if (result.fixed) {
         results.fixed.push({ file: relativePath });
-        console.log(`  ✅ ${isDryRun ? 'Would update' : 'Updated'} breadcrumb style`);
+        console.log(
+          `  ✅ ${isDryRun ? 'Would update' : 'Updated'} breadcrumb style`
+        );
       } else {
         results.skipped.push({ file: relativePath, reason: result.reason });
         console.log(`  ⏭️  ${result.reason}`);

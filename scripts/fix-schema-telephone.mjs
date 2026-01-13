@@ -71,7 +71,10 @@ function fixTelephone(filePath) {
 
   // Check if telephone is already there (might be in a different format)
   if (schemaDataContent.includes('telephone')) {
-    return { fixed: false, reason: 'Telephone field exists in different format' };
+    return {
+      fixed: false,
+      reason: 'Telephone field exists in different format',
+    };
   }
 
   // Add telephone after name field (or at the start if no name)

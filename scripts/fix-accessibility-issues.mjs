@@ -42,7 +42,8 @@ function fixAccessibilityIssues(filePath) {
   // Fix 1: Heading hierarchy - Change h3 in quarantine/state notice sections to h2
   // Pattern: <h3 class="font-bold text-yellow-800">Western Australia Quarantine Restrictions</h3>
   // or <h3 class="font-bold text-yellow-800 mb-2">⚠️ South Australia</h3>
-  const h3BeforeH2Regex = /<h3 class="font-bold text-yellow-800[^"]*">([^<]+)<\/h3>/;
+  const h3BeforeH2Regex =
+    /<h3 class="font-bold text-yellow-800[^"]*">([^<]+)<\/h3>/;
   if (h3BeforeH2Regex.test(content)) {
     content = content.replace(
       /<h3 class="font-bold text-yellow-800([^"]*)">([^<]+)<\/h3>/,
@@ -52,7 +53,10 @@ function fixAccessibilityIssues(filePath) {
 
   // Fix 2: Color contrast improvements
   // text-gray-400 on dark background -> text-gray-200
-  if (content.includes('text-gray-400') && content.includes('bg-gradient-to-br from-brand-dark')) {
+  if (
+    content.includes('text-gray-400') &&
+    content.includes('bg-gradient-to-br from-brand-dark')
+  ) {
     // Only replace in hero section context
     content = content.replace(
       /(<div class="flex flex-wrap justify-center gap-6 mt-10 text-sm )text-gray-400/g,
@@ -72,12 +76,18 @@ function fixAccessibilityIssues(filePath) {
       '$1text-white'
     );
     // Also fix hover states
-    content = content.replace(/(class="hover:)text-white(")/g, '$1text-gray-200$2');
+    content = content.replace(
+      /(class="hover:)text-white(")/g,
+      '$1text-gray-200$2'
+    );
   }
 
   // text-gray-400 on white background -> text-gray-500 (source citations)
   if (content.includes('text-gray-400 text-center mt-4')) {
-    content = content.replace(/text-gray-400 text-center mt-4/g, 'text-gray-500 text-center mt-4');
+    content = content.replace(
+      /text-gray-400 text-center mt-4/g,
+      'text-gray-500 text-center mt-4'
+    );
   }
 
   // text-gray-500 in route details -> text-gray-600
@@ -129,7 +139,9 @@ async function main() {
       const result = fixAccessibilityIssues(filePath);
       if (result.fixed) {
         results.fixed.push(relativePath);
-        console.log(`  ✅ ${isDryRun ? 'Would fix' : 'Fixed'} accessibility issues`);
+        console.log(
+          `  ✅ ${isDryRun ? 'Would fix' : 'Fixed'} accessibility issues`
+        );
       } else {
         results.skipped.push(relativePath);
         console.log(`  ⏭️  No issues found or already fixed`);

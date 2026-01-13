@@ -89,14 +89,18 @@ function analyzeSEOComponent() {
   const descMatch = content.match(/description = (.+?);/s);
   if (descMatch) {
     const descLogic = descMatch[1];
-    if (descLogic.includes('PUBLIC_SITE_DESCRIPTION') || descLogic.includes("''")) {
+    if (
+      descLogic.includes('PUBLIC_SITE_DESCRIPTION') ||
+      descLogic.includes("''")
+    ) {
       issues.push({
         type: 'meta-description-default',
         severity: 'medium',
         issue: 'Meta description has empty default fallback',
         location: 'src/components/SEO.astro',
         line: findLineNumber(content, 'description ='),
-        problem: 'Pages without explicit description will have empty/very short meta description',
+        problem:
+          'Pages without explicit description will have empty/very short meta description',
         fix: 'Add better default or require description prop',
       });
     }
@@ -113,7 +117,8 @@ function analyzeSEOComponent() {
       issues.push({
         type: 'content-freshness-build-time',
         severity: 'low',
-        issue: 'Content freshness uses build time, not actual page modification date',
+        issue:
+          'Content freshness uses build time, not actual page modification date',
         location: 'src/components/SEO.astro',
         line: freshnessLine + 1,
         problem: 'May not be detected as "fresh" content by crawlers',
@@ -275,7 +280,9 @@ function analyzeCodebase() {
   }
 
   console.log(`✅ Analyzed: src/components/SEO.astro`);
-  console.log(`   Found ${seoAnalysis.issues.length} potential site-wide issues\n`);
+  console.log(
+    `   Found ${seoAnalysis.issues.length} potential site-wide issues\n`
+  );
 
   // 2. Find and analyze all pages
   console.log('📋 Step 2: Analyzing Page Files...\n');
@@ -316,9 +323,12 @@ function analyzeCodebase() {
       if (issue.type === 'title-too-long') titleIssues.tooLong.push(analysis);
       if (issue.type === 'title-too-short') titleIssues.tooShort.push(analysis);
       if (issue.type === 'title-missing') titleIssues.missing.push(analysis);
-      if (issue.type === 'description-too-short') descriptionIssues.tooShort.push(analysis);
-      if (issue.type === 'description-too-long') descriptionIssues.tooLong.push(analysis);
-      if (issue.type === 'description-missing') descriptionIssues.missing.push(analysis);
+      if (issue.type === 'description-too-short')
+        descriptionIssues.tooShort.push(analysis);
+      if (issue.type === 'description-too-long')
+        descriptionIssues.tooLong.push(analysis);
+      if (issue.type === 'description-missing')
+        descriptionIssues.missing.push(analysis);
     });
   });
 
@@ -337,7 +347,9 @@ function analyzeCodebase() {
       console.log(`${index + 1}. ${issue.issue}`);
       console.log(`   Type: ${issue.type}`);
       console.log(`   Severity: ${issue.severity.toUpperCase()}`);
-      console.log(`   Location: ${issue.location}${issue.line ? ` (line ${issue.line})` : ''}`);
+      console.log(
+        `   Location: ${issue.location}${issue.line ? ` (line ${issue.line})` : ''}`
+      );
       console.log(`   Problem: ${issue.problem}`);
       console.log(`   Fix: ${issue.fix}`);
       console.log('');
@@ -346,8 +358,12 @@ function analyzeCodebase() {
 
   // Title Issues
   const totalTitleIssues =
-    titleIssues.tooLong.length + titleIssues.tooShort.length + titleIssues.missing.length;
-  const titleIssuePercentage = Math.round((totalTitleIssues / pages.length) * 100);
+    titleIssues.tooLong.length +
+    titleIssues.tooShort.length +
+    titleIssues.missing.length;
+  const titleIssuePercentage = Math.round(
+    (totalTitleIssues / pages.length) * 100
+  );
 
   console.log(
     `\n📝 Title Tag Issues (${totalTitleIssues}/${pages.length} pages, ${titleIssuePercentage}%):\n`
@@ -355,7 +371,9 @@ function analyzeCodebase() {
 
   if (titleIssues.tooLong.length > 0) {
     console.log(`   🔴 Too Long (${titleIssues.tooLong.length} pages):`);
-    console.log(`      Titles will exceed 60 chars after adding " | ${SITE_NAME}" suffix`);
+    console.log(
+      `      Titles will exceed 60 chars after adding " | ${SITE_NAME}" suffix`
+    );
     console.log(
       `      Sample: ${titleIssues.tooLong
         .slice(0, 3)
@@ -403,14 +421,18 @@ function analyzeCodebase() {
     descriptionIssues.tooShort.length +
     descriptionIssues.tooLong.length +
     descriptionIssues.missing.length;
-  const descIssuePercentage = Math.round((totalDescIssues / pages.length) * 100);
+  const descIssuePercentage = Math.round(
+    (totalDescIssues / pages.length) * 100
+  );
 
   console.log(
     `\n📄 Meta Description Issues (${totalDescIssues}/${pages.length} pages, ${descIssuePercentage}%):\n`
   );
 
   if (descriptionIssues.tooShort.length > 0) {
-    console.log(`   🟡 Too Short (${descriptionIssues.tooShort.length} pages):`);
+    console.log(
+      `   🟡 Too Short (${descriptionIssues.tooShort.length} pages):`
+    );
     console.log(`      Descriptions under 120 chars (ideal: 150-160)`);
     console.log(
       `      Sample: ${descriptionIssues.tooShort
@@ -419,7 +441,9 @@ function analyzeCodebase() {
         .join(', ')}`
     );
     if (descriptionIssues.tooShort.length > 3) {
-      console.log(`      ... and ${descriptionIssues.tooShort.length - 3} more`);
+      console.log(
+        `      ... and ${descriptionIssues.tooShort.length - 3} more`
+      );
     }
     console.log('');
   }
@@ -462,7 +486,10 @@ function analyzeCodebase() {
   const recommendations = [];
 
   // Title suffix issue
-  if (seoAnalysis.issues.some((i) => i.type === 'title-suffix') || titleIssues.tooLong.length > 0) {
+  if (
+    seoAnalysis.issues.some((i) => i.type === 'title-suffix') ||
+    titleIssues.tooLong.length > 0
+  ) {
     recommendations.push({
       priority: 'HIGH',
       issue: 'Title Tag Length - Suffix makes titles too long',
@@ -481,11 +508,15 @@ function analyzeCodebase() {
   }
 
   // Meta description issues
-  if (descriptionIssues.missing.length > 0 || descriptionIssues.tooShort.length > 0) {
+  if (
+    descriptionIssues.missing.length > 0 ||
+    descriptionIssues.tooShort.length > 0
+  ) {
     recommendations.push({
       priority: 'MEDIUM',
       issue: 'Meta Description - Missing or too short',
-      affectedPages: descriptionIssues.missing.length + descriptionIssues.tooShort.length,
+      affectedPages:
+        descriptionIssues.missing.length + descriptionIssues.tooShort.length,
       fixLocation: 'src/components/SEO.astro + individual pages',
       fix: `1. Add validation/warning for missing descriptions
       2. Add better default descriptions

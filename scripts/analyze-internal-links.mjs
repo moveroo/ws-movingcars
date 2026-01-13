@@ -140,7 +140,9 @@ function matchSegments(target, routePattern) {
 // Main execution
 async function main() {
   console.log('\n🔍 Analyzing Internal Links (Static Check)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   const validRoutes = getAllRoutes();
   console.log(`🗺️  Mapped ${validRoutes.size} valid routes from src/pages`);
@@ -156,7 +158,9 @@ async function main() {
   const pagesWithIssues = results.filter((r) => r.issues.length > 0);
 
   if (pagesWithIssues.length > 0) {
-    console.log(`\n❌ Found ${pagesWithIssues.length} pages with broken internal links:\n`);
+    console.log(
+      `\n❌ Found ${pagesWithIssues.length} pages with broken internal links:\n`
+    );
     pagesWithIssues.forEach((p) => {
       console.log(`📄 ${p.file}`);
       p.issues.forEach((i) => console.log(`   ⛔ ${i.message}`));

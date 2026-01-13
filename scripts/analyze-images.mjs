@@ -29,7 +29,11 @@ function findAstroFiles(directory) {
     entries.forEach((entry) => {
       const fullPath = join(dir, entry.name);
 
-      if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'node_modules') {
+      if (
+        entry.isDirectory() &&
+        !entry.name.startsWith('.') &&
+        entry.name !== 'node_modules'
+      ) {
         scanDir(fullPath);
       } else if (entry.name.endsWith('.astro')) {
         files.push(fullPath);
@@ -159,9 +163,13 @@ function main() {
   console.log(`Images with issues: ${allIssues.length}\n`);
 
   // Missing srcset (for raster images)
-  const rasterMissingSrcset = issuesByType['missing-srcset'].filter((i) => !i.isSvg);
+  const rasterMissingSrcset = issuesByType['missing-srcset'].filter(
+    (i) => !i.isSvg
+  );
   if (rasterMissingSrcset.length > 0) {
-    console.log(`🔴 Missing srcset (raster images): ${rasterMissingSrcset.length}`);
+    console.log(
+      `🔴 Missing srcset (raster images): ${rasterMissingSrcset.length}`
+    );
     rasterMissingSrcset.slice(0, 5).forEach((issue) => {
       console.log(`   - ${issue.file}:${issue.line} (${issue.src})`);
     });
@@ -173,7 +181,9 @@ function main() {
 
   // Missing alt
   if (issuesByType['missing-alt'].length > 0) {
-    console.log(`🔴 Missing alt attribute: ${issuesByType['missing-alt'].length}`);
+    console.log(
+      `🔴 Missing alt attribute: ${issuesByType['missing-alt'].length}`
+    );
     issuesByType['missing-alt'].slice(0, 5).forEach((issue) => {
       console.log(`   - ${issue.file}:${issue.line}`);
     });
@@ -184,7 +194,10 @@ function main() {
   }
 
   // Missing width/height
-  if (issuesByType['missing-width'].length > 0 || issuesByType['missing-height'].length > 0) {
+  if (
+    issuesByType['missing-width'].length > 0 ||
+    issuesByType['missing-height'].length > 0
+  ) {
     console.log(
       `🟡 Missing width/height: ${issuesByType['missing-width'].length + issuesByType['missing-height'].length}`
     );
@@ -193,10 +206,14 @@ function main() {
 
   // Missing loading/decoding
   if (issuesByType['missing-loading'].length > 0) {
-    console.log(`🟡 Missing loading attribute: ${issuesByType['missing-loading'].length}`);
+    console.log(
+      `🟡 Missing loading attribute: ${issuesByType['missing-loading'].length}`
+    );
   }
   if (issuesByType['missing-decoding'].length > 0) {
-    console.log(`🟡 Missing decoding attribute: ${issuesByType['missing-decoding'].length}`);
+    console.log(
+      `🟡 Missing decoding attribute: ${issuesByType['missing-decoding'].length}`
+    );
   }
 
   // Recommendations
@@ -206,18 +223,24 @@ function main() {
   if (rasterMissingSrcset.length > 0) {
     console.log('\n1. Add srcset to raster images:');
     console.log('   - Use OptimizedImage component for new images');
-    console.log('   - Or add srcset manually: srcset="/img-320w.webp 320w, /img-640w.webp 640w"');
+    console.log(
+      '   - Or add srcset manually: srcset="/img-320w.webp 320w, /img-640w.webp 640w"'
+    );
   }
 
   if (issuesByType['missing-alt'].length > 0) {
     console.log('\n2. Add alt attributes:');
     console.log('   - All images need descriptive alt text');
-    console.log('   - Use alt="" only for decorative images (with aria-hidden="true")');
+    console.log(
+      '   - Use alt="" only for decorative images (with aria-hidden="true")'
+    );
   }
 
   if (issuesByType['missing-loading'].length > 0) {
     console.log('\n3. Add loading attributes:');
-    console.log('   - Use loading="eager" for above-the-fold images (like logos)');
+    console.log(
+      '   - Use loading="eager" for above-the-fold images (like logos)'
+    );
     console.log('   - Use loading="lazy" for below-the-fold images');
   }
 

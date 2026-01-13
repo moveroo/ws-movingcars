@@ -90,7 +90,10 @@ function convertHeadingInContent(content, original, suggested) {
   const escapedOriginal = original.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   // Pattern 1: <h2>Original</h2> or <h3>Original</h3>
-  const htmlPattern = new RegExp(`(<h[23][^>]*>)\\s*${escapedOriginal}\\s*(</h[23]>)`, 'gi');
+  const htmlPattern = new RegExp(
+    `(<h[23][^>]*>)\\s*${escapedOriginal}\\s*(</h[23]>)`,
+    'gi'
+  );
   if (htmlPattern.test(content)) {
     return content.replace(htmlPattern, `$1${suggested}$2`);
   }
@@ -107,7 +110,9 @@ function convertHeadingInContent(content, original, suggested) {
 // Main conversion function
 function convertHeadings() {
   console.log('\n🔄 Converting Headings to Questions (Conservative Mode)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   if (DRY_RUN) {
     console.log('⚠️  DRY RUN MODE - No files will be modified\n');
@@ -116,7 +121,9 @@ function convertHeadings() {
   // Load analysis results
   const analysisPath = join(projectRoot, 'analysis-question-headings.json');
   if (!fs.existsSync(analysisPath)) {
-    console.error('❌ Analysis file not found. Please run analyze-question-headings.mjs first.');
+    console.error(
+      '❌ Analysis file not found. Please run analyze-question-headings.mjs first.'
+    );
     process.exit(1);
   }
 
@@ -154,7 +161,11 @@ function convertHeadings() {
 
       // Check if should skip
       if (shouldSkip(original, suggested)) {
-        pageResults.skipped.push({ original, suggested, reason: 'Awkward conversion' });
+        pageResults.skipped.push({
+          original,
+          suggested,
+          reason: 'Awkward conversion',
+        });
         totalSkipped++;
         continue;
       }
@@ -164,7 +175,11 @@ function convertHeadings() {
         // Try with different whitespace
         const normalized = original.trim();
         if (!content.includes(normalized)) {
-          pageResults.skipped.push({ original, suggested, reason: 'Heading not found' });
+          pageResults.skipped.push({
+            original,
+            suggested,
+            reason: 'Heading not found',
+          });
           totalSkipped++;
           continue;
         }
@@ -177,7 +192,11 @@ function convertHeadings() {
         pageResults.converted.push({ original, suggested });
         totalConversions++;
       } else {
-        pageResults.skipped.push({ original, suggested, reason: 'Conversion failed' });
+        pageResults.skipped.push({
+          original,
+          suggested,
+          reason: 'Conversion failed',
+        });
         totalSkipped++;
       }
     }
@@ -190,14 +209,20 @@ function convertHeadings() {
         `✅ ${page.file}: ${pageResults.converted.length} converted, ${pageResults.skipped.length} skipped`
       );
     } else if (pageResults.skipped.length > 0) {
-      console.log(`⏭️  ${page.file}: All ${pageResults.skipped.length} suggestions skipped`);
+      console.log(
+        `⏭️  ${page.file}: All ${pageResults.skipped.length} suggestions skipped`
+      );
     }
   }
 
   // Summary
-  console.log('\n======================================================================');
+  console.log(
+    '\n======================================================================'
+  );
   console.log('📊 CONVERSION SUMMARY');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   console.log(`Total Conversions: ${totalConversions}`);
   console.log(`Total Skipped: ${totalSkipped}`);
@@ -218,7 +243,9 @@ function convertHeadings() {
   }
 
   if (DRY_RUN) {
-    console.log('\n⚠️  This was a dry run. Run without --dry-run to apply changes.\n');
+    console.log(
+      '\n⚠️  This was a dry run. Run without --dry-run to apply changes.\n'
+    );
   } else {
     console.log('\n✅ Conversion complete!\n');
   }

@@ -30,7 +30,10 @@ function analyzeHeadings(filePath) {
   // 1. One H1 check
   const h1s = doc.querySelectorAll('h1');
   if (h1s.length === 0) {
-    issues.push({ type: 'missing-h1', message: 'Page is missing an H1 heading' });
+    issues.push({
+      type: 'missing-h1',
+      message: 'Page is missing an H1 heading',
+    });
   } else if (h1s.length > 1) {
     issues.push({
       type: 'multiple-h1',
@@ -69,7 +72,9 @@ function analyzeHeadings(filePath) {
 // Main execution
 async function main() {
   console.log('\n🔍 Analyzing Heading Structure (JSDOM-Enhanced)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   const files = findPageFiles();
   const results = [];

@@ -51,17 +51,20 @@ function addAriaAttributes(filePath, dryRun = false) {
   // Add aria-label to links that are just icons or images
   // Pattern: <a href=...><img> or <a href=...> with no visible text
   const iconLinkRegex = /<a\s+([^>]*href=["'][^"']+["'][^>]*)>\s*<img([^>]*)>/g;
-  newContent = newContent.replace(iconLinkRegex, (match, linkAttrs, imgAttrs) => {
-    if (!linkAttrs.includes('aria-label')) {
-      // Extract alt from img if available
-      const altMatch = imgAttrs.match(/alt=["']([^"']+)["']/);
-      if (altMatch) {
-        fixed = true;
-        return `<a ${linkAttrs} aria-label="${altMatch[1]}"><img${imgAttrs}>`;
+  newContent = newContent.replace(
+    iconLinkRegex,
+    (match, linkAttrs, imgAttrs) => {
+      if (!linkAttrs.includes('aria-label')) {
+        // Extract alt from img if available
+        const altMatch = imgAttrs.match(/alt=["']([^"']+)["']/);
+        if (altMatch) {
+          fixed = true;
+          return `<a ${linkAttrs} aria-label="${altMatch[1]}"><img${imgAttrs}>`;
+        }
       }
+      return match;
     }
-    return match;
-  });
+  );
 
   // Add role="navigation" to nav elements
   const navRegex = /<nav(?![^>]*role=)([^>]*)>/g;
@@ -131,7 +134,9 @@ function main() {
   console.log(`  ❌ Errors: ${results.errors.length} files`);
 
   if (dryRun && results.fixed.length > 0) {
-    console.log(`\n💡 Run without --dry-run to apply fixes to ${results.fixed.length} files`);
+    console.log(
+      `\n💡 Run without --dry-run to apply fixes to ${results.fixed.length} files`
+    );
   }
 
   console.log();

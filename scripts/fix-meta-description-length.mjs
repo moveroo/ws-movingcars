@@ -70,7 +70,8 @@ function expandDescription(description, pageName) {
 
   // Generic expansion
   const base = description.trim();
-  const suffix = " Get your free quote today from Australia's trusted interstate removalists.";
+  const suffix =
+    " Get your free quote today from Australia's trusted interstate removalists.";
 
   if (base.length + suffix.length <= DESC_MAX_LENGTH) {
     return base + suffix;
@@ -90,32 +91,35 @@ function fixDescription(filePath, dryRun = false) {
   let fixed = false;
   let newContent = content;
 
-  newContent = newContent.replace(layoutRegex, (match, prefix, description, suffix) => {
-    const originalDesc = description;
-    let newDesc = description;
+  newContent = newContent.replace(
+    layoutRegex,
+    (match, prefix, description, suffix) => {
+      const originalDesc = description;
+      let newDesc = description;
 
-    // Handle template strings (skip if contains ${})
-    if (description.includes('${')) {
-      return match; // Skip template strings
-    }
+      // Handle template strings (skip if contains ${})
+      if (description.includes('${')) {
+        return match; // Skip template strings
+      }
 
-    // Fix too long
-    if (description.length > DESC_MAX_LENGTH) {
-      newDesc = truncateDescription(description, DESC_IDEAL_LENGTH);
-      fixed = true;
-    }
-    // Fix too short
-    else if (description.length < DESC_MIN_LENGTH) {
-      newDesc = expandDescription(description, filePath);
-      fixed = true;
-    }
+      // Fix too long
+      if (description.length > DESC_MAX_LENGTH) {
+        newDesc = truncateDescription(description, DESC_IDEAL_LENGTH);
+        fixed = true;
+      }
+      // Fix too short
+      else if (description.length < DESC_MIN_LENGTH) {
+        newDesc = expandDescription(description, filePath);
+        fixed = true;
+      }
 
-    if (newDesc !== originalDesc) {
-      return `${prefix}${newDesc}${suffix}`;
-    }
+      if (newDesc !== originalDesc) {
+        return `${prefix}${newDesc}${suffix}`;
+      }
 
-    return match;
-  });
+      return match;
+    }
+  );
 
   if (fixed && !dryRun) {
     fs.writeFileSync(filePath, newContent, 'utf-8');
@@ -164,7 +168,9 @@ function main() {
   console.log(`  ❌ Errors: ${results.errors.length} files`);
 
   if (dryRun && results.fixed.length > 0) {
-    console.log(`\n💡 Run without --dry-run to apply fixes to ${results.fixed.length} files`);
+    console.log(
+      `\n💡 Run without --dry-run to apply fixes to ${results.fixed.length} files`
+    );
   }
 
   console.log();

@@ -88,7 +88,10 @@ function generateBreadcrumbs(filePath) {
 
   // Check if already has breadcrumbs
   const content = fs.readFileSync(filePath, 'utf-8');
-  if (content.includes('BreadcrumbList') || content.includes('breadcrumbItems')) {
+  if (
+    content.includes('BreadcrumbList') ||
+    content.includes('breadcrumbItems')
+  ) {
     return { skip: true, reason: 'Already has breadcrumbs' };
   }
 
@@ -103,7 +106,10 @@ function generateBreadcrumbs(filePath) {
   }
   // Service pages
   else if (SERVICE_PAGES[fileName]) {
-    breadcrumbs.push({ name: SERVICE_PAGES[fileName], url: `${SITE_URL}/${fileName}/` });
+    breadcrumbs.push({
+      name: SERVICE_PAGES[fileName],
+      url: `${SITE_URL}/${fileName}/`,
+    });
   }
   // Other pages
   else {
@@ -137,7 +143,10 @@ function addBreadcrumbs(filePath) {
   }
 
   // Check if there's already a breadcrumb script
-  if (content.includes('BreadcrumbList') || content.includes('breadcrumbItems')) {
+  if (
+    content.includes('BreadcrumbList') ||
+    content.includes('breadcrumbItems')
+  ) {
     return { fixed: false, reason: 'Breadcrumbs already present' };
   }
 
@@ -205,7 +214,10 @@ ${breadcrumbs.map((item) => `  { name: '${item.name}', url: '${item.url}' }`).jo
     fs.writeFileSync(filePath, newContent, 'utf-8');
   }
 
-  return { fixed: true, reason: isDryRun ? 'Would add breadcrumbs' : 'Added breadcrumbs' };
+  return {
+    fixed: true,
+    reason: isDryRun ? 'Would add breadcrumbs' : 'Added breadcrumbs',
+  };
 }
 
 // Main

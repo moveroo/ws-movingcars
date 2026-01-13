@@ -30,12 +30,17 @@ function readFile(filePath) {
 function findPageFiles() {
   const pagesDir = join(projectRoot, 'src', 'pages');
   const files = fs.readdirSync(pagesDir, { recursive: true });
-  return files.filter((file) => file.endsWith('.astro')).map((file) => join(pagesDir, file));
+  return files
+    .filter((file) => file.endsWith('.astro'))
+    .map((file) => join(pagesDir, file));
 }
 
 // Helper: Extract title and description from Astro file
 function extractSEO(content, filePath) {
-  const fileName = filePath.replace(join(projectRoot, 'src', 'pages') + '/', '');
+  const fileName = filePath.replace(
+    join(projectRoot, 'src', 'pages') + '/',
+    ''
+  );
   const seo = {
     file: fileName,
     title: null,
@@ -84,7 +89,9 @@ function extractSEO(content, filePath) {
 // Main execution
 async function main() {
   console.log('\n🔍 Detecting Duplicate Titles and Descriptions\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   const pageFiles = findPageFiles();
   console.log(`📋 Found ${pageFiles.length} page files\n`);
@@ -125,24 +132,36 @@ async function main() {
   });
 
   // Filter to only duplicates (2+ pages with same title/description)
-  const duplicateTitles = Array.from(titleMap.entries()).filter(([, files]) => files.length > 1);
+  const duplicateTitles = Array.from(titleMap.entries()).filter(
+    ([, files]) => files.length > 1
+  );
   const duplicateDescriptions = Array.from(descMap.entries()).filter(
     ([, files]) => files.length > 1
   );
 
   // Output results
-  console.log('======================================================================');
+  console.log(
+    '======================================================================'
+  );
   console.log('📊 DUPLICATE DETECTION RESULTS');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   console.log(`Total Pages Analyzed: ${allSEO.length}`);
   console.log(`Pages with Titles: ${allSEO.filter((s) => s.title).length}`);
-  console.log(`Pages with Descriptions: ${allSEO.filter((s) => s.description).length}\n`);
+  console.log(
+    `Pages with Descriptions: ${allSEO.filter((s) => s.description).length}\n`
+  );
 
   if (duplicateTitles.length > 0) {
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('🔴 DUPLICATE TITLES');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     duplicateTitles.forEach(([title, files]) => {
       console.log(`Title: "${title}"`);
@@ -155,12 +174,17 @@ async function main() {
   }
 
   if (duplicateDescriptions.length > 0) {
-    console.log('======================================================================');
+    console.log(
+      '======================================================================'
+    );
     console.log('🔴 DUPLICATE DESCRIPTIONS');
-    console.log('======================================================================\n');
+    console.log(
+      '======================================================================\n'
+    );
 
     duplicateDescriptions.forEach(([desc, files]) => {
-      const descPreview = desc.length > 80 ? desc.substring(0, 80) + '...' : desc;
+      const descPreview =
+        desc.length > 80 ? desc.substring(0, 80) + '...' : desc;
       console.log(`Description: "${descPreview}"`);
       console.log(`   Found in ${files.length} pages:`);
       files.forEach((file) => console.log(`   • ${file}`));
@@ -210,7 +234,9 @@ async function main() {
     console.log(
       `⚠️  Found ${duplicateTitles.length} duplicate title(s) and ${duplicateDescriptions.length} duplicate description(s).\n`
     );
-    console.log('💡 Recommendation: Make titles and descriptions unique for each page.\n');
+    console.log(
+      '💡 Recommendation: Make titles and descriptions unique for each page.\n'
+    );
   }
 }
 

@@ -27,7 +27,9 @@ function extractVisibleContent(dom) {
   const doc = dom.window.document;
 
   // Clean up non-visible or noise elements
-  doc.querySelectorAll('script, style, nav, footer, header').forEach((el) => el.remove());
+  doc
+    .querySelectorAll('script, style, nav, footer, header')
+    .forEach((el) => el.remove());
 
   // Focus on content-heavy elements
   const sections = [];
@@ -193,7 +195,8 @@ function analyzePage(filePath) {
 
   // Extract title and description metadata (simple regex still okay for frontmatter/props)
   const titleMatch =
-    content.match(/title\s*=\s*["']([^"']+)["']/) || content.match(/title\s*=\s*\{`([^`]+)`\}/);
+    content.match(/title\s*=\s*["']([^"']+)["']/) ||
+    content.match(/title\s*=\s*\{`([^`]+)`\}/);
   const descMatch =
     content.match(/description\s*=\s*["']([^"']+)["']/) ||
     content.match(/description\s*=\s*\{`([^`]+)`\}/);
@@ -213,7 +216,9 @@ function analyzePage(filePath) {
 // Main execution
 async function main() {
   console.log('\n🔍 Analyzing Content Uniqueness & Quality (JSDOM-Enhanced)\n');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
 
   const pageFiles = findPageFiles();
   console.log(`📋 Found ${pageFiles.length} page files\n`);
@@ -238,7 +243,10 @@ async function main() {
 
   for (let i = 0; i < allPages.length; i++) {
     for (let j = i + 1; j < allPages.length; j++) {
-      const similarity = calculateSimilarity(allPages[i].visibleText, allPages[j].visibleText);
+      const similarity = calculateSimilarity(
+        allPages[i].visibleText,
+        allPages[j].visibleText
+      );
       if (similarity > 0.3) {
         similarities.push({
           page1: allPages[i].file,
@@ -254,28 +262,40 @@ async function main() {
   similarities.sort((a, b) => b.similarity - a.similarity);
 
   const thinContent = allPages.filter((page) => page.wordCount < 300);
-  const goodContent = allPages.filter((page) => page.wordCount >= 300 && page.wordCount < 1000);
+  const goodContent = allPages.filter(
+    (page) => page.wordCount >= 300 && page.wordCount < 1000
+  );
   const excellentContent = allPages.filter((page) => page.wordCount >= 1000);
 
-  const highSimilarity = similarities.filter((s) => s.similarity >= duplicateThreshold * 100);
+  const highSimilarity = similarities.filter(
+    (s) => s.similarity >= duplicateThreshold * 100
+  );
   const mediumSimilarity = similarities.filter(
     (s) => s.similarity >= 50 && s.similarity < duplicateThreshold * 100
   );
 
   // Output results
-  console.log('======================================================================');
+  console.log(
+    '======================================================================'
+  );
   console.log('📊 CONTENT ANALYSIS RESULTS');
-  console.log('======================================================================\n');
+  console.log(
+    '======================================================================\n'
+  );
   console.log(`Total Pages Analyzed: ${allPages.length}\n`);
 
   console.log('📝 Word Count Distribution:\n');
   console.log(`  ❌ Thin Content (< 300 words): ${thinContent.length} pages`);
   console.log(`  🟡 Good Content (300-999 words): ${goodContent.length} pages`);
-  console.log(`  ✅ Excellent Content (1000+ words): ${excellentContent.length} pages\n`);
+  console.log(
+    `  ✅ Excellent Content (1000+ words): ${excellentContent.length} pages\n`
+  );
 
   console.log('🔍 Content Similarity Analysis:\n');
   console.log(`  🔴 High Similarity (≥70%): ${highSimilarity.length} pairs`);
-  console.log(`  🟡 Medium Similarity (50-69%): ${mediumSimilarity.length} pairs`);
+  console.log(
+    `  🟡 Medium Similarity (50-69%): ${mediumSimilarity.length} pairs`
+  );
 
   if (thinContent.length > 0) {
     console.log('\n❌ THIN CONTENT PAGES (< 300 words)');
@@ -306,10 +326,14 @@ async function main() {
           thinContent: thinContent.length,
           highSimilarityPairs: highSimilarity.length,
           averageWordCount: Math.round(
-            allPages.reduce((sum, p) => sum + p.wordCount, 0) / (allPages.length || 1)
+            allPages.reduce((sum, p) => sum + p.wordCount, 0) /
+              (allPages.length || 1)
           ),
         },
-        thinContent: thinContent.map((p) => ({ file: p.file, wordCount: p.wordCount })),
+        thinContent: thinContent.map((p) => ({
+          file: p.file,
+          wordCount: p.wordCount,
+        })),
         highSimilarity: highSimilarity,
       },
       null,

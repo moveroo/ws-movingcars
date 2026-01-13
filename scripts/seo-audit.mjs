@@ -56,7 +56,9 @@ async function apiRequest(endpoint, options = {}) {
   } else {
     // If not JSON, return text (might be HTML error page)
     const text = await response.text();
-    throw new Error(`API returned non-JSON response: ${text.substring(0, 200)}`);
+    throw new Error(
+      `API returned non-JSON response: ${text.substring(0, 200)}`
+    );
   }
 }
 
@@ -108,7 +110,9 @@ async function runCrawl(domain, options = {}) {
 
   console.log(`\n🕷️  Starting ${mode}: ${domain}\n`);
   if (isDiscoveryMode) {
-    console.log('💡 Discovery Mode: Lightweight scan focusing on site-wide issues (10 pages)\n');
+    console.log(
+      '💡 Discovery Mode: Lightweight scan focusing on site-wide issues (10 pages)\n'
+    );
   }
 
   // Build request body
@@ -117,7 +121,9 @@ async function runCrawl(domain, options = {}) {
   // Add priority URLs if provided (up to 10)
   if (urls.length > 0) {
     if (urls.length > 10) {
-      console.warn('⚠️  Warning: Only first 10 URLs will be used as priority entry points');
+      console.warn(
+        '⚠️  Warning: Only first 10 URLs will be used as priority entry points'
+      );
       requestBody.urls = urls.slice(0, 10);
     } else {
       requestBody.urls = urls;
@@ -164,7 +170,9 @@ async function runCrawl(domain, options = {}) {
 
     if (crawl.progress) {
       const { processed, total, failed } = crawl.progress;
-      process.stdout.write(`\r⏳ Progress: ${processed}/${total} pages (${failed || 0} failed)`);
+      process.stdout.write(
+        `\r⏳ Progress: ${processed}/${total} pages (${failed || 0} failed)`
+      );
     } else {
       process.stdout.write('.');
     }
@@ -194,7 +202,10 @@ async function showCrawlList() {
   console.log('------|-------|------------|-------------------');
 
   crawlList.forEach((crawl) => {
-    const score = crawl.score !== undefined && crawl.score !== null ? `${crawl.score}/100` : 'N/A';
+    const score =
+      crawl.score !== undefined && crawl.score !== null
+        ? `${crawl.score}/100`
+        : 'N/A';
     const status = crawl.status || 'unknown';
     const domain = crawl.domain || 'N/A';
     console.log(
@@ -266,11 +277,15 @@ function displayCrawlResults(crawl) {
   }
 
   if (crawl.issues && crawl.issues.length > 0) {
-    console.log(`\n⚠️  Issues Found: ${crawl.issues_count || crawl.issues.length} types\n`);
+    console.log(
+      `\n⚠️  Issues Found: ${crawl.issues_count || crawl.issues.length} types\n`
+    );
 
     crawl.issues.forEach((issue) => {
       const issueType = issue.type || 'Unknown Issue';
-      const issueName = issueType.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+      const issueName = issueType
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, (l) => l.toUpperCase());
 
       console.log(`\n${issueName}:`);
       console.log(`  Count: ${issue.count || 'N/A'}`);
@@ -293,7 +308,9 @@ function displayCrawlResults(crawl) {
   if (crawl.audits && crawl.audits.length > 0) {
     console.log('\n📄 Page Scores (sorted by lowest first):\n');
 
-    const sortedAudits = [...crawl.audits].sort((a, b) => (a.score || 0) - (b.score || 0));
+    const sortedAudits = [...crawl.audits].sort(
+      (a, b) => (a.score || 0) - (b.score || 0)
+    );
 
     sortedAudits.forEach((audit) => {
       const score = audit.score !== undefined ? `${audit.score}/100` : 'N/A';
@@ -303,7 +320,9 @@ function displayCrawlResults(crawl) {
   }
 
   console.log('\n' + '='.repeat(60));
-  console.log(`\n💡 Get detailed page info: node scripts/check-crawl-pages.mjs ${crawl.id}\n`);
+  console.log(
+    `\n💡 Get detailed page info: node scripts/check-crawl-pages.mjs ${crawl.id}\n`
+  );
 }
 
 // Main CLI handler
@@ -313,7 +332,9 @@ const arg = process.argv[3];
 switch (command) {
   case 'page':
     if (!arg) {
-      console.error('❌ Please provide a URL: npm run seo:page https://example.com/page');
+      console.error(
+        '❌ Please provide a URL: npm run seo:page https://example.com/page'
+      );
       process.exit(1);
     }
     runPageAudit(arg).catch(console.error);
@@ -321,7 +342,9 @@ switch (command) {
 
   case 'crawl': {
     if (!arg) {
-      console.error('❌ Please provide a domain: npm run seo:crawl https://example.com');
+      console.error(
+        '❌ Please provide a domain: npm run seo:crawl https://example.com'
+      );
       console.error(
         '   Optional: Add --limit=100 for full crawl (default: 10 pages, Discovery Mode)'
       );

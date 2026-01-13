@@ -114,9 +114,15 @@ function generateBreadcrumbs(filePath) {
   // Service pages
   else if (SERVICE_PAGES[filename]) {
     if (filename === 'service-areas') {
-      breadcrumbs.push({ name: 'Service Areas', url: `${SITE_URL}/service-areas/` });
+      breadcrumbs.push({
+        name: 'Service Areas',
+        url: `${SITE_URL}/service-areas/`,
+      });
     } else {
-      breadcrumbs.push({ name: SERVICE_PAGES[filename], url: `${SITE_URL}/${filename}/` });
+      breadcrumbs.push({
+        name: SERVICE_PAGES[filename],
+        url: `${SITE_URL}/${filename}/`,
+      });
     }
   }
   // Other pages
@@ -139,7 +145,10 @@ function addBreadcrumbs(filePath) {
 
   const breadcrumbs = generateBreadcrumbs(filePath);
   if (!breadcrumbs) {
-    return { fixed: false, reason: 'Skipped (homepage, 404, or dynamic route)' };
+    return {
+      fixed: false,
+      reason: 'Skipped (homepage, 404, or dynamic route)',
+    };
   }
 
   // Check if breadcrumbs already exist
@@ -177,7 +186,10 @@ function addBreadcrumbs(filePath) {
       found = true;
     } else {
       // Check if this is followed by newline or end of string
-      const afterDash = contentBeforeLayout.substring(nextDash + 3, nextDash + 4);
+      const afterDash = contentBeforeLayout.substring(
+        nextDash + 3,
+        nextDash + 4
+      );
       if (afterDash === '\n' || afterDash === '') {
         frontmatterEnd = nextDash + 3;
       }
@@ -193,7 +205,11 @@ function addBreadcrumbs(filePath) {
   let newContent = content;
 
   // Add Breadcrumbs import if not present
-  if (!content.includes("import Breadcrumbs from '../components/Breadcrumbs.astro'")) {
+  if (
+    !content.includes(
+      "import Breadcrumbs from '../components/Breadcrumbs.astro'"
+    )
+  ) {
     const lastImport = content.lastIndexOf('import ', frontmatterEnd);
     if (lastImport !== -1) {
       const importEnd = content.indexOf('\n', lastImport);
@@ -202,7 +218,8 @@ function addBreadcrumbs(filePath) {
         "import Breadcrumbs from '../components/Breadcrumbs.astro';\n" +
         content.substring(importEnd + 1);
       // Update frontmatterEnd if we added content
-      frontmatterEnd += "import Breadcrumbs from '../components/Breadcrumbs.astro';\n".length;
+      frontmatterEnd +=
+        "import Breadcrumbs from '../components/Breadcrumbs.astro';\n".length;
     } else {
       // No imports, add after opening ---
       const openingDash = content.indexOf('---');
@@ -212,7 +229,8 @@ function addBreadcrumbs(filePath) {
           content.substring(0, afterOpening) +
           "import Breadcrumbs from '../components/Breadcrumbs.astro';\n" +
           content.substring(afterOpening);
-        frontmatterEnd += "import Breadcrumbs from '../components/Breadcrumbs.astro';\n".length;
+        frontmatterEnd +=
+          "import Breadcrumbs from '../components/Breadcrumbs.astro';\n".length;
       }
     }
   }
@@ -228,11 +246,16 @@ function addBreadcrumbs(filePath) {
     // We need to insert before the ---
     const lastDashIndex = frontmatterContent.lastIndexOf('---');
     if (lastDashIndex === -1) {
-      return { fixed: false, reason: 'Could not find closing --- in frontmatter' };
+      return {
+        fixed: false,
+        reason: 'Could not find closing --- in frontmatter',
+      };
     }
 
     // Get content before the closing ---
-    const beforeClosingDash = frontmatterContent.substring(0, lastDashIndex).trimEnd();
+    const beforeClosingDash = frontmatterContent
+      .substring(0, lastDashIndex)
+      .trimEnd();
     const afterClosingDash = frontmatterContent.substring(lastDashIndex);
 
     // Insert breadcrumb items before closing ---
@@ -256,7 +279,10 @@ function addBreadcrumbs(filePath) {
     const afterLayoutTag = newContent.substring(layoutTagEnd);
 
     // Check if Breadcrumbs component is already present
-    if (!afterLayoutTag.includes('<Breadcrumbs') && !afterLayoutTag.includes('Breadcrumb')) {
+    if (
+      !afterLayoutTag.includes('<Breadcrumbs') &&
+      !afterLayoutTag.includes('Breadcrumb')
+    ) {
       // Insert right after Layout opening tag
       const breadcrumbComponent = `  <!-- Breadcrumb Navigation -->
   <div class="container mx-auto px-4 py-4">
@@ -302,9 +328,14 @@ async function main() {
     try {
       const result = addBreadcrumbs(filePath);
       if (result.fixed) {
-        results.fixed.push({ file: relativePath, breadcrumbs: result.breadcrumbs });
+        results.fixed.push({
+          file: relativePath,
+          breadcrumbs: result.breadcrumbs,
+        });
         console.log(`  ✅ ${isDryRun ? 'Would add' : 'Added'} breadcrumbs`);
-        console.log(`     Path: ${result.breadcrumbs.map((b) => b.name).join(' → ')}`);
+        console.log(
+          `     Path: ${result.breadcrumbs.map((b) => b.name).join(' → ')}`
+        );
       } else {
         results.skipped.push({ file: relativePath, reason: result.reason });
         console.log(`  ⏭️  ${result.reason}`);
