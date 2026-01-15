@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Contact Moving Cars';
+const description =
+  'Get in touch with Moving Cars for a premium interstate car transport experience. Book a call back or email us today. 100% Australian Owned and Operated.';
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-slate-50 min-h-screen py-16">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Side: Contact Info & Branding -->
+        <div class="lg:col-span-5 flex flex-col justify-center">
+          <div class="mb-8">
+            <div
+              class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-amber-200"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                ></path>
+              </svg>
+              100% Australian Owned & Operated
+            </div>
+            <h1
+              class="text-5xl font-extrabold text-slate-900 tracking-tight mb-6"
+            >
+              Contact <br />
+              <span class="text-amber-600">Moving Cars</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed mb-8">
+              We're here to make your interstate car transport seamless. Reach
+              out to our expert team for personalised support.
+            </p>
+          </div>
+
+          <div class="space-y-8">
+            <div class="flex items-start gap-5 group">
+              <div
+                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1"
+                >
+                  Email Support
+                </h3>
+                <a
+                  href="mailto:info@movingcars.com.au"
+                  class="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  info@movingcars.com.au
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-5 group">
+              <div
+                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1"
+                >
+                  General Inquiries
+                </h3>
+                <a
+                  href="tel:1300123456"
+                  class="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  1300 123 456
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-12 p-8 bg-white rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden"
+          >
+            <div class="relative z-10">
+              <h4 class="font-bold text-slate-900 mb-2 italic">
+                Support Local
+              </h4>
+              <p class="text-slate-600 text-sm italic mb-0">
+                "Thank you for supporting an Australian-owned business. We take
+                pride in delivering excellence across our beautiful country."
+              </p>
+            </div>
+            <div
+              class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none"
+            >
+              <svg class="w-24 h-24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: CTA Cards -->
+        <div class="lg:col-span-7 space-y-8">
+          <!-- Primary CTA: Book a Call Back -->
+          <div
+            class="bg-slate-900 text-white p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden group"
+          >
+            <div
+              class="absolute top-0 right-0 p-8 opacity-10 transform group-hover:rotate-12 transition-transform duration-500"
+            >
+              <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.7 2.7c-3.1-1.6-5.7-4.2-7.3-7.3l2.7-2.7c.3-.2.4-.5.3-1-.4-1.2-.6-2.4-.6-3.6 0-.5-.5-1-1-1H3.5C3 2 2.5 2.5 2.5 3.5 2.5 13.2 10.3 21 20 21c1 0 1.5-.5 1.5-1.5V16.5c0-.5-.5-1-1-1z"
+                ></path>
+              </svg>
+            </div>
+
+            <div class="relative z-10">
+              <h2 class="text-4xl font-extrabold mb-6 tracking-tight">
+                Book A Call Back
+              </h2>
+              <p class="text-xl text-slate-400 mb-10 leading-relaxed max-w-lg">
+                Prefer a chat? Schedule a specific time for our team to call you
+                and discuss your vehicle transport needs in detail.
+              </p>
+
+              <div class="space-y-4">
+                <a
+                  href="#"
+                  class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-6 px-10 rounded-2xl text-center text-xl shadow-lg hover:shadow-amber-500/20 transition-all transform hover:-translate-y-1"
+                >
+                  Schedule Call Back Now
+                </a>
+                <p class="text-center text-slate-500 text-sm font-medium">
+                  Free Service • 100% Obligation Free • Local Experts
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary CTA: Quote Link (Cross-sell) -->
+          <div
+            class="bg-white p-10 md:p-12 rounded-[3.5rem] border-2 border-slate-100 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 h-full"
+          >
+            <div class="flex-1">
+              <h3
+                class="text-3xl font-extrabold text-slate-900 mb-3 tracking-tight"
+              >
+                Need a Quote Fast?
+              </h3>
+              <p class="text-slate-600 font-medium">
+                Get an instant price for your interstate move in less than 60
+                seconds.
+              </p>
+            </div>
+            <a
+              href="/quote/"
+              class="bg-slate-900 text-white hover:bg-slate-800 px-10 py-5 rounded-2xl font-bold transition-all shadow-xl hover:shadow-slate-200"
+            >
+              Get Instant Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

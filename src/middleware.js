@@ -160,6 +160,7 @@ export async function onRequest({ request }, next) {
     '/reviews/',
     '/terms/',
     '/contact-moving-cars/',
+    '/contact/',
     '/quote/',
     '/thank-you-for-booking/',
     '/backload-car-transport/',
@@ -205,6 +206,15 @@ export async function onRequest({ request }, next) {
   const slug = pathname.replace(/^\/|\/$/g, '');
   if (!slug || slug.includes('.')) {
     return next(); // Pass through
+  }
+
+  // Specific alias for Contact
+  if (normalizedPath === '/contact') {
+    return next(); // Slashed version /contact/ is handled by the guard below
+  }
+
+  if (normalizedPath === '/contact-moving-cars') {
+    return Response.redirect(new URL('/contact/', request.url), 301);
   }
 
   // Specific alias for Privacy
