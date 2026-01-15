@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Terms and Conditions';
+const description =
+  'Moving Cars Terms and Conditions of Service. Important information regarding vehicle transport, liability, cancellations, and transit times.';
+const lastUpdated = '15 January 2026';
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-slate-50 min-h-screen py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div
+        class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100"
+      >
+        <header class="mb-12 border-b border-slate-100 pb-8">
+          <div
+            class="text-amber-600 font-bold mb-2 uppercase tracking-widest text-sm"
+          >
+            Legal & Compliance
+          </div>
+          <h1
+            class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
+          >
+            Terms and Conditions
+          </h1>
+          <p class="text-slate-500 font-medium">Last Updated: {lastUpdated}</p>
+        </header>
+
+        <div class="prose prose-slate prose-lg max-w-none">
+          <p class="lead text-xl text-slate-600 mb-8 font-medium">
+            Your use of our site is deemed to be your acceptance of these Terms
+            of Use.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            1. Privacy & Anti-Abuse
+          </h2>
+          <p>
+            In addition to our stated privacy policies, please be advised that
+            visitor I.P. addresses are automatically added to all forms
+            submitted from this site. An I.P. address cannot identify you
+            personally; this measure is intended solely to combat abuse and
+            ensure the integrity of our quoting system.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            2. Intellectual Property & Copyrights
+          </h2>
+          <p>
+            The presentation, design, and material displayed on this site are
+            the intellectual and physical property of Moving Cars and are
+            protected under Australian and International Copyright Law. Content
+            or graphics may not be duplicated or distributed without express
+            written consent.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            3. Liability & Our Position
+          </h2>
+          <p>
+            Moving Cars acts as an <strong>agent on your behalf</strong> to obtain
+            the best possible price and service. We do not directly transport the
+            vehicles ourselves.
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-slate-700">
+            <li>
+              <strong>Agency Model</strong>: You understand that responsibility
+              for transporting your vehicle lies with the agreed carrier.
+            </li>
+            <li>
+              <strong>Carrier Terms</strong>: By booking, you agree to the
+              specific carrier's terms and conditions.
+            </li>
+            <li>
+              <strong>Damage Claims</strong>: If any damage occurs, the carrier
+              themselves will deal with this for you as the primary service
+              provider.
+            </li>
+            <li>
+              <strong>"As Is" Basis</strong>: This site is presented on an "as
+              is" basis without warranty concerning technical inaccuracies.
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            4. Conditions of Transport
+          </h2>
+          <p>
+            All vehicles must comply with the following strict terms to be
+            eligible for transport:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <h3 class="font-bold text-slate-900 mb-2">Vehicle Status</h3>
+              <ul class="text-sm space-y-1 text-slate-600">
+                <li>• Drivable & roadworthy condition</li>
+                <li>• Functioning brakes & handbrakes</li>
+                <li>• Able to start/run without a jump start</li>
+                <li>• Windows and roof must be intact</li>
+              </ul>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <h3 class="font-bold text-slate-900 mb-2">Dimensions & Weight</h3>
+              <ul class="text-sm space-y-1 text-slate-600">
+                <li>• Minimum 150mm (6 inch) clearance</li>
+                <li>• Standard height: Below 1.90m</li>
+                <li>• Max weight: 3 tonnes (unless prearranged)</li>
+                <li>• Dimensions taken from furthest points</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            5. Transporting Goods Inside Vehicles
+          </h2>
+          <div
+            class="bg-amber-50 border-l-4 border-amber-400 p-6 my-6 rounded-r-xl"
+          >
+            <h3 class="font-bold text-slate-900 mb-2">"Goods in Car" Policy</h3>
+            <p class="text-slate-800 text-sm mb-4">
+              Vehicles must be empty unless you have selected and paid for the
+              ‘Goods in Car’ option.
+            </p>
+            <ul class="text-sm space-y-2 text-slate-700">
+              <li>• <strong>Limit:</strong> Strictly 80kg maximum.</li>
+              <li>
+                • <strong>Visibility:</strong> Goods must not block windows.
+              </li>
+              <li>
+                • <strong>Placement:</strong> Nothing behind the driver's seat or
+                front passenger seats.
+              </li>
+              <li>
+                • <strong>Liability:</strong> No legal liability is accepted for loss
+                or damage to goods or vehicle as a result of goods being inside.
+              </li>
+            </ul>
+          </div>
+          <p class="text-sm text-slate-500 italic">
+            Note: Spare tyres, jacks, and fitted baby seats are allowed in all
+            vehicles without extra charge.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            6. Transit Times & Estimates
+          </h2>
+          <p>
+            Transit times are always an <strong>estimate</strong> and cannot be guaranteed.
+            They are calculated in business days (excluding weekends/public holidays).
+          </p>
+          <p>
+            Estimates may vary due to seasonal peaks, acts of nature, or carrier
+            backlogs. We recommend that you do not plan meetings, trips, or
+            holidays based on estimated delivery dates.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            7. Cancellations & Adjustments
+          </h2>
+          <ul class="list-disc pl-6 space-y-4 text-slate-700">
+            <li>
+              <strong>Written Notice</strong>: All cancellations must be in
+              writing; we do not accept cancellations via phone.
+            </li>
+            <li>
+              <strong>Fees</strong>: A cancellation fee of $125.00 to $225.00
+              applies depending on timing.
+            </li>
+            <li>
+              <strong>Futile Fees</strong>: If cancelled with less than 48 hours
+              notice and a carrier attempts collection, a futile fee ($150 -
+              $300+) may be charged.
+            </li>
+            <li>
+              <strong>In-Transit</strong>: Once a vehicle is collected/on the
+              truck, the full transport costs may be withheld as space cannot be
+              re-booked.
+            </li>
+            <li>
+              <strong>Admin Fees</strong>: Changes to confirmed bookings may
+              incur an admin fee.
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            8. Special Conditions
+          </h2>
+          <div class="space-y-6">
+            <section>
+              <h3 class="font-bold text-slate-900">Auctions</h3>
+              <p class="text-sm">
+                Vehicles from auction houses must be drivable and have no
+                damage/dents. Cars marked as "write-off" require a re-quote.
+              </p>
+            </section>
+            <section>
+              <h3 class="font-bold text-slate-900">WA Quarantine</h3>
+              <p class="text-sm text-slate-600">
+                Vehicles entering WA are subject to Inspection. Contaminated
+                vehicles incur a minimum cleaning charge (approx $130) payable
+                directly to the carrier.
+              </p>
+            </section>
+            <section>
+              <h3 class="font-bold text-slate-900">Depots & Storage</h3>
+              <p class="text-sm text-slate-600">
+                Storage fees may apply after 2 days at a depot (typically
+                $55/day). SMB Darwin/Alice Springs depots do not provide
+                insurance; customers should obtain their own coverage for these
+                locations.
+              </p>
+            </section>
+          </div>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            9. Questions or Concerns?
+          </h2>
+          <p>
+            If you have questions about these matters, please contact us
+            directly via our <a
+              href="/contact-moving-cars/"
+              class="text-amber-600 hover:underline">contact page</a
+            >.
+          </p>
+        </div>
+
+        <!-- Quote CTA -->
+        <div
+          class="bg-slate-900 text-white p-8 md:p-12 rounded-2xl mt-16 flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Ready to move?</h2>
+            <p class="text-slate-400 text-lg">
+              Transparent pricing. Reliable service.
+            </p>
+          </div>
+          <a
+            href="/quote/"
+            class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-4 px-10 rounded-xl transition-all transform hover:scale-105 inline-block text-center whitespace-nowrap"
+          >
+            Get Instant Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

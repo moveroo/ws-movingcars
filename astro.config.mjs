@@ -8,6 +8,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://movingcars.com.au',
   output: 'static',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
