@@ -64,13 +64,15 @@ const services = [
   {
     icon: '🔒',
     title: 'Enclosed Transport',
-    description: 'Premium protection for luxury, classic, and high-value vehicles. Fully enclosed.',
+    description:
+      'Premium protection for luxury, classic, and high-value vehicles. Fully enclosed.',
     link: '/services/enclosed/',
   },
   {
     icon: '🚪',
     title: 'Door-to-Door Delivery',
-    description: 'We pick up and deliver straight to your door. Maximum convenience guaranteed.',
+    description:
+      'We pick up and deliver straight to your door. Maximum convenience guaranteed.',
     link: '/services/door-to-door/',
   },
 ];
@@ -169,8 +171,9 @@ const testimonials = [
           <p
             class="text-base sm:text-lg lg:text-xl text-[var(--color-neutral-300)] mb-6 sm:mb-10 max-w-lg leading-relaxed"
           >
-            Professional, reliable car transport across Australia. Door-to-door service with full
-            transit insurance. <strong class="text-white">Get your free quote in 60 seconds.</strong
+            Professional, reliable car transport across Australia. Door-to-door
+            service with full transit insurance. <strong class="text-white"
+              >Get your free quote in 60 seconds.</strong
             >
           </p>
 
@@ -190,7 +193,9 @@ const testimonials = [
                   d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
-            <a href="/routes/" class="btn btn-accent sm:btn-lg text-center">Browse Routes</a>
+            <a href="/routes/" class="btn btn-accent sm:btn-lg text-center"
+              >Browse Routes</a
+            >
           </div>
 
           <!-- Quick Stats -->
@@ -198,20 +203,32 @@ const testimonials = [
             class="mt-8 sm:mt-12 pt-6 sm:pt-8 pb-8 sm:pb-12 lg:pb-16 border-t border-white/10 grid grid-cols-3 gap-2 sm:gap-6"
           >
             <div class="text-center">
-              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">50k+</div>
-              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+                50k+
+              </div>
+              <div
+                class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]"
+              >
                 Cars Delivered
               </div>
             </div>
             <div class="text-center">
-              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">4.9★</div>
-              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+                4.9★
+              </div>
+              <div
+                class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]"
+              >
                 Customer Rating
               </div>
             </div>
             <div class="text-center">
-              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">100%</div>
-              <div class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]">
+              <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+                100%
+              </div>
+              <div
+                class="text-[10px] sm:text-xs lg:text-sm text-[var(--color-neutral-400)]"
+              >
                 Fully Insured
               </div>
             </div>
@@ -313,8 +330,8 @@ const testimonials = [
         </span>
         <h2 class="section-title">How We Can Help</h2>
         <p class="section-subtitle mx-auto">
-          Choose the transport option that best fits your needs. All services include full transit
-          insurance.
+          Choose the transport option that best fits your needs. All services
+          include full transit insurance.
         </p>
       </div>
 
@@ -326,7 +343,9 @@ const testimonials = [
               <h3 class="text-xl font-bold mb-2 group-hover:text-[var(--color-accent-700)] transition-colors">
                 {service.title}
               </h3>
-              <p class="text-[var(--color-neutral-500)] mb-4">{service.description}</p>
+              <p class="text-[var(--color-neutral-500)] mb-4">
+                {service.description}
+              </p>
               <span class="inline-flex items-center text-[var(--color-accent-700)] font-medium">
                 Learn more
                 <svg
@@ -351,7 +370,10 @@ const testimonials = [
   </section>
 
   <!-- Popular Routes Section -->
-  <section class="section-dark section diagonal-top relative" style="margin-top: -40px;">
+  <section
+    class="section-dark section diagonal-top relative"
+    style="margin-top: -40px;"
+  >
     <DevLabel name="Service Area / Routes" />
     <div class="container mx-auto px-6 lg:px-8 pt-16">
       <div class="text-center mb-14">
@@ -360,7 +382,9 @@ const testimonials = [
         >
           Popular Routes
         </span>
-        <h2 class="section-title section-title-light">Australia-Wide Coverage</h2>
+        <h2 class="section-title section-title-light">
+          Australia-Wide Coverage
+        </h2>
         <p class="section-subtitle section-subtitle-light mx-auto">
           We transport vehicles on all major routes across Australia.
         </p>
@@ -375,7 +399,9 @@ const testimonials = [
                   <p class="font-semibold text-white group-hover:text-[var(--color-accent-400)] transition-colors">
                     {route.origin} → {route.destination}
                   </p>
-                  <p class="text-sm text-[var(--color-neutral-400)]">{route.days}</p>
+                  <p class="text-sm text-[var(--color-neutral-400)]">
+                    {route.days}
+                  </p>
                 </div>
                 <svg
                   class="w-5 h-5 text-[var(--color-neutral-500)] group-hover:text-[var(--color-accent-400)] group-hover:translate-x-1 transition-all"
@@ -402,7 +428,12 @@ const testimonials = [
           class="inline-flex items-center text-[var(--color-accent-400)] font-semibold hover:text-[var(--color-accent-300)] transition-colors"
         >
           View All Routes
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -415,7 +446,10 @@ const testimonials = [
   </section>
 
   <!-- How It Works Section -->
-  <section class="section bg-white diagonal-top relative" style="margin-top: -40px;">
+  <section
+    class="section bg-white diagonal-top relative"
+    style="margin-top: -40px;"
+  >
     <DevLabel name="Features" />
     <div class="container mx-auto px-6 lg:px-8 pt-16">
       <div class="text-center mb-14">
@@ -439,8 +473,8 @@ const testimonials = [
           </div>
           <h3 class="text-xl font-bold mb-3">Get a Quote</h3>
           <p class="text-[var(--color-neutral-500)]">
-            Fill out our simple form with your pickup and delivery details. Instant quote in 60
-            seconds.
+            Fill out our simple form with your pickup and delivery details.
+            Instant quote in 60 seconds.
           </p>
         </div>
 
@@ -452,8 +486,8 @@ const testimonials = [
           </div>
           <h3 class="text-xl font-bold mb-3">Book & Prepare</h3>
           <p class="text-[var(--color-neutral-500)]">
-            Confirm your booking and prepare your vehicle. We'll coordinate a convenient pickup
-            time.
+            Confirm your booking and prepare your vehicle. We'll coordinate a
+            convenient pickup time.
           </p>
         </div>
 
@@ -465,7 +499,8 @@ const testimonials = [
           </div>
           <h3 class="text-xl font-bold mb-3">We Deliver</h3>
           <p class="text-[var(--color-neutral-500)]">
-            Track your vehicle in real-time as we safely transport it to your destination.
+            Track your vehicle in real-time as we safely transport it to your
+            destination.
           </p>
         </div>
       </div>
@@ -507,8 +542,12 @@ const testimonials = [
                 "{testimonial.quote}"
               </p>
               <div class="pt-4 border-t border-[var(--color-neutral-200)]">
-                <p class="font-semibold text-[var(--color-neutral-900)]">{testimonial.author}</p>
-                <p class="text-sm text-[var(--color-neutral-500)]">{testimonial.location}</p>
+                <p class="font-semibold text-[var(--color-neutral-900)]">
+                  {testimonial.author}
+                </p>
+                <p class="text-sm text-[var(--color-neutral-500)]">
+                  {testimonial.location}
+                </p>
               </div>
             </div>
           ))
@@ -530,14 +569,21 @@ const testimonials = [
         >
           Ready to Transport Your Car?
         </h2>
-        <p class="text-[var(--color-neutral-300)] mb-10 max-w-xl mx-auto text-lg">
-          Get a free, no-obligation quote in under 60 seconds. Our team is standing by to help with
-          your interstate car transport needs.
+        <p
+          class="text-[var(--color-neutral-300)] mb-10 max-w-xl mx-auto text-lg"
+        >
+          Get a free, no-obligation quote in under 60 seconds. Our team is
+          standing by to help with your interstate car transport needs.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/quote/" class="btn btn-primary btn-lg">
             Get Your Free Quote
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              class="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -546,7 +592,12 @@ const testimonials = [
             </svg>
           </a>
           <a href="tel:1300123456" class="btn btn-secondary btn-lg">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
