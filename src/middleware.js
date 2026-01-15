@@ -157,6 +157,20 @@ export const config = {
 export async function onRequest({ request }, next) {
   const url = new URL(request.url);
   const pathname = url.pathname;
+  const normalizedPath = pathname.replace(/\/$/, '') || '/';
+
+  // [2026-01-16] CRITICAL FIX: Explicit early redirect for Cheap Rates
+  // Catches both /backload-car-transport and /backload-car-transport/
+  const cheapRatesPillar = '/cheap-car-transport-rates/';
+  const legacyCheapPages = [
+    '/backload-car-transport',
+    '/cheap-car-transport',
+    '/much-car-transport-cost',
+  ];
+
+  if (legacyCheapPages.includes(normalizedPath)) {
+    return Response.redirect(new URL(cheapRatesPillar, request.url), 301);
+  }
 
   const knownPages = [
     '/',
@@ -189,7 +203,6 @@ export async function onRequest({ request }, next) {
     '/faq',
   ];
 
-  const normalizedPath = pathname.replace(/\/$/, '') || '/';
   if (knownPages.includes(normalizedPath)) {
     if (pathname.endsWith('/') || pathname === '/') {
       return next();
@@ -209,18 +222,6 @@ export async function onRequest({ request }, next) {
       new URL('https://ratecheck.movingcars.com.au/quote/v2/', request.url),
       301
     );
-  }
-
-  // [2026-01-16] CONSOLIDATION: Cheap Rates Pillar
-  const cheapRatesPillar = '/cheap-car-transport-rates/';
-  const cheapRatesRedirects = [
-    '/backload-car-transport',
-    '/cheap-car-transport',
-    '/much-car-transport-cost',
-  ];
-
-  if (cheapRatesRedirects.includes(normalizedPath)) {
-    return Response.redirect(new URL(cheapRatesPillar, request.url), 301);
   }
 
   // Legacy Regional Hubs -> Redirect to /car-transport/

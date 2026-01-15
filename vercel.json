@@ -28,12 +28,27 @@
       "permanent": true
     },
     {
+      "source": "/backload-car-transport/",
+      "destination": "/cheap-car-transport-rates/",
+      "permanent": true
+    },
+    {
       "source": "/cheap-car-transport",
       "destination": "/cheap-car-transport-rates/",
       "permanent": true
     },
     {
+      "source": "/cheap-car-transport/",
+      "destination": "/cheap-car-transport-rates/",
+      "permanent": true
+    },
+    {
       "source": "/much-car-transport-cost",
+      "destination": "/cheap-car-transport-rates/",
+      "permanent": true
+    },
+    {
+      "source": "/much-car-transport-cost/",
       "destination": "/cheap-car-transport-rates/",
       "permanent": true
     },
