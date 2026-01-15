@@ -1,12 +1,10 @@
 /**
  * Vercel Edge Middleware for handling 4000+ redirects
- * This bypasses the 2048 redirect limit in vercel.json
+ * Uses standard Web APIs to avoid Next.js dependencies.
  */
-/* global URL */
+/* global URL, Response */
 
-import { NextResponse } from 'next/server';
-
-// The HUB_MAP from our finalization script
+// The HUB_MAP mapping origin city slugs to Hub URLs
 const HUB_MAP = {
   // NSW -> Sydney Hub
   sydney: '/moving-a-car-sydney-new-south-wales/',
@@ -117,7 +115,6 @@ const HUB_MAP = {
   canberra: '/car-carriers-canberra/',
 };
 
-// Review keyword prefixes
 const REVIEW_KEYWORDS = [
   'prestige-car-',
   'cherished-classic-',
@@ -132,50 +129,32 @@ const REVIEW_KEYWORDS = [
   'first-class-',
 ];
 
-// Sort matchers by length (longest first) for accurate matching
 const SORTED_MATCHERS = Object.keys(HUB_MAP).sort(
   (a, b) => b.length - a.length
 );
 
-/**
- * Determine redirect target for a given slug
- */
 function getRedirectTarget(slug) {
-  // Check if it's a review/testimonial
   const isReview =
     REVIEW_KEYWORDS.some((kw) => slug.startsWith(kw)) ||
     slug.includes('-reviews-by-customer');
+  if (isReview) return '/reviews/';
 
-  if (isReview) {
-    return '/reviews/';
-  }
-
-  // Check for hub mapping based on origin city
   for (const key of SORTED_MATCHERS) {
     if (slug.startsWith(key + '-')) {
       return HUB_MAP[key];
     }
   }
-
-  // Fallback to homepage
   return '/';
 }
 
 export const config = {
-  // Only run middleware on paths that look like route slugs
-  // This avoids running on static assets, API routes, etc.
-  matcher: [
-    // Match route-like paths (city-to-city patterns)
-    '/((?!_next|api|_vercel|favicon|robots|sitemap|[^/]+\\.[^/]+$).*)',
-  ],
+  matcher: ['/((?!_next|api|_vercel|favicon|robots|sitemap|[^/]+\\.[^/]+$).*)'],
 };
 
 export default function middleware(request) {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // Skip if it's an existing page (has .astro equivalent or is root)
-  // These are the known static pages we created
   const knownPages = [
     '/',
     '/reviews',
@@ -217,25 +196,21 @@ export default function middleware(request) {
     '/moving-cars-terms-and-conditions',
   ];
 
-  // Normalize path (remove trailing slash for comparison)
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
-
-  // Skip middleware for known pages
   if (knownPages.includes(normalizedPath)) {
-    return NextResponse.next();
+    return; // Pass through
   }
 
-  // Get the slug from the path
   const slug = pathname.replace(/^\/|\/$/g, '');
-
-  // Skip empty slugs or paths with file extensions
   if (!slug || slug.includes('.')) {
-    return NextResponse.next();
+    return; // Pass through
   }
 
-  // Determine redirect target
   const target = getRedirectTarget(slug);
 
-  // Perform 301 redirect
-  return NextResponse.redirect(new URL(target, request.url), 301);
+  // Create the redirect response
+  // We use the full URL to ensure it works correctly
+  const redirectUrl = new URL(target, request.url);
+
+  return Response.redirect(redirectUrl, 301);
 }
