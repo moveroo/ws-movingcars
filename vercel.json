@@ -11,6 +11,16 @@
       "source": "/moving-cars-reviews-by-customer/",
       "destination": "/reviews/",
       "permanent": true
+    },
+    {
+      "source": "/interstate-car-transport-by-rail",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/interstate-car-transport-by-rail/",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

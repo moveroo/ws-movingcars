@@ -169,7 +169,6 @@ export async function onRequest({ request }, next) {
     '/transporting-cars-with-items-inside-standard',
     '/transporting-cars-with-items-inside',
     '/transport-luxury-prestige-cars',
-    '/interstate-car-transport-by-rail',
     '/transporting-cars-auction',
     '/boat-transport',
     '/trailer-transport-quote',
@@ -243,6 +242,11 @@ export async function onRequest({ request }, next) {
 
   if (normalizedPath === '/moving-cars-terms-and-conditions') {
     return Response.redirect(new URL('/terms/', request.url), 301);
+  }
+
+  // Deprecated Rail Transport Page -> Redirect to Home (or suitable alternative)
+  if (normalizedPath === '/interstate-car-transport-by-rail') {
+    return Response.redirect(new URL('/', request.url), 301);
   }
 
   // FAQ Redirects
