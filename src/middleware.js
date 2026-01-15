@@ -189,10 +189,9 @@ export async function onRequest({ request }, next) {
     '/much-car-transport-cost',
     '/delays-in-transit',
     '/transit-warranty',
-    '/general-questions',
-    '/most-frequent-questions-on-car-transport',
     '/estimated-transit-times-for-car-transport',
     '/privacy-policy',
+    '/faq',
   ];
 
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
@@ -239,6 +238,17 @@ export async function onRequest({ request }, next) {
 
   if (normalizedPath === '/moving-cars-terms-and-conditions') {
     return Response.redirect(new URL('/terms/', request.url), 301);
+  }
+
+  // FAQ Redirects
+  const faqRedirects = [
+    '/general-questions',
+    '/most-frequent-questions-on-car-transport',
+    '/how-do-i-get-a-quote-for-drivable-vehicle',
+  ];
+
+  if (faqRedirects.includes(normalizedPath)) {
+    return Response.redirect(new URL('/faq/', request.url), 301);
   }
 
   // Trailing slash enforcement guard

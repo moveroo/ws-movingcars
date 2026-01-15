@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Frequently Asked Questions | Moving Cars';
+const description =
+  'Find answers to common questions about interstate car transport in Australia. Learn about costs, insurance, transit times, and vehicle preparation.';
+
+const faqCategories = [
+  {
+    id: 'general',
+    title: 'General Questions',
+    icon: '💡',
+    questions: [
+      {
+        q: 'What is the process for interstate car transport?',
+        a: 'The process involves four simple steps: 1. Get an instant quote via our website. 2. Book your transport and select your preferred dates. 3. Vehicle collection via door-to-door or depot drop-off. 4. Safe transport and delivery to your destination.',
+      },
+      {
+        q: 'What is the difference between door-to-door and depot-to-depot?',
+        a: 'Door-to-door service means we collect and deliver the vehicle at your specified addresses. Depot-to-depot requires you to drop off and pick up the vehicle from one of our secure national transport hubs, which is often a more budget-friendly option.',
+      },
+      {
+        q: 'Do you transport non-running vehicles?',
+        a: 'Yes, we can transport non-drivable vehicles. However, they must be able to roll, steer, and brake. Special equipment (like winches) may be required, so please specify the vehicle status when requesting a quote.',
+      },
+    ],
+  },
+  {
+    id: 'pricing',
+    title: 'Pricing & Booking',
+    icon: '💰',
+    questions: [
+      {
+        q: 'How much does it cost to transport a car interstate?',
+        a: 'Costs vary based on distance, vehicle size, and the level of protection (open vs enclosed). Major city routes (e.g., Sydney to Melbourne) are the most cost-effective. Use our instant quote tool for an exact price based on your requirements.',
+      },
+      {
+        q: 'What payment methods do you accept?',
+        a: 'We accept all major credit cards, secure bank transfers, and online payments through our encrypted booking system.',
+      },
+      {
+        q: 'How far in advance should I book?',
+        a: 'We recommend booking at least 7-10 days in advance to secure your preferred dates, though we can often accommodate last-minute requests depending on carrier availability.',
+      },
+    ],
+  },
+  {
+    id: 'prep',
+    title: 'Vehicle Preparation',
+    icon: '🔧',
+    questions: [
+      {
+        q: 'Can I leave personal items in the car?',
+        a: 'Standard Australian transport regulations prohibit the carriage of household goods in vehicles on carriers. Items left in the car are not covered by transit insurance. We recommend the car be empty, except for standard tools and a spare tire.',
+      },
+      {
+        q: 'How should I prepare my car for transport?',
+        a: 'Please ensure your vehicle has approximately 1/4 tank of fuel, is clean for inspection, has no loose exterior parts, and any toll tags/alarms are disabled.',
+      },
+      {
+        q: 'Are car transport transit times guaranteed?',
+        a: "While we pride ourselves on industry-leading punctuality, transit times are estimates as they can be affected by weather, road conditions, and logistical factors. We always keep you updated on your vehicle's progress.",
+      },
+    ],
+  },
+  {
+    id: 'insurance',
+    title: 'Safety & Insurance',
+    icon: '🛡️',
+    questions: [
+      {
+        q: 'Is my car insured during transit?',
+        a: 'Yes, every vehicle transported by Moving Cars is covered by comprehensive transit insurance. We conduct thorough vehicle condition reports at both pickup and delivery for your peace of mind.',
+      },
+      {
+        q: 'What happens if my vehicle is damaged?',
+        a: 'In the unlikely event of transit damage, it must be noted on the delivery inspection report. We have a streamlined claims process to ensure any issues are resolved quickly and professionally.',
+      },
+    ],
+  },
+];
+
+// Generate JSON-LD schema
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((cat) =>
+    cat.questions.map((q) => ({
+      '@type': 'Question',
+      name: q.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: q.a,
+      },
+    }))
+  ),
+};
+---
+
+<Layout title={title} description={description}>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(schema)}
+    slot="head"
+  />
+
+  <!-- Hero Header -->
+  <section
+    class="relative pt-32 pb-20 bg-[var(--color-primary-900)] overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 opacity-10 bg-[radial-gradient(circle,_var(--color-accent-400)_1px,_transparent_1px)] bg-[size:30px_30px]"
+    >
+    </div>
+    <div class="container relative z-10 text-center">
+      <h1
+        class="text-4xl md:text-6xl font-extrabold text-white mb-6 animate-reveal"
+      >
+        Frequently Asked <span class="text-gradient">Questions</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-300)] max-w-2xl mx-auto animate-reveal"
+        style="animation-delay: 0.1s"
+      >
+        Everything you need to know about interstate car transport. Can't find
+        an answer? <a
+          href="/contact/"
+          class="text-[var(--color-accent-400)] hover:underline"
+          >Contact our experts</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-20 bg-[var(--color-neutral-50)]">
+    <div class="container max-w-5xl">
+      <div class="grid lg:grid-cols-4 gap-12">
+        <!-- Sidebar Navigation -->
+        <aside class="lg:col-span-1 hidden lg:block sticky top-32 h-fit">
+          <nav class="space-y-2">
+            {
+              faqCategories.map((cat) => (
+                <a
+                  href={`#${cat.id}`}
+                  class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white hover:shadow-sm transition-all text-sm font-semibold text-[var(--color-neutral-600)] hover:text-[var(--color-primary-600)]"
+                >
+                  <span>{cat.icon}</span>
+                  {cat.title}
+                </a>
+              ))
+            }
+          </nav>
+        </aside>
+
+        <!-- Main Questions List -->
+        <div class="lg:col-span-3 space-y-20">
+          {
+            faqCategories.map((category) => (
+              <div id={category.id} class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-8">
+                  <div class="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-2xl border border-[var(--color-neutral-100)]">
+                    {category.icon}
+                  </div>
+                  <h2 class="text-2xl font-bold">{category.title}</h2>
+                </div>
+
+                <div class="space-y-4">
+                  {category.questions.map((item) => (
+                    <div class="glass-panel p-6 md:p-8 rounded-2xl transition-all hover:border-[var(--color-accent-400)] group">
+                      <h3 class="text-lg font-bold mb-4 text-[var(--color-primary-800)] group-hover:text-[var(--color-primary-900)]">
+                        {item.q}
+                      </h3>
+                      <p class="text-[var(--color-neutral-600)] leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+
+          <!-- Final CTA Card -->
+          <div
+            class="glass-panel-dark p-10 md:p-16 rounded-[2rem] text-center relative overflow-hidden mt-32"
+          >
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-[var(--color-accent-400)]/10 rounded-full blur-3xl -mr-32 -mt-32"
+            >
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-6 relative z-10">
+              Still have questions?
+            </h2>
+            <p
+              class="text-[var(--color-neutral-300)] mb-10 text-lg relative z-10"
+            >
+              Our specialists are ready to help you with your specific
+              requirements.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center relative z-10"
+            >
+              <a href="tel:1300123456" class="btn btn-accent btn-lg"
+                >Call 1300 123 456</a
+              >
+              <a href="/contact/" class="btn btn-secondary btn-lg"
+                >Email Support</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
