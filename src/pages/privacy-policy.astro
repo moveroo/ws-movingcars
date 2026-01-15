@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 
 const title = 'Privacy Policy';
 const description =
-  'Moving Cars is committed to protecting your privacy in your dealings with our organisation. Read our full privacy policy here.';
+  'Moving Cars 2026 Privacy Policy. Our commitment to protecting your personal information under the Australian Privacy Act and OAIC guidelines.';
+const lastUpdated = '15 January 2026';
 ---
 
 <Layout title={title} description={description}>
@@ -12,92 +13,176 @@ const description =
       <div
         class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100"
       >
-        <h1
-          class="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 tracking-tight"
-        >
-          Protecting Your Privacy
-        </h1>
+        <header class="mb-12 border-b border-slate-100 pb-8">
+          <div
+            class="text-amber-600 font-bold mb-2 uppercase tracking-widest text-sm"
+          >
+            Legal & Compliance
+          </div>
+          <h1
+            class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
+          >
+            Privacy Policy
+          </h1>
+          <p class="text-slate-500 font-medium">Last Updated: {lastUpdated}</p>
+        </header>
 
         <div class="prose prose-slate prose-lg max-w-none">
-          <p class="lead text-xl text-slate-600 mb-8">
+          <p class="lead text-xl text-slate-600 mb-8 font-medium">
             Moving Cars is committed to protecting your privacy in your dealings
-            with our organisation.
+            with our organisation. This policy outlines how we handle personal
+            information in accordance with the Australian Privacy Principles
+            (APPs) and the Privacy Act 1988.
           </p>
 
           <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
-            Collection of Information
+            1. Collection of Personal Information
           </h2>
           <p>
-            ‘Personal Information’ is defined in the Privacy Act 1988 as
-            Information or an opinion (including information or an opinion
-            forming part of a database), whether true or not and whether
-            recorded in a material form or not, about an individual whose
-            identity is apparent or can reasonably be ascertained from the
-            information or opinion.
+            We collect personal information that is reasonably necessary for our
+            business functions. This includes:
           </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Identity Details</strong>: Name, address, phone number,
+              and email address.
+            </li>
+            <li>
+              <strong>Service Details</strong>: Vehicle details (make/model),
+              origin/destination addresses for transport, and booking history.
+            </li>
+            <li>
+              <strong>Digital Identifiers</strong>: IP address, device type, and
+              usage data collected via cookies when you visit our website.
+            </li>
+            <li>
+              <strong>Financial Information</strong>: Payment transaction
+              records (note: we do not store full credit card numbers; see
+              Section 6).
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            2. Purpose of Collection
+          </h2>
+          <p>We collect and use your personal information primarily to:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Provide requested vehicle transport services and quotes.</li>
+            <li>Communicate with you regarding your bookings and updates.</li>
+            <li>Comply with legal and regulatory obligations.</li>
+            <li>Improve our website performance and user experience.</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            3. Automated Decision-Making (Quoting)
+          </h2>
           <p>
-            The collection of personal information is necessary for the general
-            operation of our business, or to provide you with the products
-            and/or services we provide.
+            Our website uses automated algorithms to provide instant car
+            transport quotes. These decisions are based on data points such as
+            distance, vehicle type, and current carrier availability. If you
+            believe an automated quote is incorrect, you have the right to
+            request a manual review by contacting our team.
           </p>
 
           <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
-            Disclosure
+            4. Disclosure & Overseas Data Flows
           </h2>
           <p>
-            Moving Cars will not provide any personal information collected, to
-            any persons outside of Moving Cars, other than to provide the
-            services or products that you requested, or other than for
-            employment, or legal, or lawful purposes. This may (but is not
-            limited to) include disclosing information to Legal/Law Enforcement
-            Agencies/Agents, and Government agencies such as (but not limited
-            to) the Australian Taxation Office, WorkCover, Department of Social
-            Services, and Child Support Agencies.
+            Moving Cars will not provide your personal information to third
+            parties other than to facilitate the services you requested. This
+            includes:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Sub-contractors</strong>: Reliable transport carriers
+              actually performing the vehicle move.
+            </li>
+            <li>
+              <strong>Overseas Disclosure</strong>: We use international service
+              providers for technology hosting (Vercel - USA), payment
+              processing (Square - USA/International), and analytics. We ensure
+              these providers maintain standards equivalent to Australian
+              privacy laws.
+            </li>
+            <li>
+              <strong>Law Enforcement</strong>: When required by Australian law
+              or government agencies (e.g., ATO, WorkCover).
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            5. Security & Data Retention
+          </h2>
+          <p>
+            We take all reasonable steps to protect your personal information
+            from misuse, loss, and unauthorised access. This includes encryption
+            (SSL/TLS) for data in transit and restricted internal access.
           </p>
           <p>
-            Other than stated above, Moving Cars will not disclose personal
-            information, unless you have authorised us to do so.
+            <strong>Retention:</strong> We retain your personal information only as
+            long as necessary for the purpose it was collected or to comply with Australian
+            tax and record-keeping laws (typically up to 7 years).
           </p>
 
           <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
-            Access and Correction of Personal Data
+            6. Credit Card Details
           </h2>
           <p>
-            If at any time the personal information you have supplied to Moving
-            Cars needs to be accessed by yourself or altered in any way, this
-            will be provided only to the person/s named on such information and
-            only by written application accompanying suitable identification.
+            Any transactions using credit cards via our website are processed
+            securely by <strong>Square</strong>. We do not store credit card
+            details on our own servers.
           </p>
-
-          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">Security</h2>
-          <p>
-            Whilst Moving Cars takes reasonable steps to protect your personal
-            information, sending and receiving information over the Internet is
-            always at your own risk. No guarantee can be given that information
-            sent over the Internet is completely secure.
-          </p>
-
-          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
-            Credit Card Details
-          </h2>
-          <p>
-            Any transactions using credit cards via our website are processed by
-            Square. We do not store credit card details processed online.
-          </p>
-
           <div
             class="bg-amber-50 border-l-4 border-amber-400 p-6 my-8 rounded-r-xl"
           >
             <p class="font-bold text-slate-900 mb-0">
-              Please note we do not under any circumstances sell or trade your
-              email address or any other contact details.
+              Zero-Tolerance Policy: We do not under any circumstances sell,
+              rent, or trade your email address or contact details to
+              third-party marketers.
             </p>
           </div>
 
-          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">Contact</h2>
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            7. Your Rights (2026 Standards)
+          </h2>
           <p>
-            Should you have any questions or complaints about privacy issues
-            please contact <span class="font-bold">Moving Cars</span>.
+            As part of our commitment to modern privacy standards, you have the
+            following rights:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Access & Correction</strong>: You may request access to or
+              correction of your data at any time.
+            </li>
+            <li>
+              <strong>Right to Erasure</strong>: You may request that we delete
+              your personal data when it is no longer required for its original
+              purpose.
+            </li>
+            <li>
+              <strong>Data Portability</strong>: You may request a
+              machine-readable copy of the data you provided to us.
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            8. Complaints and Contact
+          </h2>
+          <p>
+            If you have an inquiry or complaint about how we handle your
+            personal information, please write to us. We will respond within 30
+            days.
+          </p>
+          <p>
+            If you are not satisfied with our response, you may escalate your
+            complaint to the <strong
+              >Office of the Australian Information Commissioner (OAIC)</strong
+            > at <a
+              href="https://www.oaic.gov.au"
+              target="_blank"
+              rel="noopener"
+              class="text-amber-600 hover:underline">oaic.gov.au</a
+            >.
           </p>
         </div>
 
@@ -106,9 +191,9 @@ const description =
           class="bg-slate-900 text-white p-8 md:p-12 rounded-2xl mt-16 flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <div>
-            <h2 class="text-3xl font-bold mb-2">Ready to move your car?</h2>
+            <h2 class="text-3xl font-bold mb-2">Safe & Compliant Transport</h2>
             <p class="text-slate-400 text-lg">
-              Get an instant, obligation-free quote today.
+              Your data is secure. Get a quote in seconds.
             </p>
           </div>
           <a
