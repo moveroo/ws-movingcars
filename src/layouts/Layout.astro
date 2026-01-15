@@ -93,9 +93,9 @@ const {
             "publisher": { "@id": "https://movingcars.com.au/#organization" }
           },
           {
-            "@type": "AutoTransport",
+            "@type": "MovingCompany",
             "name": "Moving Cars",
-            "description": "Premium interstate car transport services across Australia.",
+            "description": "Premium interstate car transport services across Australia. Specializing in reliable, fully-insured vehicle shipping and nationwide logistics.",
             "url": "https://movingcars.com.au",
             "telephone": "1300-123-456",
             "address": {
@@ -112,6 +112,26 @@ const {
             "areaServed": {
               "@type": "Country",
               "name": "Australia"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Car Transport Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Interstate Car Transport"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Enclosed Car Transport"
+                  }
+                }
+              ]
             }
           }
         ]
