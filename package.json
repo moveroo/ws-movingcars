@@ -20,7 +20,8 @@
     "suggest:content": "node scripts/suggest-content-improvements.mjs",
     "validate": "node scripts/validate-structure.mjs",
     "check:structure": "node scripts/analyze-heading-structure.mjs",
-    "check:links": "node scripts/analyze-internal-links.mjs"
+    "check:links": "node scripts/analyze-internal-links.mjs",
+    "check": "npm run lint && npm run format:check && npm run build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
