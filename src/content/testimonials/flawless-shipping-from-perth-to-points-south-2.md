@@ -1,5 +1,4 @@
 ---
-slug: flawless-shipping-from-perth-to-points-south-2
 title: 'Review: flawless shipping from perth to points south 2'
 date: '2026-01-15'
 ---

@@ -1,5 +1,4 @@
 ---
-slug: first-class-treatment-for-my-mini-moke
 title: 'Review: first class treatment for my mini moke'
 date: '2026-01-15'
 ---

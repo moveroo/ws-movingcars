@@ -1,5 +1,4 @@
 ---
-slug: five-star-handling-for-fragile-exotic
 title: 'Review: five star handling for fragile exotic'
 date: '2026-01-15'
 ---

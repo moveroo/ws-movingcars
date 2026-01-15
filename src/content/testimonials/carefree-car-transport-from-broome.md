@@ -1,5 +1,4 @@
 ---
-slug: carefree-car-transport-from-broome
 title: 'Review: carefree car transport from broome'
 date: '2026-01-15'
 ---

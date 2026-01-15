@@ -1,5 +1,4 @@
 ---
-slug: first-class-transport-for-flash-mercedes
 title: 'Review: first class transport for flash mercedes'
 date: '2026-01-15'
 ---

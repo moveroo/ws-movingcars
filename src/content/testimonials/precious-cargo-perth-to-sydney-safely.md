@@ -1,5 +1,4 @@
 ---
-slug: precious-cargo-perth-to-sydney-safely
 title: 'Review: precious cargo perth to sydney safely'
 date: '2026-01-15'
 ---

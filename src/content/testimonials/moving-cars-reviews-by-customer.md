@@ -1,5 +1,4 @@
 ---
-slug: moving-cars-reviews-by-customer
 title: 'Review: moving cars reviews by customer'
 date: '2026-01-15'
 ---

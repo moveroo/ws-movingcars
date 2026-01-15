@@ -1,5 +1,4 @@
 ---
-slug: first-rate-canberra-to-cairns-transfer
 title: 'Review: first rate canberra to cairns transfer'
 date: '2026-01-15'
 ---

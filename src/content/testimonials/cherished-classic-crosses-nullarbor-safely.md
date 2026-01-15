@@ -1,5 +1,4 @@
 ---
-slug: cherished-classic-crosses-nullarbor-safely
 title: 'Review: cherished classic crosses nullarbor safely'
 date: '2026-01-15'
 ---

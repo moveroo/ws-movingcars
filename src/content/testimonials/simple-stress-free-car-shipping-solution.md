@@ -1,5 +1,4 @@
 ---
-slug: simple-stress-free-car-shipping-solution
 title: 'Review: simple stress free car shipping solution'
 date: '2026-01-15'
 ---

@@ -1,5 +1,4 @@
 ---
-slug: dream-drive-motors-make-merry-move
 title: 'Review: dream drive motors make merry move'
 date: '2026-01-15'
 ---

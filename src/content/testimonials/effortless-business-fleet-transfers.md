@@ -1,5 +1,4 @@
 ---
-slug: effortless-business-fleet-transfers
 title: 'Review: effortless business fleet transfers'
 date: '2026-01-15'
 ---

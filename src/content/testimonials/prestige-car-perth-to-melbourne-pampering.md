@@ -1,5 +1,4 @@
 ---
-slug: prestige-car-perth-to-melbourne-pampering
 title: 'Review: prestige car perth to melbourne pampering'
 date: '2026-01-15'
 ---

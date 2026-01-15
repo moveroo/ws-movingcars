@@ -1,5 +1,4 @@
 ---
-slug: five-star-door-to-door-vehicle-transportation
 title: 'Review: five star door to door vehicle transportation'
 date: '2026-01-15'
 ---

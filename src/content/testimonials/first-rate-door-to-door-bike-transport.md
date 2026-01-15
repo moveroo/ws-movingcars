@@ -1,5 +1,4 @@
 ---
-slug: first-rate-door-to-door-bike-transport
 title: 'Review: first rate door to door bike transport'
 date: '2026-01-15'
 ---
