@@ -1,30 +1,196 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = 'Transport Non Drivable Cars';
+const title = 'Non-Drivable & Salvage Car Transport | Moving Cars';
 const description =
-  'Professional car transport services for Transport Non Drivable Cars. Get an instant quote for interstate vehicle shipping.';
+  'Professional transport for non-running and salvage vehicles. Equipped with winches and forklifts for auction collections and restoration projects.';
+
+const capabilities = [
+  {
+    title: 'Winching Service',
+    desc: 'For vehicles that roll and steer but do not start. We use heavy-duty winches to safely pull the vehicle onto the carrier.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Forklift Loading',
+    desc: 'For severe salvage cases where wheels are damaged or missing. (Note: Must be pre-arranged and available at both ends).',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+  },
+  {
+    title: 'Auction Collection',
+    desc: 'We are experienced in collecting from major salvage auctions like Manheim and Pickles, handling the necessary release paperwork.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+  },
+];
+
+const checklist = [
+  'Tyres must be inflated (if rolling).',
+  'Steering must be unlocked.',
+  'Brakes must be disengaged.',
+  'Driver side window must be operational (if possible).',
+  'Key must be available.',
+];
 ---
 
 <Layout title={title} description={description}>
-  <main class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none">
-      <p>Content for Transport Non Drivable Cars is being migrated.</p>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
 
-      <div class="bg-amber-50 p-8 rounded-xl border border-amber-200 mt-12">
-        <h2 class="text-2xl font-bold mb-4 text-slate-900 mt-0">
-          Ready for a Quote?
-        </h2>
-        <p class="mb-6">
-          Get an instant, no-obligation quote for your car transport needs.
-        </p>
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+      <div
+        class="inline-flex items-center gap-2 bg-[var(--color-accent-500)]/10 text-[var(--color-accent-500)] px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[var(--color-accent-500)]/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent-500)]"></span>
+        Salvage & Restoration
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-8">
+        Transport for <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-400)] to-[var(--color-accent-600)]"
+          >Non-Drivable Cars</span
+        >
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        Just because it doesn't run, doesn't mean it can't move. We specialize
+        in transporting project cars, salvage vehicles, and non-runners
+        Australia-wide.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="https://ratecheck.movingcars.com.au/quote/v2"
-          class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-colors"
+          class="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-[var(--color-accent-500)]/20 transform hover:-translate-y-1"
         >
-          Get Instant Quote
+          Get Salvage Quote
         </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-5xl">
+      {/* Intro */}
+      <div class="prose prose-lg prose-slate mx-auto mb-20 text-center">
+        <p class="text-xl leading-relaxed text-[var(--color-neutral-600)]">
+          Shipping a non-running vehicle requires specialized equipment and
+          expertise. Whether you've bought a project car from interstate or a
+          salvage vehicle from auction, standard carriers often cannot assist.
+          Moving Cars has the winch-equipped fleet to handle the job safely.
+        </p>
+      </div>
+
+      {/* Capabilities Grid */}
+      <div class="grid md:grid-cols-3 gap-8 mb-24">
+        {
+          capabilities.map((item) => (
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)] hover:border-[var(--color-accent-200)] transition-colors">
+              <div class="w-12 h-12 bg-[var(--color-primary-50)] text-[var(--color-primary-600)] rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={item.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-primary-900)] mb-3">
+                {item.title}
+              </h3>
+              <p class="text-[var(--color-neutral-600)] text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Checklist Section */}
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div>
+          <h2 class="text-3xl font-bold text-[var(--color-primary-900)] mb-6">
+            Is your car "Rolling"?
+          </h2>
+          <p class="text-[var(--color-neutral-600)] mb-8">
+            To qualify for our standard winch service, your vehicle must be a
+            "Rolling Shell". This means it can roll freely on its own wheels and
+            be steered.
+          </p>
+          <div
+            class="bg-white p-6 rounded-xl border-l-4 border-[var(--color-accent-500)] shadow-sm mb-8"
+          >
+            <h4 class="font-bold text-[var(--color-primary-800)] mb-2">
+              The Rolling Checklist
+            </h4>
+            <ul class="space-y-3">
+              {
+                checklist.map((item) => (
+                  <li class="flex items-center gap-3 text-sm text-[var(--color-neutral-700)]">
+                    <svg
+                      class="w-5 h-5 text-[var(--color-accent-500)]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        <div
+          class="glass-panel-dark p-10 rounded-[2rem] text-center relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-40 h-40 bg-[var(--color-accent-500)] opacity-10 blur-3xl"
+          >
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">
+            What if it doesn't roll?
+          </h3>
+          <p class="text-[var(--color-neutral-300)] mb-8">
+            If your vehicle has significant damage, missing wheels, or locked
+            brakes, it requires a <strong>Forklift Service</strong>. This is a
+            highly specialized transport type.
+          </p>
+          <a
+            href="/contact/"
+            class="inline-block bg-white text-[var(--color-primary-900)] font-bold py-3 px-6 rounded-lg hover:bg-[var(--color-neutral-100)] transition-colors"
+          >
+            Contact for Forklift Quote
+          </a>
+        </div>
       </div>
     </div>
   </main>

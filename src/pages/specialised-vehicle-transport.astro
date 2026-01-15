@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Specialised Vehicle Transport | Luxury, Classic & Salvage';
+const description =
+  'Expert transport solutions for non-standard vehicles. From enclosed carriers for luxury cars to winching services for non-runners and salvage.';
+
+const services = [
+  {
+    title: 'Enclosed Transport',
+    desc: 'Maximum protection for high-value vehicles. Fully covered carriers protect against weather, dust, and road debris.',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', // Shield Check
+    link: '/enclosed-car-transport/',
+    color: 'bg-[var(--color-accent-500)]',
+  },
+  {
+    title: 'Luxury & Prestige',
+    desc: 'VIP concierge service for high-end vehicles. Discrete, white-glove handling with priority collection assurance.',
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z', // Star
+    link: '/transport-luxury-prestige-cars/',
+    color: 'bg-[var(--color-primary-400)]',
+  },
+  {
+    title: 'Classic & Vintage',
+    desc: 'Specialized care for delicate classics. We understand the nuances of older vehicles, including carburated engines and low clearance.',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', // Clock/Time
+    link: '/classic-and-vintage-car-transport-services/',
+    color: 'bg-[var(--color-accent-400)]',
+  },
+  {
+    title: 'Non-Drivable / Salvage',
+    desc: 'Expert recovery for non-running vehicles. Equipped with winches and forklifts for salvage auctions and restoration projects.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z', // Lightning/Power
+    link: '/transport-non-drivable-cars/',
+    color: 'bg-[var(--color-primary-600)]',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+      <div
+        class="inline-flex items-center gap-2 bg-[var(--color-accent-500)]/10 text-[var(--color-accent-500)] px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[var(--color-accent-500)]/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent-500)]"></span>
+        Specialised Services
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-8">
+        Specialised Vehicle <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-400)] to-[var(--color-accent-600)]"
+          >Transport Solutions</span
+        >
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        Not every car is a standard sedan. Whether it's a priceless classic, a
+        damaged salvage vehicle, or a high-performance supercar, we have the
+        specialized equipment and expertise to move it safely.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://ratecheck.movingcars.com.au/quote/v2"
+          class="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-[var(--color-accent-500)]/20 transform hover:-translate-y-1"
+        >
+          Get a Specialised Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-6xl">
+      {/* Services Grid */}
+      <div class="grid md:grid-cols-2 gap-8 mb-24">
+        {
+          services.map((service) => (
+            <a
+              href={service.link}
+              class="group bg-white p-10 rounded-[2rem] shadow-sm border border-[var(--color-neutral-100)] hover:shadow-xl hover:border-[var(--color-accent-200)] transition-all relative overflow-hidden flex flex-col items-start"
+            >
+              <div
+                class={`w-14 h-14 ${service.color} text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+              >
+                <svg
+                  class="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={service.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[var(--color-primary-900)] mb-3 group-hover:text-[var(--color-accent-600)] transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-[var(--color-neutral-600)] leading-relaxed mb-6">
+                {service.desc}
+              </p>
+              <div class="mt-auto flex items-center gap-2 font-bold text-[var(--color-primary-800)] group-hover:translate-x-2 transition-transform">
+                View Details
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      {/* Why Choose Us Block */}
+      <div
+        class="relative bg-white rounded-[2.5rem] p-10 md:p-16 shadow-xl border border-[var(--color-neutral-100)] overflow-hidden"
+      >
+        <div class="relative z-10 max-w-3xl">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-[var(--color-primary-900)] mb-6"
+          >
+            The Right Tool for the Job
+          </h2>
+          <p
+            class="text-[var(--color-neutral-600)] text-lg leading-relaxed mb-8"
+          >
+            Using the wrong type of carrier can lead to damage or delays. We
+            match your vehicle's specific needs with the correct transport
+            method.
+          </p>
+          <ul class="space-y-4 mb-10">
+            <li
+              class="flex items-center gap-3 text-[var(--color-primary-800)] font-medium"
+            >
+              <span
+                class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                >✓</span
+              >
+              Hydraulic Tailgates for low-clearance sports cars
+            </li>
+            <li
+              class="flex items-center gap-3 text-[var(--color-primary-800)] font-medium"
+            >
+              <span
+                class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                >✓</span
+              >
+              Heavy-duty Winches for non-running salvage
+            </li>
+            <li
+              class="flex items-center gap-3 text-[var(--color-primary-800)] font-medium"
+            >
+              <span
+                class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center"
+                >✓</span
+              >
+              Soft-tie strapping for delicate vintage suspensions
+            </li>
+          </ul>
+        </div>
+        <div
+          class="absolute right-0 bottom-0 w-1/3 h-full bg-gradient-to-l from-[var(--color-primary-50)] to-transparent hidden md:block"
+        >
+        </div>
+      </div>
+
+      {/* FAQ Link */}
+      <div class="mt-24 text-center">
+        <p class="text-[var(--color-neutral-500)] mb-4">
+          Have questions about dimensions or modifications?
+        </p>
+        <a
+          href="/faq/"
+          class="text-[var(--color-accent-600)] font-bold hover:underline"
+          >Visit our FAQ Help Centre</a
+        >
+      </div>
+    </div>
+  </main>
+</Layout>

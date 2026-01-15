@@ -176,6 +176,7 @@ export async function onRequest({ request }, next) {
     '/',
     '/car-transport', // New Hub
     '/cheap-car-transport-rates', // New Pillar
+    '/specialised-vehicle-transport', // New Pillar (Specialised)
     '/reviews',
     '/terms',
     '/contact',
