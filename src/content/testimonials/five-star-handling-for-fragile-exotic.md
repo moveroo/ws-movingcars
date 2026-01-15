@@ -3,5 +3,4 @@ title: 'Review: five star handling for fragile exotic'
 date: '2026-01-15'
 ---
 
-Placeholder content for testimonial: **five-star-handling-for-fragile-exotic**.
-Please replace this with the actual content from the legacy site.
+Movingcars specialist exotic car transporters treated my rare Aston Martin DB5 like royalty all the way Darwin to Adelaide with enclosed trailer.

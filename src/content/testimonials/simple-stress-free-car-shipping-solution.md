@@ -3,5 +3,4 @@ title: 'Review: simple stress free car shipping solution'
 date: '2026-01-15'
 ---
 
-Placeholder content for testimonial: **simple-stress-free-car-shipping-solution**.
-Please replace this with the actual content from the legacy site.
+With Movingcars user-friendly website I arranged excellent value car transport Perth to Brisbane at the click of a button. So easy!

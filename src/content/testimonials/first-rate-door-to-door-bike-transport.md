@@ -3,5 +3,4 @@ title: 'Review: first rate door to door bike transport'
 date: '2026-01-15'
 ---
 
-Placeholder content for testimonial: **first-rate-door-to-door-bike-transport**.
-Please replace this with the actual content from the legacy site.
+Relocating to Hobart, Movingcars shipped my precious BMW dirt bike securely door-to-door from Darwin, keeping me updated throughout trip.

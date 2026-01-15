@@ -3,5 +3,4 @@ title: 'Review: first class treatment for my mini moke'
 date: '2026-01-15'
 ---
 
-Placeholder content for testimonial: **first-class-treatment-for-my-mini-moke**.
-Please replace this with the actual content from the legacy site.
+From quotes to delivery Movingcars offered amazing mini-moke shipping Sydney to Darwin with updates, insurance and their caring way with quirky vehicles like mine!
