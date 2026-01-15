@@ -151,7 +151,7 @@ export const config = {
   matcher: ['/((?!_next|api|_vercel|favicon|robots|sitemap|[^/]+\\.[^/]+$).*)'],
 };
 
-export default function middleware(request) {
+export async function onRequest({ request }, next) {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
@@ -198,12 +198,17 @@ export default function middleware(request) {
 
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
   if (knownPages.includes(normalizedPath)) {
-    return; // Pass through
+    return next(); // Pass through
   }
 
   const slug = pathname.replace(/^\/|\/$/g, '');
   if (!slug || slug.includes('.')) {
-    return; // Pass through
+    return next(); // Pass through
+  }
+
+  // Specific alias for Privacy
+  if (normalizedPath === '/privacy') {
+    return Response.redirect(new URL('/privacy-policy/', request.url), 301);
   }
 
   const target = getRedirectTarget(slug);

@@ -3,28 +3,122 @@ import Layout from '../layouts/Layout.astro';
 
 const title = 'Privacy Policy';
 const description =
-  'Professional car transport services for Privacy Policy. Get an instant quote for interstate vehicle shipping.';
+  'Moving Cars is committed to protecting your privacy in your dealings with our organisation. Read our full privacy policy here.';
 ---
 
 <Layout title={title} description={description}>
-  <main class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none">
-      <p>Content for Privacy Policy is being migrated.</p>
-
-      <div class="bg-amber-50 p-8 rounded-xl border border-amber-200 mt-12">
-        <h2 class="text-2xl font-bold mb-4 text-slate-900 mt-0">
-          Ready for a Quote?
-        </h2>
-        <p class="mb-6">
-          Get an instant, no-obligation quote for your car transport needs.
-        </p>
-        <a
-          href="/quote/"
-          class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-colors"
+  <main class="bg-slate-50 min-h-screen py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div
+        class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100"
+      >
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 tracking-tight"
         >
-          Get Instant Quote
-        </a>
+          Protecting Your Privacy
+        </h1>
+
+        <div class="prose prose-slate prose-lg max-w-none">
+          <p class="lead text-xl text-slate-600 mb-8">
+            Moving Cars is committed to protecting your privacy in your dealings
+            with our organisation.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            Collection of Information
+          </h2>
+          <p>
+            ‘Personal Information’ is defined in the Privacy Act 1988 as
+            Information or an opinion (including information or an opinion
+            forming part of a database), whether true or not and whether
+            recorded in a material form or not, about an individual whose
+            identity is apparent or can reasonably be ascertained from the
+            information or opinion.
+          </p>
+          <p>
+            The collection of personal information is necessary for the general
+            operation of our business, or to provide you with the products
+            and/or services we provide.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            Disclosure
+          </h2>
+          <p>
+            Moving Cars will not provide any personal information collected, to
+            any persons outside of Moving Cars, other than to provide the
+            services or products that you requested, or other than for
+            employment, or legal, or lawful purposes. This may (but is not
+            limited to) include disclosing information to Legal/Law Enforcement
+            Agencies/Agents, and Government agencies such as (but not limited
+            to) the Australian Taxation Office, WorkCover, Department of Social
+            Services, and Child Support Agencies.
+          </p>
+          <p>
+            Other than stated above, Moving Cars will not disclose personal
+            information, unless you have authorised us to do so.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            Access and Correction of Personal Data
+          </h2>
+          <p>
+            If at any time the personal information you have supplied to Moving
+            Cars needs to be accessed by yourself or altered in any way, this
+            will be provided only to the person/s named on such information and
+            only by written application accompanying suitable identification.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">Security</h2>
+          <p>
+            Whilst Moving Cars takes reasonable steps to protect your personal
+            information, sending and receiving information over the Internet is
+            always at your own risk. No guarantee can be given that information
+            sent over the Internet is completely secure.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">
+            Credit Card Details
+          </h2>
+          <p>
+            Any transactions using credit cards via our website are processed by
+            the ANZ eGate system. We do not store credit card details processed
+            online.
+          </p>
+
+          <div
+            class="bg-amber-50 border-l-4 border-amber-400 p-6 my-8 rounded-r-xl"
+          >
+            <p class="font-bold text-slate-900 mb-0">
+              Please note we do not under any circumstances sell or trade your
+              email address or any other contact details.
+            </p>
+          </div>
+
+          <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">Contact</h2>
+          <p>
+            Should you have any questions or complaints about privacy issues
+            please contact <span class="font-bold">Moving Cars</span>.
+          </p>
+        </div>
+
+        <!-- Quote CTA -->
+        <div
+          class="bg-slate-900 text-white p-8 md:p-12 rounded-2xl mt-16 flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Ready to move your car?</h2>
+            <p class="text-slate-400 text-lg">
+              Get an instant, obligation-free quote today.
+            </p>
+          </div>
+          <a
+            href="/quote/"
+            class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-4 px-10 rounded-xl transition-all transform hover:scale-105 inline-block text-center whitespace-nowrap"
+          >
+            Get Instant Quote
+          </a>
+        </div>
       </div>
     </div>
   </main>
