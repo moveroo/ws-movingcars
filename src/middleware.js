@@ -161,6 +161,7 @@ export async function onRequest({ request }, next) {
   const knownPages = [
     '/',
     '/car-transport', // New Hub
+    '/cheap-car-transport-rates', // New Pillar
     '/reviews',
     '/terms',
     '/contact',
@@ -210,6 +211,18 @@ export async function onRequest({ request }, next) {
       new URL('https://ratecheck.movingcars.com.au/quote/v2/', request.url),
       301
     );
+  }
+
+  // [2026-01-16] CONSOLIDATION: Cheap Rates Pillar
+  const cheapRatesPillar = '/cheap-car-transport-rates/';
+  const cheapRatesRedirects = [
+    '/backload-car-transport',
+    '/cheap-car-transport',
+    '/much-car-transport-cost',
+  ];
+
+  if (cheapRatesRedirects.includes(normalizedPath)) {
+    return Response.redirect(new URL(cheapRatesPillar, request.url), 301);
   }
 
   // Legacy Regional Hubs -> Redirect to /car-transport/

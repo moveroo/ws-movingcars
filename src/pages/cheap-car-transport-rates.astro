@@ -1,0 +1,279 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Cheap Car Transport Rates & Cost Guide | Moving Cars';
+const description =
+  'The complete guide to understanding car transport costs. Learn how to get cheap car transport rates, how backloading works, and money-saving tips for interstate vehicle shipping.';
+
+const costFactors = [
+  {
+    title: 'Distance & Location',
+    desc: 'The primary driver of cost. Major routes (e.g., Melbourne to Sydney) are cheaper due to high volume, while remote pickups incur extra fees.',
+  },
+  {
+    title: 'Vehicle Size & Type',
+    desc: 'Larger vehicles (SUVs, 4WDs) take up more space and weight on the carrier, costing slightly more than standard sedans.',
+  },
+  {
+    title: 'Depot vs Door Service',
+    desc: 'Depot-to-Depot service is the cheapest option. Door-to-Door adds convenience but includes local towing fees.',
+  },
+  {
+    title: 'Flexibility',
+    desc: 'Flexible dates allow you to take advantage of "Backloading" spots—filling empty spaces on carriers already on the road.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How much does interstate car transport cost?',
+    answer:
+      'Costs vary significantly based on distance and vehicle type. A short hop (e.g., SYD-MEL) might start from a few hundred dollars, while a cross-continent trek (e.g., PER-BNE) will be higher. The best way to get an accurate price is to use our instant quote calculator.',
+  },
+  {
+    question: 'What is Backloading?',
+    answer:
+      'Backloading refers to booking space on a truck that is returning from a delivery or has spare capacity. Since the truck is running anyway, carriers often offer these spots at a discounted rate to maximize efficiency. It requires some date flexibility but is the cheapest way to move a car.',
+  },
+  {
+    question: 'Is Depot-to-Depot cheaper?',
+    answer:
+      'Yes. By dropping your car at one of our major consolidated depots, you avoid the cost of a local tow truck navigating residential streets to collect your vehicle. It is the most budget-friendly methods available.',
+  },
+  {
+    question: 'Does the time of year affect the price?',
+    answer:
+      'Yes. Peak moving seasons (Summer/Christmas) and holidays see high demand, which can drive up prices. Booking during off-peak times or being flexible with your move dates can help you secure a lower rate.',
+  },
+];
+
+const checklistItems = [
+  "Choose 'Depot-to-Depot' service to avoid local collection fees.",
+  'Ensure your car is drivable (non-runners cost more to load).',
+  'Book in advance to avoid last-minute urgent premiums.',
+  'Remove personal items to reduce weight and liability risk.',
+  'Be flexible with your dates to catch a Backload special.',
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+      <div
+        class="inline-flex items-center gap-2 bg-[var(--color-accent-500)]/10 text-[var(--color-accent-500)] px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[var(--color-accent-500)]/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent-500)]"></span>
+        Cost Saving Guide
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-8">
+        Cheap Car Transport <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-400)] to-[var(--color-accent-600)]"
+          >Rates & Pricing</span
+        >
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        Understanding how transport costs are calculated is the first step to
+        saving money. Discover backloading, depot options, and how to secure the
+        best rate for your interstate move.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://ratecheck.movingcars.com.au/quote/v2"
+          class="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-[var(--color-accent-500)]/20 transform hover:-translate-y-1"
+        >
+          Check Rates Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-5xl">
+      {/* Intro */}
+      <div class="prose prose-lg prose-slate mx-auto mb-20 text-center">
+        <p class="text-xl leading-relaxed text-[var(--color-neutral-600)]">
+          Whether you've bought a car interstate, are relocating for work, or
+          need to move a fleet, cost is always a major consideration. At Moving
+          Cars, we believe in transparent pricing. We don't just give you a
+          quote; we help you understand <em>how</em> to get the best value, utilizing
+          smart logistics like backloading and depot networks.
+        </p>
+      </div>
+
+      {/* Cost Factors Grid */}
+      <div class="mb-24">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-[var(--color-primary-900)]">
+            What Determines the Price?
+          </h2>
+          <p class="text-[var(--color-neutral-500)] mt-4">
+            Four key factors that influence your final quote.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {
+            costFactors.map((factor) => (
+              <div class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)] hover:border-[var(--color-accent-200)] transition-colors">
+                <h3 class="text-xl font-bold text-[var(--color-primary-900)] mb-3">
+                  {factor.title}
+                </h3>
+                <p class="text-[var(--color-neutral-600)]">{factor.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Backloading Highlight Section */}
+      <div
+        class="bg-[var(--color-primary-900)] rounded-3xl p-8 md:p-16 text-white text-center mb-24 relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-[var(--color-accent-500)] opacity-10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"
+        >
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            The Secret to Cheap Rates: <span
+              class="text-[var(--color-accent-400)]">Backloading</span
+            >
+          </h2>
+          <p
+            class="text-lg text-[var(--color-neutral-300)] mb-8 leading-relaxed"
+          >
+            Backloading is the most effective way to save money on interstate
+            car transport. It involves booking space on a trusted carrier that
+            is already scheduled to travel your route or is returning empty from
+            a delivery. By "filling the gap," you get a premium service at a
+            fraction of the cost.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+              <h4 class="font-bold text-[var(--color-accent-400)] mb-2">
+                Eco-Friendly
+              </h4>
+              <p class="text-sm text-[var(--color-neutral-400)]">
+                Reduces carbon footprint by maximizing truck efficiency.
+              </p>
+            </div>
+            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+              <h4 class="font-bold text-[var(--color-accent-400)] mb-2">
+                Cost Effective
+              </h4>
+              <p class="text-sm text-[var(--color-neutral-400)]">
+                Save up to 30% compared to dedicated charter services.
+              </p>
+            </div>
+            <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+              <h4 class="font-bold text-[var(--color-accent-400)] mb-2">
+                Fast Service
+              </h4>
+              <p class="text-sm text-[var(--color-neutral-400)]">
+                Frequent trucks on major routes mean you rarely wait long.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Money Saving Checklist */}
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div>
+          <h2 class="text-3xl font-bold text-[var(--color-primary-900)] mb-6">
+            Top Money-Saving Tips
+          </h2>
+          <p class="text-[var(--color-neutral-600)] mb-8">
+            Want to get the absolute lowest price? Follow these expert tips when
+            booking your vehicle transport.
+          </p>
+          <ul class="space-y-4">
+            {
+              checklistItems.map((item) => (
+                <li class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--color-accent-100)] flex items-center justify-center text-[var(--color-accent-600)] mt-0.5">
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span class="text-[var(--color-neutral-700)]">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div
+          class="bg-white p-8 rounded-2xl shadow-xl border border-[var(--color-neutral-100)] text-center"
+        >
+          <h3 class="text-xl font-bold text-[var(--color-primary-900)] mb-4">
+            Get Your Best Price Now
+          </h3>
+          <p class="text-[var(--color-neutral-600)] mb-8 text-sm">
+            Compare options for Door-to-Door, Depot, and Express service
+            instantly.
+          </p>
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="block w-full bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-8 rounded-xl transition-all"
+          >
+            Calculate Quote
+          </a>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-[var(--color-primary-900)] text-center mb-12"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          {
+            faqs.map((faq) => (
+              <div class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)]">
+                <h3 class="text-lg font-bold text-[var(--color-primary-900)] mb-3">
+                  {faq.question}
+                </h3>
+                <p class="text-[var(--color-neutral-600)] leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
