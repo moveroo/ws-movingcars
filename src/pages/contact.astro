@@ -7,14 +7,14 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <main class="bg-slate-50 min-h-screen py-16">
+  <main class="bg-[var(--color-neutral-50)] min-h-screen py-16">
     <div class="container mx-auto px-4 max-w-5xl">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Left Side: Contact Info & Branding -->
         <div class="lg:col-span-5 flex flex-col">
           <div class="mb-8">
             <div
-              class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-amber-200"
+              class="inline-flex items-center gap-2 bg-[var(--color-accent-100)] text-[var(--color-accent-700)] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-[var(--color-accent-200)]"
             >
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -24,12 +24,14 @@ const description =
               100% Australian Owned & Operated
             </div>
             <h1
-              class="text-5xl font-extrabold text-slate-900 tracking-tight mb-6"
+              class="text-5xl font-extrabold text-[var(--color-primary-900)] tracking-tight mb-6"
             >
               Contact <br />
-              <span class="text-amber-600">Moving Cars</span>
+              <span class="text-[var(--color-accent-600)]">Moving Cars</span>
             </h1>
-            <p class="text-xl text-slate-600 leading-relaxed mb-8">
+            <p
+              class="text-xl text-[var(--color-neutral-600)] leading-relaxed mb-8"
+            >
               We're here to make your interstate car transport seamless. Reach
               out to our expert team for personalised support.
             </p>
@@ -38,7 +40,7 @@ const description =
           <div class="space-y-6">
             <div class="flex items-start gap-5 group">
               <div
-                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all shrink-0"
+                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-[var(--color-neutral-100)] flex items-center justify-center text-[var(--color-accent-600)] group-hover:bg-[var(--color-accent-600)] group-hover:text-white transition-all shrink-0"
               >
                 <svg
                   class="w-6 h-6"
@@ -56,13 +58,13 @@ const description =
               </div>
               <div>
                 <h3
-                  class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1"
+                  class="text-sm font-bold text-[var(--color-neutral-400)] uppercase tracking-widest mb-1"
                 >
                   Email Support
                 </h3>
                 <a
                   href="mailto:info@movingcars.com.au"
-                  class="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                  class="text-xl font-bold text-[var(--color-primary-900)] hover:text-[var(--color-accent-600)] transition-colors"
                 >
                   info@movingcars.com.au
                 </a>
@@ -71,7 +73,7 @@ const description =
 
             <div class="flex items-start gap-5 group">
               <div
-                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all shrink-0"
+                class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-[var(--color-neutral-100)] flex items-center justify-center text-[var(--color-accent-600)] group-hover:bg-[var(--color-accent-600)] group-hover:text-white transition-all shrink-0"
               >
                 <svg
                   class="w-6 h-6"
@@ -89,13 +91,13 @@ const description =
               </div>
               <div>
                 <h3
-                  class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1"
+                  class="text-sm font-bold text-[var(--color-neutral-400)] uppercase tracking-widest mb-1"
                 >
                   General Inquiries
                 </h3>
                 <a
                   href="tel:1300123456"
-                  class="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                  class="text-xl font-bold text-[var(--color-primary-900)] hover:text-[var(--color-accent-600)] transition-colors"
                 >
                   1300 123 456
                 </a>
@@ -106,7 +108,7 @@ const description =
           <!-- Added Coverage Section for Balance -->
           <div class="mt-12">
             <h3
-              class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4"
+              class="text-sm font-bold text-[var(--color-primary-900)] uppercase tracking-widest mb-4"
             >
               Nationwide Hubs
             </h3>
@@ -122,9 +124,9 @@ const description =
                   'Canberra',
                   'Hobart',
                 ].map((city) => (
-                  <div class="flex items-center gap-2 text-slate-600 text-sm">
+                  <div class="flex items-center gap-2 text-[var(--color-neutral-600)] text-sm">
                     <svg
-                      class="w-4 h-4 text-amber-500"
+                      class="w-4 h-4 text-[var(--color-accent-500)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -144,13 +146,15 @@ const description =
           </div>
 
           <div
-            class="mt-12 p-8 bg-white rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden"
+            class="mt-12 p-8 bg-white rounded-3xl border border-[var(--color-neutral-100)] shadow-sm relative overflow-hidden"
           >
             <div class="relative z-10">
-              <h4 class="font-bold text-slate-900 mb-2 italic">
+              <h4 class="font-bold text-[var(--color-primary-900)] mb-2 italic">
                 Support Local
               </h4>
-              <p class="text-slate-600 text-sm italic mb-0 leading-relaxed">
+              <p
+                class="text-[var(--color-neutral-600)] text-sm italic mb-0 leading-relaxed"
+              >
                 "Thank you for supporting an Australian-owned business. We take
                 pride in delivering excellence across our beautiful country."
               </p>
@@ -169,7 +173,7 @@ const description =
         <div class="lg:col-span-7 space-y-6">
           <!-- Primary CTA: Book a Call Back -->
           <div
-            class="bg-slate-900 text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group"
+            class="bg-[var(--color-primary-900)] text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group"
           >
             <div
               class="absolute top-0 right-0 p-8 opacity-10 transform group-hover:rotate-12 transition-transform duration-500"
@@ -185,7 +189,9 @@ const description =
               <h2 class="text-4xl font-extrabold mb-4 tracking-tight">
                 Book A Call Back
               </h2>
-              <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-lg">
+              <p
+                class="text-lg text-[var(--color-neutral-400)] mb-8 leading-relaxed max-w-lg"
+              >
                 Prefer a chat? Schedule a specific time for our team to call you
                 and discuss your vehicle transport needs in detail.
               </p>
@@ -193,11 +199,13 @@ const description =
               <div class="space-y-4">
                 <a
                   href="https://click.moveroo.com.au/book-appointment"
-                  class="block w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-5 px-10 rounded-2xl text-center text-xl shadow-lg hover:shadow-amber-500/20 transition-all transform hover:-translate-y-1"
+                  class="block w-full bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-black py-5 px-10 rounded-2xl text-center text-xl shadow-lg hover:shadow-[var(--color-accent-500)]/20 transition-all transform hover:-translate-y-1"
                 >
                   Schedule Call Back Now
                 </a>
-                <p class="text-center text-slate-500 text-sm font-medium">
+                <p
+                  class="text-center text-[var(--color-neutral-500)] text-sm font-medium"
+                >
                   Free Service • 100% Obligation Free • Local Experts
                 </p>
               </div>
@@ -206,22 +214,22 @@ const description =
 
           <!-- Secondary CTA: Quote Link (Cross-sell) -->
           <div
-            class="bg-white p-8 md:p-10 rounded-[2.5rem] border-2 border-slate-100 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6"
+            class="bg-white p-8 md:p-10 rounded-[2.5rem] border-2 border-[var(--color-neutral-100)] shadow-xl flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div class="flex-1">
               <h3
-                class="text-2xl font-extrabold text-slate-900 mb-2 tracking-tight"
+                class="text-2xl font-extrabold text-[var(--color-primary-900)] mb-2 tracking-tight"
               >
                 Need a Quote Fast?
               </h3>
-              <p class="text-slate-600 text-sm font-medium">
+              <p class="text-[var(--color-neutral-600)] text-sm font-medium">
                 Get an instant price for your interstate move in less than 60
                 seconds.
               </p>
             </div>
             <a
               href="https://ratecheck.movingcars.com.au/quote/v2"
-              class="bg-slate-900 text-white hover:bg-slate-800 px-8 py-4 rounded-xl font-bold transition-all shadow-xl hover:shadow-slate-200 shrink-0"
+              class="bg-[var(--color-primary-900)] text-white hover:bg-[var(--color-primary-800)] px-8 py-4 rounded-xl font-bold transition-all shadow-xl hover:shadow-[var(--color-neutral-200)] shrink-0"
             >
               Get Instant Quote
             </a>
