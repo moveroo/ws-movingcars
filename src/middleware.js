@@ -157,55 +157,65 @@ export async function onRequest({ request }, next) {
 
   const knownPages = [
     '/',
-    '/reviews/',
-    '/terms/',
-    '/contact-moving-cars/',
-    '/contact/',
-    '/quote/',
-    '/thank-you-for-booking/',
-    '/backload-car-transport/',
-    '/caravan-transport-quote/',
-    '/classic-and-vintage-car-transport-services/',
-    '/enclosed-quote/',
-    '/enclosed-car-transport/',
-    '/transporting-cars-with-items-inside-standard/',
-    '/transporting-cars-with-items-inside/',
-    '/transport-luxury-prestige-cars/',
-    '/interstate-car-transport-by-rail/',
-    '/transporting-cars-auction/',
-    '/boat-transport/',
-    '/trailer-transport-quote/',
-    '/transport-non-drivable-cars/',
-    '/move-car-adelaide-south-australia/',
-    '/move-car-brisbane-queensland/',
-    '/move-car-perth-western-australia/',
-    '/moving-a-car-sydney-new-south-wales/',
-    '/move-car-to-melbourne/',
-    '/tasmania/',
-    '/car-carriers-canberra/',
-    '/car-carriers-darwin-northern-territory/',
-    '/how-do-i-get-a-quote-for-drivable-vehicle/',
-    '/call-meet-areas/',
-    '/national-car-carrying-depots-australia-wide/',
-    '/advice-to-follow-when-transporting-a-car-interstate/',
-    '/much-car-transport-cost/',
-    '/delays-in-transit/',
-    '/transit-warranty/',
-    '/general-questions/',
-    '/most-frequent-questions-on-car-transport/',
-    '/estimated-transit-times-for-car-transport/',
-    '/privacy-policy/',
-    '/moving-cars-terms-and-conditions/',
+    '/reviews',
+    '/terms',
+    '/contact',
+    '/thank-you-for-booking',
+    '/backload-car-transport',
+    '/caravan-transport-quote',
+    '/classic-and-vintage-car-transport-services',
+    '/enclosed-quote',
+    '/enclosed-car-transport',
+    '/transporting-cars-with-items-inside-standard',
+    '/transporting-cars-with-items-inside',
+    '/transport-luxury-prestige-cars',
+    '/interstate-car-transport-by-rail',
+    '/transporting-cars-auction',
+    '/boat-transport',
+    '/trailer-transport-quote',
+    '/transport-non-drivable-cars',
+    '/move-car-adelaide-south-australia',
+    '/move-car-brisbane-queensland',
+    '/move-car-perth-western-australia',
+    '/moving-a-car-sydney-new-south-wales',
+    '/move-car-to-melbourne',
+    '/tasmania',
+    '/car-carriers-canberra',
+    '/car-carriers-darwin-northern-territory',
+    '/how-do-i-get-a-quote-for-drivable-vehicle',
+    '/call-meet-areas',
+    '/national-car-carrying-depots-australia-wide',
+    '/advice-to-follow-when-transporting-a-car-interstate',
+    '/much-car-transport-cost',
+    '/delays-in-transit',
+    '/transit-warranty',
+    '/general-questions',
+    '/most-frequent-questions-on-car-transport',
+    '/estimated-transit-times-for-car-transport',
+    '/privacy-policy',
   ];
 
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
   if (knownPages.includes(normalizedPath)) {
-    return next(); // Pass through
+    // If it's a known page and has a trailing slash, or it's just the root, let it pass
+    // Actually, we want to enforce trailing slashes even for known pages if they are missing them
+    if (pathname.endsWith('/') || pathname === '/') {
+      return next();
+    }
+    // If it's a known page but missing the trailing slash, redirect to the slashed version
+    return Response.redirect(new URL(pathname + '/', request.url), 301);
   }
 
   const slug = pathname.replace(/^\/|\/$/g, '');
   if (!slug || slug.includes('.')) {
     return next(); // Pass through
+  }
+
+  if (normalizedPath === '/quote') {
+    return Response.redirect(
+      new URL('https://ratecheck.movingcars.com.au/quote/v2/', request.url),
+      301
+    );
   }
 
   // Specific alias for Contact
