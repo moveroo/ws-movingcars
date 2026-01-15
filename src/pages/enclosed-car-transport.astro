@@ -1,30 +1,287 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = 'Enclosed Car Transport';
+const title = 'Enclosed Car Transport | Premium Vehicle Protection';
 const description =
-  'Professional car transport services for Enclosed Car Transport. Get an instant quote for interstate vehicle shipping.';
+  'Maximum protection for your luxury, vintage, or classic car. Our enclosed car transport ensures your vehicle arrives in pristine condition. Get a quote today.';
 ---
 
 <Layout title={title} description={description}>
-  <main class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none">
-      <p>Content for Enclosed Car Transport is being migrated.</p>
+  {/* Hero Section */}
+  <section class="relative bg-slate-900 text-white pt-24 pb-32 overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-950/90 to-slate-900/50 z-10"
+      >
+      </div>
+      {/* Abstract background pattern or image could go here */}
+      <svg
+        class="w-full h-full text-slate-800"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
 
-      <div class="bg-amber-50 p-8 rounded-xl border border-amber-200 mt-12">
-        <h2 class="text-2xl font-bold mb-4 text-slate-900 mt-0">
-          Ready for a Quote?
-        </h2>
-        <p class="mb-6">
-          Get an instant, no-obligation quote for your car transport needs.
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-amber-500/20"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+          >
+          Maximum Protection
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
+          Enclosed Car <br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600"
+            >Transport Services</span
+          >
+        </h1>
+        <p
+          class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10"
+        >
+          The ultimate safe transport solution for your luxury, vintage, or
+          sentimental vehicle. Security, privacy, and protection from the
+          elements.
         </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-amber-500/20 transform hover:-translate-y-1"
+          >
+            Get a Quote Now
+          </a>
+          <a
+            href="#more-info"
+            class="bg-white/10 hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-xl transition-all backdrop-blur-sm"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Cost Warning / Strategy Block */}
+  <section class="py-16 -mt-16 relative z-20">
+    <div class="container mx-auto px-4">
+      <div
+        class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-slate-100 max-w-5xl mx-auto"
+      >
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="shrink-0 bg-blue-50 p-4 rounded-2xl text-blue-600">
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path></svg
+            >
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">
+              Important Cost Advice
+            </h3>
+            <p class="text-slate-600 leading-relaxed mb-6">
+              We have found that due to the much higher than expected costs of
+              Enclosed Vehicle Transport, we ask that customers <strong
+                >obtain a standard quote first</strong
+              >. Once received, if you wish to upgrade to a fully enclosed
+              service, simply reply to our quote and request upgrade rates.
+            </p>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+              <h4
+                class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide"
+              >
+                Did you know?
+              </h4>
+              <p class="text-slate-600 text-sm">
+                More often than not, it is fully enclosed only on linehaul or
+                long-distance. Meaning if you live in the suburbs of Sydney, a
+                standard non-enclosed truck will collect your vehicle, but once
+                it starts to move across the country, instructions are strictly
+                enclosed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="more-info" class="bg-slate-50 py-20">
+    <div class="container mx-auto px-4 max-w-6xl">
+      {/* Intro Content */}
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
+          Australia's Trusted Enclosed Specialist
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Over the years, Moving Cars has established itself as a leading
+          enclosed vehicle transport company by offering fast, secure, and
+          excellent car transport solutions across Australia's length and
+          breadth without burning a hole in your pocket.
+        </p>
+      </div>
+
+      {/* Features Grid */}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {
+          [
+            {
+              title: 'Luxury Cars',
+              icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+            },
+            {
+              title: 'Vintage Classics',
+              icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+            },
+            { title: 'Sports Vehicles', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+            {
+              title: 'Prototype Cars',
+              icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+            },
+            {
+              title: 'Racing Vehicles',
+              icon: 'M3 21v-8a2 2 0 012-2h14a2 2 0 012 2v8M15 3h6v6M9 3H3v6M9 21h6M9 3v18M15 3v18',
+            },
+            {
+              title: 'Boats & Trailers',
+              icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+            },
+          ].map((feature) => (
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={feature.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-slate-900 mb-2">
+                {feature.title}
+              </h3>
+              <p class="text-slate-500 text-sm">
+                Specialized handling and care for your{' '}
+                {feature.title.toLowerCase()}.
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Detailed Content Sections */}
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="order-2 lg:order-1">
+          <h3 class="text-3xl font-bold text-slate-900 mb-6">
+            Fully Customized Enclosed Carriers
+          </h3>
+          <div class="space-y-6 text-slate-600 leading-relaxed">
+            <p>
+              Our fleet of covered car transporters is driven by professional,
+              licensed, and insured drivers who care for your vehicle like their
+              own. These carriers are equipped with specialized hydraulics that
+              ensure minimal manual handling and maximum security.
+            </p>
+            <div
+              class="bg-white p-6 rounded-xl border-l-4 border-amber-500 shadow-sm"
+            >
+              <h4 class="font-bold text-slate-800 mb-1">Hydraulic Liftgates</h4>
+              <p class="text-sm">
+                During loading, your vehicle remains horizontal to avoid damage,
+                dents, or scratches. Our advanced hydraulic liftgates ensure
+                stability from pickup to delivery.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-xl border-l-4 border-blue-500 shadow-sm"
+            >
+              <h4 class="font-bold text-slate-800 mb-1">Unmatched Security</h4>
+              <p class="text-sm">
+                Includes GPS tracking for updates, round-the-clock security at
+                storage facilities, and background-checked staff for your peace
+                of mind.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div
+            class="bg-slate-200 rounded-[2.5rem] aspect-square relative overflow-hidden"
+          >
+            {/* Image Placeholder */}
+            <div
+              class="absolute inset-0 flex items-center justify-center text-slate-400"
+            >
+              <span class="font-bold text-lg">Premium Carrier Image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Us / CTA */}
+      <div
+        class="bg-slate-900 text-white rounded-[3rem] p-10 md:p-20 text-center relative overflow-hidden"
+      >
+        <div class="absolute top-0 right-0 p-20 opacity-5">
+          <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"
+            ><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"></path></svg
+          >
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-8 relative z-10">
+          Is Open Car Transport Safe?
+        </h2>
+        <div
+          class="max-w-3xl mx-auto mb-12 relative z-10 text-slate-300 leading-relaxed space-y-4"
+        >
+          <p>
+            For the most part, yes. Open transport is safe and widely used.
+            However, it doesn't offer complete protection against natural wear
+            and tear, dust, debris, and harsh weather conditions.
+          </p>
+          <p>
+            If you have a <strong>prized possession</strong> that needs to arrive
+            showroom-ready, enclosed transport is the only choice.
+          </p>
+        </div>
+
         <a
           href="https://ratecheck.movingcars.com.au/quote/v2"
-          class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-colors"
+          class="relative z-10 inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-5 px-10 rounded-2xl text-xl transition-all transform hover:scale-105 shadow-2xl"
         >
-          Get Instant Quote
+          Get Your Secure Quote
         </a>
+        <p class="mt-6 text-slate-400 text-sm font-medium relative z-10">
+          Free Instant Quotes • No Obligation • 20+ Years Experience
+        </p>
       </div>
     </div>
   </main>
