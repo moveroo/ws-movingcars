@@ -37,11 +37,86 @@ const {
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="index, follow" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${PRODUCTION_DOMAIN}/og-image.jpg`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={`${PRODUCTION_DOMAIN}/og-image.jpg`}
+    />
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts - Inter + Montserrat (Self-hosted) -->
-    <!-- Fonts now loaded via @fontsource imports in frontmatter -->
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://movingcars.com.au/#organization",
+            "name": "Moving Cars",
+            "url": "https://movingcars.com.au",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://movingcars.com.au/logo.png",
+              "width": 512,
+              "height": 512
+            },
+            "sameAs": [
+              "https://www.facebook.com/movingcarsaustralia",
+              "https://www.instagram.com/movingcars"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "1300-123-456",
+              "contactType": "customer service",
+              "areaServed": "AU",
+              "availableLanguage": "en"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://movingcars.com.au/#website",
+            "url": "https://movingcars.com.au",
+            "name": "Moving Cars",
+            "publisher": { "@id": "https://movingcars.com.au/#organization" }
+          },
+          {
+            "@type": "AutoTransport",
+            "name": "Moving Cars",
+            "description": "Premium interstate car transport services across Australia.",
+            "url": "https://movingcars.com.au",
+            "telephone": "1300-123-456",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AU"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -33.8688,
+              "longitude": 151.2093
+            },
+            "openingHours": "Mo-Fr 08:00-18:00",
+            "image": "https://movingcars.com.au/og-image.jpg",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Australia"
+            }
+          }
+        ]
+      }
+    </script>
 
     <slot name="head" />
   </head>
