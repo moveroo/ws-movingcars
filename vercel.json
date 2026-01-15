@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "framework": "astro"
+  "framework": "astro",
+  "redirects": [
+    {
+      "source": "/moving-cars-reviews-by-customer",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/moving-cars-reviews-by-customer/",
+      "destination": "/reviews/",
+      "permanent": true
+    }
+  ]
 }
