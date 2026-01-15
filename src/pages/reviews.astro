@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const testimonials = await getCollection('testimonials');
+// Sort by date descending
+const sortedTestimonials = testimonials.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const title = 'Customer Reviews & Testimonials';
+const description =
+  'Read what our customers have to say about Moving Cars. Professional interstate car transport reviews from across Australia.';
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-slate-50 min-h-screen">
+    <!-- Hero -->
+    <section class="bg-slate-900 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">{title}</h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+          We pride ourselves on providing exceptional service. Here are some of
+          the experiences our customers have shared.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {
+            sortedTestimonials.map(async (item) => {
+              const { Content } = await item.render();
+              return (
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+                  <div class="flex gap-1 mb-4">
+                    {[1, 2, 3, 4, 5].map(() => (
+                      <svg
+                        class="w-5 h-5 text-amber-400 fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <h3 class="text-xl font-bold mb-4 text-slate-900">
+                    {item.data.title.replace('Review: ', '')}
+                  </h3>
+
+                  <div class="prose prose-slate mb-6 flex-grow">
+                    <Content />
+                  </div>
+
+                  <div class="mt-auto pt-6 border-t border-slate-100 text-sm text-slate-500">
+                    Verified Customer •{' '}
+                    {new Date(item.data.date).toLocaleDateString('en-AU', {
+                      year: 'numeric',
+                      month: 'long',
+                    })}
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+
+        {
+          sortedTestimonials.length === 0 && (
+            <div class="text-center py-20 text-slate-500">
+              <p>
+                Reviews are currently being migrated. Please check back soon!
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-amber-500">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">
+          Experience Our 5-Star Service
+        </h2>
+        <p class="text-slate-800 text-lg mb-8 max-w-xl mx-auto">
+          Join thousands of happy customers who have moved their cars with
+          Moving Cars.
+        </p>
+        <a
+          href="/quote/"
+          class="inline-block bg-slate-900 text-white font-bold py-4 px-12 rounded-xl hover:bg-slate-800 transition-colors"
+        >
+          Get Your Free Quote
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
