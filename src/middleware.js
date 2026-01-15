@@ -226,6 +226,11 @@ export async function onRequest({ request }, next) {
     return Response.redirect(new URL('/contact/', request.url), 301);
   }
 
+  // Specific alias for Reviews
+  if (normalizedPath === '/moving-cars-reviews-by-customer') {
+    return Response.redirect(new URL('/reviews/', request.url), 301);
+  }
+
   // Specific alias for Privacy
   if (normalizedPath === '/privacy') {
     return Response.redirect(new URL('/privacy-policy/', request.url), 301);

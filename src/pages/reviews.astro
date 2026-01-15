@@ -3,99 +3,389 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
 const testimonials = await getCollection('testimonials');
+// Filter out the general reviews page if it exists in content
+const filteredTestimonials = testimonials.filter(
+  (t) => t.slug !== 'moving-cars-reviews-by-customer'
+);
+
 // Sort by date descending
-const sortedTestimonials = testimonials.sort(
+const sortedTestimonials = filteredTestimonials.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
-const title = 'Customer Reviews & Testimonials';
+const title = 'Interstate Car Transport Reviews | Moving Cars';
 const description =
-  'Read what our customers have to say about Moving Cars. Professional interstate car transport reviews from across Australia.';
+  'Read what our customers have to say about Moving Cars. Professional interstate car transport reviews from across Australia, including private, dealer, and government transport.';
 ---
 
 <Layout title={title} description={description}>
-  <main class="bg-slate-50 min-h-screen">
-    <!-- Hero -->
-    <section class="bg-slate-900 text-white py-20">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">{title}</h1>
-        <p class="text-xl text-slate-300 max-w-2xl mx-auto">
-          We pride ourselves on providing exceptional service. Here are some of
-          the experiences our customers have shared.
-        </p>
+  <!-- Hero Section -->
+  <section
+    class="relative pt-32 pb-20 bg-[var(--color-primary-900)] overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 opacity-10 bg-[radial-gradient(circle,_var(--color-accent-400)_1px,_transparent_1px)] bg-[size:30px_30px]"
+    >
+    </div>
+    <div class="container relative z-10 text-center">
+      <h1
+        class="text-4xl md:text-6xl font-extrabold text-white mb-6 animate-reveal"
+      >
+        Customer <span class="text-gradient">Reviews</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-300)] max-w-3xl mx-auto animate-reveal"
+        style="animation-delay: 0.1s"
+      >
+        Our Car Transport division has provided government departments, dealers,
+        and enthusiasts a reliable way of moving vehicles Australia-wide for
+        over 20 years.
+      </p>
+    </div>
+  </section>
+
+  <!-- Editorial Content Section -->
+  <section class="py-20 bg-white border-b border-[var(--color-neutral-100)]">
+    <div class="container max-w-4xl">
+      <div class="prose prose-lg prose-slate max-w-none">
+        <div
+          class="glass-panel p-8 md:p-12 rounded-3xl mb-12 border-l-4 border-l-[var(--color-accent-400)]"
+        >
+          <p
+            class="text-[var(--color-primary-900)] font-semibold mb-4 italic text-xl"
+          >
+            "The place for the best prices and unbeatable service, enabling you
+            to get great quotes Australia-wide."
+          </p>
+          <p class="text-lg leading-relaxed text-[var(--color-neutral-700)]">
+            Our Car Transport division, through its vast network of carriers and
+            rail services, has provided government departments, car dealers,
+            auction houses and enthusiasts a great way of moving their cars and
+            4WD from town to town or door to door throughout the last 20 years.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-6 mt-8">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full bg-[var(--color-primary-50)] flex items-center justify-center text-[var(--color-primary-600)] shadow-sm"
+              >
+                ✓
+              </div>
+              <span class="font-semibold">Public & Private Moves</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full bg-[var(--color-primary-50)] flex items-center justify-center text-[var(--color-primary-600)] shadow-sm"
+              >
+                ✓
+              </div>
+              <span class="font-semibold">Car Dealer Logistics</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full bg-[var(--color-primary-50)] flex items-center justify-center text-[var(--color-primary-600)] shadow-sm"
+              >
+                ✓
+              </div>
+              <span class="font-semibold">Auction House Transport</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-full bg-[var(--color-primary-50)] flex items-center justify-center text-[var(--color-primary-600)] shadow-sm"
+              >
+                ✓
+              </div>
+              <span class="font-semibold">Government Fleet Transfers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-[var(--color-neutral-600)]">
+          <p>
+            We move for the public, car dealers, removalists, car websites and
+            the government. We have contact with some of the largest and
+            smallest companies in the country and offer a service second to
+            none.
+          </p>
+          <p>
+            We like to think the site is easy to use – select the vehicle you
+            need to move, tell us where it’s going from and to, and you will
+            instantly get the price for both Door-to-door and depot-to-depot
+            services.
+          </p>
+          <p>
+            A few areas are not covered instantly, usually very rural, but these
+            quotes are emailed back within a couple of hours.
+          </p>
+          <p>
+            Regardless of what the competition says, I can assure you that we
+            are indeed the leaders in providing the best prices and even better
+            service. Also, with our price match/beat policy, where can you go
+            wrong?
+          </p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Testimonials Grid -->
-    <section class="py-16">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {
-            sortedTestimonials.map(async (item) => {
-              const { Content } = await item.render();
-              return (
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
-                  <div class="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map(() => (
-                      <svg
-                        class="w-5 h-5 text-amber-400 fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
+  <!-- Testimonials Grid -->
+  <section class="py-24 bg-[var(--color-neutral-50)]">
+    <div class="container">
+      <div class="flex flex-col items-center mb-16 text-center">
+        <h2 class="text-3xl font-bold mb-4">
+          See what a few of our customers had to say
+        </h2>
+        <div class="w-20 h-1 bg-[var(--color-accent-400)] rounded-full mb-8">
+        </div>
+      </div>
 
-                  <h3 class="text-xl font-bold mb-4 text-slate-900">
-                    {item.data.title.replace('Review: ', '')}
-                  </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Manual Highlights from User -->
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">
+            Thank you for transporting my car
+          </h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "I picked it up today and I am very impressed with how the whole
+            process went. It came a lot earlier than expected and there was no
+            damage what's so ever! Your a great company and I will use you in
+            the future."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            DESIREE
+          </div>
+        </div>
 
-                  <div class="prose prose-slate mb-6 flex-grow">
-                    <Content />
-                  </div>
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">Covered Car Carrier</h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "Not many companies offer a fully enclosed service for my car, so I
+            moved the car with this company and the service I received was A1.
+            Not only was the price competitive and reasonable but the car
+            arrived on time as per the time I was given. Will surely recommend
+            these guys to my friends."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            ENCLOSED CUSTOMER
+          </div>
+        </div>
 
-                  <div class="mt-auto pt-6 border-t border-slate-100 text-sm text-slate-500">
-                    Verified Customer •{' '}
-                    {new Date(item.data.date).toLocaleDateString('en-AU', {
-                      year: 'numeric',
-                      month: 'long',
-                    })}
-                  </div>
-                </div>
-              );
-            })
-          }
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">Another happy one!</h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "Will move my car with them again when I have to go back to Sydney
+            as I found the website easy to use and fast turnaround with any
+            emails with the staff, My car arrived on time and no damage. Thanks
+            for the great service."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            WILL RETURN - JAMES
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">Non drivable transport</h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "I had a non drivable car, and could not find a car carrier that
+            would help until I stumbled onto this company. They had the quote
+            back to me within an hour, so I booked the car with them. And found
+            this service to reasonable and a great service was received."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            HAPPY CAR OWNER
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">
+            Thanks for great customer service
+          </h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "I would like to thank you for the great customer service and the
+            fast turnaround of getting my quotes. I booked and paid for this
+            asap as they helped me with over the phone. Never moved a car before
+            and found that this company was of great help. I will be a return
+            customer."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            RETURN CUSTOMER
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all bg-white/50"
+        >
+          <div class="flex gap-1 mb-6">
+            {
+              [1, 2, 3, 4, 5].map(() => (
+                <svg
+                  class="w-5 h-5 text-amber-400 fill-current"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+            }
+          </div>
+          <h3 class="text-xl font-bold mb-4">Older car transport</h3>
+          <p class="text-[var(--color-neutral-600)] mb-6">
+            "Staff were great to deal with, had a large older model car, but
+            they could quote this for me and I moved the car to Darwin, good
+            thing with them is that they also give you a track and trace. So you
+            can see where your car is at all times. Many thanks."
+          </p>
+          <div
+            class="pt-6 border-t border-[var(--color-neutral-100)] text-sm font-bold text-[var(--color-primary-600)]"
+          >
+            BRIAN
+          </div>
         </div>
 
         {
-          sortedTestimonials.length === 0 && (
-            <div class="text-center py-20 text-slate-500">
-              <p>
-                Reviews are currently being migrated. Please check back soon!
-              </p>
-            </div>
-          )
+          sortedTestimonials.map(async (item) => {
+            const { Content } = await item.render();
+            return (
+              <div class="glass-panel p-8 rounded-3xl border border-white hover:border-[var(--color-accent-400)] transition-all flex flex-col h-full">
+                <div class="flex gap-1 mb-6">
+                  {[1, 2, 3, 4, 5].map(() => (
+                    <svg
+                      class="w-5 h-5 text-amber-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <h3 class="text-xl font-bold mb-4">
+                  {item.data.title.replace('Review: ', '')}
+                </h3>
+                <div class="text-[var(--color-neutral-600)] mb-6 italic line-clamp-4 overflow-hidden">
+                  <Content />
+                </div>
+                <div class="mt-auto pt-6 border-t border-[var(--color-neutral-100)] text-xs font-bold text-[var(--color-neutral-400)] tracking-wider">
+                  {new Date(item.data.date).toLocaleDateString('en-AU', {
+                    year: 'numeric',
+                    month: 'long',
+                  })}
+                </div>
+              </div>
+            );
+          })
         }
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA -->
-    <section class="py-20 bg-amber-500">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">
-          Experience Our 5-Star Service
-        </h2>
-        <p class="text-slate-800 text-lg mb-8 max-w-xl mx-auto">
-          Join thousands of happy customers who have moved their cars with
-          Moving Cars.
-        </p>
-        <a
-          href="https://ratecheck.movingcars.com.au/quote/v2"
-          class="inline-block bg-slate-900 text-white font-bold py-4 px-12 rounded-xl hover:bg-slate-800 transition-colors"
+  <!-- Final CTA Card -->
+  <section class="py-24 bg-white">
+    <div class="container">
+      <div
+        class="glass-panel-dark p-12 md:p-20 rounded-[3rem] text-center relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-[var(--color-accent-400)]/10 rounded-full blur-3xl -ml-48 -mt-48"
         >
-          Get Your Free Quote
-        </a>
+        </div>
+        <h2
+          class="text-3xl md:text-5xl font-extrabold text-white mb-8 relative z-10"
+        >
+          Experience the Best Prices & Service
+        </h2>
+        <p
+          class="text-xl text-[var(--color-neutral-300)] mb-12 max-w-2xl mx-auto relative z-10"
+        >
+          Also, with our price match/beat policy, where can you go wrong? Get
+          your instant quote today.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center relative z-10"
+        >
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="btn btn-accent btn-lg">Get Instant Quote</a
+          >
+          <a href="/contact/" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </Layout>
