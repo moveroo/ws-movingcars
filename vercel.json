@@ -21,6 +21,46 @@
       "source": "/interstate-car-transport-by-rail/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/move-car-adelaide-south-australia",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/move-car-brisbane-queensland",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/move-car-perth-western-australia",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/moving-a-car-sydney-new-south-wales",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/move-car-to-melbourne",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/tasmania",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/car-carriers-canberra",
+      "destination": "/car-transport/",
+      "permanent": true
+    },
+    {
+      "source": "/car-carriers-darwin-northern-territory",
+      "destination": "/car-transport/",
+      "permanent": true
     }
   ]
 }

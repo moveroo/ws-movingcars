@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title =
+  'Car Transport Australia | Interstate Vehicle Shipping Specialists';
+const description =
+  'Reliable, secure, and affordable interstate car transport across Australia. Daily services to Sydney, Melbourne, Brisbane, Perth, and beyond. Get a free quote today.';
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-[var(--color-accent-500)]/10 text-[var(--color-accent-500)] px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[var(--color-accent-500)]/20"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+          >
+          Australia Wide Service
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
+          Interstate Car <br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-400)] to-[var(--color-accent-600)]"
+            >Transport Services</span
+          >
+        </h1>
+        <p
+          class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+        >
+          Connecting every major city and regional hub. Professional, reliable,
+          and cost-effective vehicle shipping solutions tailored to your needs.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-[var(--color-accent-500)]/20 transform hover:-translate-y-1"
+          >
+            Get a Free Quote
+          </a>
+          <a
+            href="/contact/"
+            class="bg-white/10 hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-xl transition-all backdrop-blur-sm"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-6xl">
+      {/* Intro Content */}
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-[var(--color-primary-900)] mb-6"
+        >
+          Comprehensive Transport Solutions
+        </h2>
+        <p class="text-lg text-[var(--color-neutral-600)] leading-relaxed">
+          Whether you're moving a single vehicle or a corporate fleet, we
+          provide seamless door-to-door and depot-to-depot services across all
+          Australian states and territories.
+        </p>
+      </div>
+
+      {/* Placeholders for Future Content */}
+      <div class="space-y-16">
+        <div
+          class="p-8 bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+        >
+          <h3 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+            Melbourne Car Transport
+          </h3>
+          <p class="text-[var(--color-neutral-600)] italic">
+            Detailed content for Melbourne transport services coming soon...
+          </p>
+        </div>
+
+        <div
+          class="p-8 bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+        >
+          <h3 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+            Sydney Car Transport
+          </h3>
+          <p class="text-[var(--color-neutral-600)] italic">
+            Detailed content for Sydney transport services coming soon...
+          </p>
+        </div>
+
+        <div
+          class="p-8 bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+        >
+          <h3 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+            Brisbane & Gold Coast
+          </h3>
+          <p class="text-[var(--color-neutral-600)] italic">
+            Detailed content for Queensland transport services coming soon...
+          </p>
+        </div>
+
+        <div
+          class="p-8 bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+        >
+          <h3 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+            Perth & Western Australia
+          </h3>
+          <p class="text-[var(--color-neutral-600)] italic">
+            Detailed content for WA transport services coming soon...
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

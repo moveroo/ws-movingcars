@@ -5,114 +5,117 @@
 /* global URL, Response */
 
 // The HUB_MAP mapping origin city slugs to Hub URLs
+// [2026-01-16] CONSOLIDATION: All regional hubs now point to the central /car-transport/ page
+const TARGET_HUB = '/car-transport/';
+
 const HUB_MAP = {
-  // NSW -> Sydney Hub
-  sydney: '/moving-a-car-sydney-new-south-wales/',
-  newcastle: '/moving-a-car-sydney-new-south-wales/',
-  wollongong: '/moving-a-car-sydney-new-south-wales/',
-  'central-coast': '/moving-a-car-sydney-new-south-wales/',
-  albury: '/moving-a-car-sydney-new-south-wales/',
-  armidale: '/moving-a-car-sydney-new-south-wales/',
-  bathurst: '/moving-a-car-sydney-new-south-wales/',
-  'broken-hill': '/moving-a-car-sydney-new-south-wales/',
-  cessnock: '/moving-a-car-sydney-new-south-wales/',
-  'coffs-harbour': '/moving-a-car-sydney-new-south-wales/',
-  dubbo: '/moving-a-car-sydney-new-south-wales/',
-  gosford: '/moving-a-car-sydney-new-south-wales/',
-  goulburn: '/moving-a-car-sydney-new-south-wales/',
-  grafton: '/moving-a-car-sydney-new-south-wales/',
-  griffith: '/moving-a-car-sydney-new-south-wales/',
-  lismore: '/moving-a-car-sydney-new-south-wales/',
-  maitland: '/moving-a-car-sydney-new-south-wales/',
-  mittagong: '/moving-a-car-sydney-new-south-wales/',
-  'nelson-bay': '/moving-a-car-sydney-new-south-wales/',
-  nowra: '/moving-a-car-sydney-new-south-wales/',
-  orange: '/moving-a-car-sydney-new-south-wales/',
-  'port-macquarie': '/moving-a-car-sydney-new-south-wales/',
-  queanbeyan: '/moving-a-car-sydney-new-south-wales/',
-  tamworth: '/moving-a-car-sydney-new-south-wales/',
-  'tweed-heads': '/moving-a-car-sydney-new-south-wales/',
-  'wagga-wagga': '/moving-a-car-sydney-new-south-wales/',
+  // NSW -> Car Transport Hub
+  sydney: TARGET_HUB,
+  newcastle: TARGET_HUB,
+  wollongong: TARGET_HUB,
+  'central-coast': TARGET_HUB,
+  albury: TARGET_HUB,
+  armidale: TARGET_HUB,
+  bathurst: TARGET_HUB,
+  'broken-hill': TARGET_HUB,
+  cessnock: TARGET_HUB,
+  'coffs-harbour': TARGET_HUB,
+  dubbo: TARGET_HUB,
+  gosford: TARGET_HUB,
+  goulburn: TARGET_HUB,
+  grafton: TARGET_HUB,
+  griffith: TARGET_HUB,
+  lismore: TARGET_HUB,
+  maitland: TARGET_HUB,
+  mittagong: TARGET_HUB,
+  'nelson-bay': TARGET_HUB,
+  nowra: TARGET_HUB,
+  orange: TARGET_HUB,
+  'port-macquarie': TARGET_HUB,
+  queanbeyan: TARGET_HUB,
+  tamworth: TARGET_HUB,
+  'tweed-heads': TARGET_HUB,
+  'wagga-wagga': TARGET_HUB,
 
-  // VIC -> Melbourne Hub
-  melbourne: '/move-car-to-melbourne/',
-  geelong: '/move-car-to-melbourne/',
-  ballarat: '/move-car-to-melbourne/',
-  bendigo: '/move-car-to-melbourne/',
-  benalla: '/move-car-to-melbourne/',
-  melton: '/move-car-to-melbourne/',
-  mildura: '/move-car-to-melbourne/',
-  shepparton: '/move-car-to-melbourne/',
-  'swan-hill': '/move-car-to-melbourne/',
-  traralgon: '/move-car-to-melbourne/',
-  wangaratta: '/move-car-to-melbourne/',
-  warragul: '/move-car-to-melbourne/',
-  warrnambool: '/move-car-to-melbourne/',
-  wodonga: '/move-car-to-melbourne/',
+  // VIC -> Car Transport Hub
+  melbourne: TARGET_HUB,
+  geelong: TARGET_HUB,
+  ballarat: TARGET_HUB,
+  bendigo: TARGET_HUB,
+  benalla: TARGET_HUB,
+  melton: TARGET_HUB,
+  mildura: TARGET_HUB,
+  shepparton: TARGET_HUB,
+  'swan-hill': TARGET_HUB,
+  traralgon: TARGET_HUB,
+  wangaratta: TARGET_HUB,
+  warragul: TARGET_HUB,
+  warrnambool: TARGET_HUB,
+  wodonga: TARGET_HUB,
 
-  // QLD -> Brisbane Hub
-  brisbane: '/move-car-brisbane-queensland/',
-  'gold-coast': '/move-car-brisbane-queensland/',
-  'sunshine-coast': '/move-car-brisbane-queensland/',
-  townsville: '/move-car-brisbane-queensland/',
-  cairns: '/move-car-brisbane-queensland/',
-  toowoomba: '/move-car-brisbane-queensland/',
-  mackay: '/move-car-brisbane-queensland/',
-  rockhampton: '/move-car-brisbane-queensland/',
-  bundaberg: '/move-car-brisbane-queensland/',
-  bowen: '/move-car-brisbane-queensland/',
-  'charters-towers': '/move-car-brisbane-queensland/',
-  gladstone: '/move-car-brisbane-queensland/',
-  gympie: '/move-car-brisbane-queensland/',
-  'hervey-bay': '/move-car-brisbane-queensland/',
-  logan: '/move-car-brisbane-queensland/',
-  maryborough: '/move-car-brisbane-queensland/',
-  'mount-isa': '/move-car-brisbane-queensland/',
-  nambour: '/move-car-brisbane-queensland/',
+  // QLD -> Car Transport Hub
+  brisbane: TARGET_HUB,
+  'gold-coast': TARGET_HUB,
+  'sunshine-coast': TARGET_HUB,
+  townsville: TARGET_HUB,
+  cairns: TARGET_HUB,
+  toowoomba: TARGET_HUB,
+  mackay: TARGET_HUB,
+  rockhampton: TARGET_HUB,
+  bundaberg: TARGET_HUB,
+  bowen: TARGET_HUB,
+  'charters-towers': TARGET_HUB,
+  gladstone: TARGET_HUB,
+  gympie: TARGET_HUB,
+  'hervey-bay': TARGET_HUB,
+  logan: TARGET_HUB,
+  maryborough: TARGET_HUB,
+  'mount-isa': TARGET_HUB,
+  nambour: TARGET_HUB,
 
-  // WA -> Perth Hub
-  perth: '/move-car-perth-western-australia/',
-  mandurah: '/move-car-perth-western-australia/',
-  bunbury: '/move-car-perth-western-australia/',
-  albany: '/move-car-perth-western-australia/',
-  broome: '/move-car-perth-western-australia/',
-  busselton: '/move-car-perth-western-australia/',
-  carnarvon: '/move-car-perth-western-australia/',
-  derby: '/move-car-perth-western-australia/',
-  fremantle: '/move-car-perth-western-australia/',
-  geraldton: '/move-car-perth-western-australia/',
-  kalgoorlie: '/move-car-perth-western-australia/',
-  karratha: '/move-car-perth-western-australia/',
-  kununurra: '/move-car-perth-western-australia/',
-  'port-hedland': '/move-car-perth-western-australia/',
-  rockingham: '/move-car-perth-western-australia/',
+  // WA -> Car Transport Hub
+  perth: TARGET_HUB,
+  mandurah: TARGET_HUB,
+  bunbury: TARGET_HUB,
+  albany: TARGET_HUB,
+  broome: TARGET_HUB,
+  busselton: TARGET_HUB,
+  carnarvon: TARGET_HUB,
+  derby: TARGET_HUB,
+  fremantle: TARGET_HUB,
+  geraldton: TARGET_HUB,
+  kalgoorlie: TARGET_HUB,
+  karratha: TARGET_HUB,
+  kununurra: TARGET_HUB,
+  'port-hedland': TARGET_HUB,
+  rockingham: TARGET_HUB,
 
-  // SA -> Adelaide Hub
-  adelaide: '/move-car-adelaide-south-australia/',
-  'mount-gambier': '/move-car-adelaide-south-australia/',
-  'murray-bridge': '/move-car-adelaide-south-australia/',
-  'port-augusta': '/move-car-adelaide-south-australia/',
-  'port-lincoln': '/move-car-adelaide-south-australia/',
-  'port-pirie': '/move-car-adelaide-south-australia/',
-  'victor-harbor': '/move-car-adelaide-south-australia/',
-  whyalla: '/move-car-adelaide-south-australia/',
+  // SA -> Car Transport Hub
+  adelaide: TARGET_HUB,
+  'mount-gambier': TARGET_HUB,
+  'murray-bridge': TARGET_HUB,
+  'port-augusta': TARGET_HUB,
+  'port-lincoln': TARGET_HUB,
+  'port-pirie': TARGET_HUB,
+  'victor-harbor': TARGET_HUB,
+  whyalla: TARGET_HUB,
 
-  // NT -> Darwin Hub
-  darwin: '/car-carriers-darwin-northern-territory/',
-  'alice-springs': '/car-carriers-darwin-northern-territory/',
-  katherine: '/car-carriers-darwin-northern-territory/',
-  'tennant-creek': '/car-carriers-darwin-northern-territory/',
+  // NT -> Car Transport Hub
+  darwin: TARGET_HUB,
+  'alice-springs': TARGET_HUB,
+  katherine: TARGET_HUB,
+  'tennant-creek': TARGET_HUB,
 
-  // TAS -> Tasmania Hub
-  tasmania: '/tasmania/',
-  hobart: '/tasmania/',
-  launceston: '/tasmania/',
-  burnie: '/tasmania/',
-  devonport: '/tasmania/',
-  glenorchy: '/tasmania/',
+  // TAS -> Car Transport Hub
+  tasmania: TARGET_HUB,
+  hobart: TARGET_HUB,
+  launceston: TARGET_HUB,
+  burnie: TARGET_HUB,
+  devonport: TARGET_HUB,
+  glenorchy: TARGET_HUB,
 
-  // ACT
-  canberra: '/car-carriers-canberra/',
+  // ACT -> Car Transport Hub
+  canberra: TARGET_HUB,
 };
 
 const REVIEW_KEYWORDS = [
@@ -157,6 +160,7 @@ export async function onRequest({ request }, next) {
 
   const knownPages = [
     '/',
+    '/car-transport', // New Hub
     '/reviews',
     '/terms',
     '/contact',
@@ -173,14 +177,7 @@ export async function onRequest({ request }, next) {
     '/boat-transport',
     '/trailer-transport-quote',
     '/transport-non-drivable-cars',
-    '/move-car-adelaide-south-australia',
-    '/move-car-brisbane-queensland',
-    '/move-car-perth-western-australia',
-    '/moving-a-car-sydney-new-south-wales',
-    '/move-car-to-melbourne',
-    '/tasmania',
-    '/car-carriers-canberra',
-    '/car-carriers-darwin-northern-territory',
+    // Removed Legacy Hubs (they will be caught by redirect logic below)
     '/how-do-i-get-a-quote-for-drivable-vehicle',
     '/call-meet-areas',
     '/national-car-carrying-depots-australia-wide',
@@ -195,12 +192,9 @@ export async function onRequest({ request }, next) {
 
   const normalizedPath = pathname.replace(/\/$/, '') || '/';
   if (knownPages.includes(normalizedPath)) {
-    // If it's a known page and has a trailing slash, or it's just the root, let it pass
-    // Actually, we want to enforce trailing slashes even for known pages if they are missing them
     if (pathname.endsWith('/') || pathname === '/') {
       return next();
     }
-    // If it's a known page but missing the trailing slash, redirect to the slashed version
     return Response.redirect(new URL(pathname + '/', request.url), 301);
   }
 
@@ -209,6 +203,8 @@ export async function onRequest({ request }, next) {
     return next(); // Pass through
   }
 
+  // --- Redirects ---
+
   if (normalizedPath === '/quote') {
     return Response.redirect(
       new URL('https://ratecheck.movingcars.com.au/quote/v2/', request.url),
@@ -216,9 +212,25 @@ export async function onRequest({ request }, next) {
     );
   }
 
+  // Legacy Regional Hubs -> Redirect to /car-transport/
+  const legacyHubs = [
+    '/move-car-adelaide-south-australia',
+    '/move-car-brisbane-queensland',
+    '/move-car-perth-western-australia',
+    '/moving-a-car-sydney-new-south-wales',
+    '/move-car-to-melbourne',
+    '/tasmania',
+    '/car-carriers-canberra',
+    '/car-carriers-darwin-northern-territory',
+  ];
+
+  if (legacyHubs.includes(normalizedPath)) {
+    return Response.redirect(new URL('/car-transport/', request.url), 301);
+  }
+
   // Specific alias for Contact
   if (normalizedPath === '/contact') {
-    return next(); // Slashed version /contact/ is handled by the guard below
+    return next();
   }
 
   if (normalizedPath === '/contact-moving-cars') {
@@ -237,14 +249,14 @@ export async function onRequest({ request }, next) {
 
   // Specific alias for Terms
   if (normalizedPath === '/terms') {
-    return next(); // Slashed version /terms/ is handled by the guard below
+    return next();
   }
 
   if (normalizedPath === '/moving-cars-terms-and-conditions') {
     return Response.redirect(new URL('/terms/', request.url), 301);
   }
 
-  // Deprecated Rail Transport Page -> Redirect to Home (or suitable alternative)
+  // Deprecated Rail Transport Page
   if (normalizedPath === '/interstate-car-transport-by-rail') {
     return Response.redirect(new URL('/', request.url), 301);
   }
@@ -266,9 +278,6 @@ export async function onRequest({ request }, next) {
   }
 
   const target = getRedirectTarget(slug);
-
-  // Create the redirect response
-  // We use the full URL to ensure it works correctly
   const redirectUrl = new URL(target, request.url);
 
   return Response.redirect(redirectUrl, 301);
