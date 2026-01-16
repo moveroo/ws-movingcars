@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Transit Warranty Policy | Moving Cars';
+const description =
+  'Understand the warranty coverage for your vehicle transport. Limitations, exclusions, and the difference between carrier warranty and comprehensive insurance.';
+
+const exclusions = [
+  'Personal property left in the vehicle.',
+  'Damage due to movement of objects inside the car.',
+  'Stone chips or glass damage common to road travel.',
+  'Mechanical or electrical derangement (engine failure).',
+  'Pre-existing damage or "Force Majeure" events.',
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-emerald-500/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        Policy & Coverage
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+        Transit <span class="text-emerald-500">Warranty</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        Your vehicle is covered for physical damage caused by the carrier's
+        negligence. However, it is not "Comprehensive Insurance".
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      {/* Introduction Warning */}
+      <div
+        class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border-l-4 border-emerald-500 mb-16"
+      >
+        <h2 class="text-2xl font-bold text-[var(--color-primary-900)] mb-6">
+          Important Distinction
+        </h2>
+        <p class="text-[var(--color-neutral-600)] leading-relaxed mb-6">
+          Carriers provide a <strong>Warranty</strong>, not an Insurance Policy
+          under the Financial Services Reform Act. This means:
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-4">
+            <span
+              class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+            </span>
+            <span class="text-[var(--color-neutral-700)]"
+              ><strong>Covered:</strong> Damage caused by the carrier's negligence
+              (e.g., driver error, strapping damage, collision).</span
+            >
+          </li>
+          <li class="flex items-start gap-4">
+            <span
+              class="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path></svg
+              >
+            </span>
+            <span class="text-[var(--color-neutral-700)]"
+              ><strong>Not Covered:</strong> Events outside carrier control (Hail,
+              Floods, Stone chips from highway driving).</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      {/* Conditions Section */}
+      <section class="mb-20">
+        <h3 class="text-3xl font-bold text-[var(--color-primary-900)] mb-8">
+          Key Conditions & Exclusions
+        </h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+          >
+            <h4 class="font-bold text-lg mb-4 text-red-700">
+              What is Excluded?
+            </h4>
+            <ul class="space-y-3">
+              {
+                exclusions.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-[var(--color-neutral-600)]">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+            <div
+              class="mt-6 pt-6 border-t border-[var(--color-neutral-100)] text-xs text-[var(--color-neutral-400)]"
+            >
+              Refer to clauses 1.3 - 1.5 of the Terms & Conditions.
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)]"
+          >
+            <h4 class="font-bold text-lg mb-4 text-emerald-700">
+              Checking Your Vehicle
+            </h4>
+            <p class="text-sm text-[var(--color-neutral-600)] mb-4">
+              <strong>Clause 1.2:</strong> The carrier is only liable if damage is
+              noted and signed for on the delivery receipt at the time of handover.
+            </p>
+            <div
+              class="bg-emerald-50 p-4 rounded-lg text-sm text-emerald-800 border border-emerald-100"
+            >
+              <strong>Action:</strong> Inspect your car immediately upon delivery.
+              Do not sign the gate pass clear if you see fresh damage.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <div
+        class="bg-[var(--color-primary-900)] text-white p-12 rounded-[2rem] text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">Need Full Comprehensive Cover?</h2>
+        <p class="text-[var(--color-neutral-400)] mb-8 max-w-2xl mx-auto">
+          If you require insurance for high-value items or hail risks, please
+          contact your own insurer or ask us for a specialized quote.
+        </p>
+        <a
+          href="/contact/"
+          class="inline-block bg-white text-[var(--color-primary-900)] font-bold py-4 px-10 rounded-xl hover:bg-[var(--color-neutral-100)] transition-colors"
+        >
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

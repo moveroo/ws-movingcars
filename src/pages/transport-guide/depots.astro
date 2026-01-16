@@ -1,0 +1,203 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Depots & Call-to-Meet Locations | Moving Cars';
+const description =
+  'Find car transport depots across Australia. Learn about our flexible Call-to-Meet service for regional and country collections.';
+
+const majorDepots = [
+  'Melbourne',
+  'Sydney',
+  'Brisbane',
+  'Adelaide',
+  'Perth',
+  'Darwin',
+  'Canberra',
+  'Hobart',
+  'Townsville',
+  'Alice Springs',
+  'Cairns',
+  'Gold Coast',
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-indigo-500/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+        Locations & Logistics
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+        Depots & <span class="text-indigo-500">Call-to-Meet</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        We operate a vast network of depots and meeting points across Australia.
+        Whether you are in a capital city or the outback, we have a solution.
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="grid lg:grid-cols-2 gap-12 mb-20">
+        {/* Depots Column */}
+        <div>
+          <h2 class="text-3xl font-bold text-[var(--color-primary-900)] mb-6">
+            Major City Depots
+          </h2>
+          <p class="text-[var(--color-neutral-600)] mb-8 leading-relaxed">
+            For major routes, depot-to-depot transport is often the most
+            cost-effective option. We have facilities in all major Australian
+            cities.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            {
+              majorDepots.map((city) => (
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-[var(--color-neutral-200)] flex items-center gap-3">
+                  <svg
+                    class="w-5 h-5 text-indigo-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </>
+                  </svg>
+                  <span class="font-medium text-[var(--color-primary-900)]">
+                    {city}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+          <div
+            class="mt-8 p-6 bg-indigo-50 rounded-xl border border-indigo-100 text-sm text-indigo-900"
+          >
+            <strong>Safety Note:</strong> Exact depot addresses are provided upon
+            booking confirmation to maintain site security.
+          </div>
+        </div>
+
+        {/* Call to Meet Column */}
+        <div>
+          <h2 class="text-3xl font-bold text-[var(--color-primary-900)] mb-6">
+            Regional "Call-to-Meet"
+          </h2>
+          <p class="text-[var(--color-neutral-600)] mb-6 leading-relaxed">
+            Living in a country town or rural area? Our unique <strong
+              >Call-to-Meet</strong
+            > service saves you money by meeting the truck on its main highway route.
+          </p>
+
+          <div
+            class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-200)] space-y-6"
+          >
+            <div>
+              <h3
+                class="font-bold text-lg text-[var(--color-primary-900)] mb-2"
+              >
+                How It Works
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[var(--color-neutral-100)] text-[var(--color-neutral-600)] flex items-center justify-center font-bold text-xs flex-shrink-0"
+                    >1</span
+                  >
+                  <p class="text-sm text-[var(--color-neutral-600)]">
+                    Driver calls you in advance with an estimated arrival time.
+                  </p>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[var(--color-neutral-100)] text-[var(--color-neutral-600)] flex items-center justify-center font-bold text-xs flex-shrink-0"
+                    >2</span
+                  >
+                  <p class="text-sm text-[var(--color-neutral-600)]">
+                    You agre on a safe meeting point (e.g., Service Station,
+                    Public Car Park).
+                  </p>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="w-6 h-6 rounded-full bg-[var(--color-neutral-100)] text-[var(--color-neutral-600)] flex items-center justify-center font-bold text-xs flex-shrink-0"
+                    >3</span
+                  >
+                  <p class="text-sm text-[var(--color-neutral-600)]">
+                    Quick handover of keys and inspection, and the truck
+                    continues on schedule.
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-[var(--color-neutral-100)]">
+              <h3
+                class="font-bold text-base text-[var(--color-primary-900)] mb-2"
+              >
+                Why Choose This?
+              </h3>
+              <p class="text-sm text-[var(--color-neutral-600)]">
+                Door-to-door in rural areas often requires a costly tilt-tray
+                tow truck. Meeting the main carrier avoids this extra "local
+                tow" fee.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div
+        class="bg-[var(--color-primary-900)] text-white p-12 rounded-[2rem] text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">Check Your Location</h2>
+        <p class="text-[var(--color-neutral-400)] mb-8 max-w-2xl mx-auto">
+          Not sure if you need Depot, Door, or Call-to-Meet? Our quote system
+          automatically calculates the best options for your postcode.
+        </p>
+        <a
+          href="https://ratecheck.movingcars.com.au/quote/v2"
+          class="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-4 px-10 rounded-xl transition-colors"
+        >
+          Check Transport Options
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

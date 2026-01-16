@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Transit Delays & Policy | Moving Cars';
+const description =
+  'Why do delays happen? Understanding peak season bottlenecks, rail maintenance, and event-based disruptions in vehicle transport.';
+
+const causes = [
+  {
+    title: 'Peak Season (Oct - Jan)',
+    desc: 'The pre-Christmas rush sees transport volumes triple. Trucks and trains book out weeks in advance, leading to longer wait times.',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'Rail Maintenance',
+    desc: 'The Nullarbor rail line (connecting East & West) undergoes scheduled closing for maintenance, pausing all rail freight for days.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Weather Events',
+    desc: 'Floods, bushfires, and extreme heat can close highways and rail lines instantly. Safety is always the priority over speed.',
+    icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z',
+  },
+  {
+    title: 'Mechanical Issues',
+    desc: 'Trucks and car carriers are heavy machinery. Breakdowns happen. If a truck needs repair, it may delay delivery by 24-48 hours.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
+    icon2: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-red-500/10 text-red-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-red-500/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-red-500"></span>
+        Important Policy
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+        Delays in <span class="text-red-500">Transit</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        We strive for punctuality, but logistics is unpredictable. Here is why
+        delays happen and how to manage them.
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      {/* Intro Warning */}
+      <div
+        class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-red-500 mb-16"
+      >
+        <h2 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+          Estimates Are Not Guarantees
+        </h2>
+        <p class="text-[var(--color-neutral-600)] leading-relaxed">
+          The dates provided on your quote are <strong
+            >estimates based on normal conditions</strong
+          >. While 95% of vehicles arrive on time, we cannot financially
+          compensate for delays caused by third-party rail providers or force
+          majeure events.
+        </p>
+      </div>
+
+      {/* Causes Grid */}
+      <div class="grid md:grid-cols-2 gap-8 mb-20">
+        {
+          causes.map((item) => (
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-100)]">
+              <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={item.icon}
+                  />
+                  {item.icon2 && (
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d={item.icon2}
+                    />
+                  )}
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-primary-900)] mb-3">
+                {item.title}
+              </h3>
+              <p class="text-[var(--color-neutral-600)] leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* FAQ / Action */}
+      <div class="space-y-8">
+        <h2
+          class="text-3xl font-bold text-[var(--color-primary-900)] mb-6 border-b pb-4"
+        >
+          Frequently Asked Questions
+        </h2>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <h4 class="font-bold text-lg text-[var(--color-primary-900)] mb-2">
+            Can I get a refund if it's late?
+          </h4>
+          <p class="text-[var(--color-neutral-600)] text-sm">
+            No. As transit times are estimates, delays do not constitute a
+            breach of contract. We verify availability before booking, but
+            subsequent delays are often beyond control.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <h4 class="font-bold text-lg text-[var(--color-primary-900)] mb-2">
+            How will I know if there is a delay?
+          </h4>
+          <p class="text-[var(--color-neutral-600)] text-sm">
+            Our tracking system updates as carriers report in. If there is a
+            major event (e.g., rail washout), we will email all affected
+            customers immediately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

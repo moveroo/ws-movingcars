@@ -73,6 +73,36 @@
       "permanent": true
     },
     {
+      "source": "/advice-to-follow-when-transporting-a-car-interstate",
+      "destination": "/transport-guide/advice/",
+      "permanent": true
+    },
+    {
+      "source": "/estimated-transit-times-for-car-transport",
+      "destination": "/transport-guide/transit-times/",
+      "permanent": true
+    },
+    {
+      "source": "/transit-warranty",
+      "destination": "/transport-guide/transit-warranty/",
+      "permanent": true
+    },
+    {
+      "source": "/national-car-carrying-depots-australia-wide",
+      "destination": "/transport-guide/depots/",
+      "permanent": true
+    },
+    {
+      "source": "/call-meet-areas",
+      "destination": "/transport-guide/depots/",
+      "permanent": true
+    },
+    {
+      "source": "/delays-in-transit",
+      "destination": "/transport-guide/delays/",
+      "permanent": true
+    },
+    {
       "source": "/move-car-adelaide-south-australia",
       "destination": "/car-transport/",
       "permanent": true

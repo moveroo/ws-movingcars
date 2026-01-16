@@ -190,11 +190,13 @@ export async function onRequest({ request }, next) {
     '/transport-luxury-prestige-cars',
     '/transporting-cars-auction',
     '/transport-non-drivable-cars',
+    '/transport-guide/advice', // New Guide Page
+    '/transport-guide/transit-times',
+    '/transport-guide/transit-warranty',
+    '/transport-guide/depots',
+    '/transport-guide/delays',
     // Removed Legacy Hubs (they will be caught by redirect logic below)
     '/how-do-i-get-a-quote-for-drivable-vehicle',
-    '/call-meet-areas',
-    '/national-car-carrying-depots-australia-wide',
-    '/advice-to-follow-when-transporting-a-car-interstate',
     '/delays-in-transit',
     '/transit-warranty',
     '/estimated-transit-times-for-car-transport',
@@ -241,6 +243,43 @@ export async function onRequest({ request }, next) {
   if (normalizedPath === '/transporting-cars-with-items-inside-standard') {
     return Response.redirect(
       new URL('/transporting-cars-with-items-inside/', request.url),
+      301
+    );
+  }
+
+  // Redirect Legacy Info Pages -> Transport Guide
+  if (
+    normalizedPath === '/advice-to-follow-when-transporting-a-car-interstate'
+  ) {
+    return Response.redirect(
+      new URL('/transport-guide/advice/', request.url),
+      301
+    );
+  }
+  if (normalizedPath === '/estimated-transit-times-for-car-transport') {
+    return Response.redirect(
+      new URL('/transport-guide/transit-times/', request.url),
+      301
+    );
+  }
+  if (normalizedPath === '/transit-warranty') {
+    return Response.redirect(
+      new URL('/transport-guide/transit-warranty/', request.url),
+      301
+    );
+  }
+  if (
+    normalizedPath === '/national-car-carrying-depots-australia-wide' ||
+    normalizedPath === '/call-meet-areas'
+  ) {
+    return Response.redirect(
+      new URL('/transport-guide/depots/', request.url),
+      301
+    );
+  }
+  if (normalizedPath === '/delays-in-transit') {
+    return Response.redirect(
+      new URL('/transport-guide/delays/', request.url),
       301
     );
   }

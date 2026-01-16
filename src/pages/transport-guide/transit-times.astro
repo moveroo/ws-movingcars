@@ -1,0 +1,174 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Estimated Car Transport Transit Times | Moving Cars';
+const description =
+  'How long does it take to ship a car? Estimated transit times for major Australian routes like Perth to Melbourne, Brisbane to Sydney.';
+
+const routes = [
+  { from: 'Melbourne', to: 'Sydney', time: '3-5 Days' },
+  { from: 'Melbourne', to: 'Brisbane', time: '5-7 Days' },
+  { from: 'Sydney', to: 'Brisbane', time: '3-5 Days' },
+  { from: 'Adelaide', to: 'Melbourne', time: '3-5 Days' },
+  { from: 'Perth', to: 'East Coast', time: '10-15 Days' },
+  { from: 'Darwin', to: 'Adelaide', time: '7-10 Days' },
+  { from: 'Tasmania', to: 'Melbourne', time: '5-8 Days' },
+  { from: 'Townsville', to: 'Brisbane', time: '3-5 Days' },
+];
+
+const disclaimers = [
+  {
+    title: 'Business Days Only',
+    text: 'Transit times are calculated in business days (Monday-Friday). Weekends and public holidays are not included in the count.',
+  },
+  {
+    title: 'Estimates, Not Guarantees',
+    text: 'All times are estimates provided by carriers. Breakdowns, traffic, weather events, and rail delays can impact schedules.',
+  },
+  {
+    title: 'Peak Season Delays',
+    text: 'During peak periods (November–January), allow an extra 2-4 days due to high volumes and limited truck availability.',
+  },
+  {
+    title: 'Remote Locations',
+    text: 'Collections or deliveries to regional/remote areas (outside metro hubs) often require a local tow, adding 2-5 days.',
+  },
+  {
+    title: 'Items in Car',
+    text: 'Vehicles packed with personal goods may take longer as they cannot travel on certain rapid rail services.',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-blue-500/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+        Transport Guide
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+        Estimated <span class="text-blue-500">Transit Times</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        How long will it take? Check our guide for popular routes and understand
+        the factors that influence delivery speed.
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-5xl">
+      {/* Route Grid */}
+      <h2
+        class="text-3xl font-bold text-[var(--color-primary-900)] mb-8 text-center"
+      >
+        Popular Route Estimates
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+        {
+          routes.map((route) => (
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-[var(--color-neutral-100)] text-center hover:-translate-y-1 transition-transform">
+              <div class="text-sm text-[var(--color-neutral-500)] mb-2 uppercase tracking-wide">
+                Route
+              </div>
+              <div class="font-bold text-[var(--color-primary-900)] text-lg mb-4">
+                {route.from}{' '}
+                <span class="text-[var(--color-neutral-300)] mx-2">&rarr;</span>{' '}
+                {route.to}
+              </div>
+              <div class="inline-block bg-blue-50 text-blue-700 font-bold px-4 py-2 rounded-lg">
+                {route.time}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Disclaimers */}
+      <div
+        class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-[var(--color-neutral-200)]"
+      >
+        <h3
+          class="text-2xl font-bold text-[var(--color-primary-900)] mb-8 border-b pb-4"
+        >
+          Understanding Transit Times
+        </h3>
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+          {
+            disclaimers.map((item) => (
+              <div>
+                <h4 class="font-bold text-lg text-[var(--color-primary-900)] mb-2 flex items-center gap-2">
+                  <svg
+                    class="w-5 h-5 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  {item.title}
+                </h4>
+                <p class="text-[var(--color-neutral-600)] text-sm leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Next Steps */}
+      <div
+        class="mt-20 bg-[var(--color-primary-900)] text-white p-12 rounded-[2rem] text-center"
+      >
+        <h2 class="text-3xl font-bold mb-6">Need a Specific Date?</h2>
+        <p class="text-[var(--color-neutral-400)] mb-8 max-w-2xl mx-auto">
+          While we cannot guarantee delivery dates, we can provide priority
+          service for urgent moves.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="inline-block bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-10 rounded-xl transition-all"
+          >
+            Get Quote & Times
+          </a>
+          <a
+            href="/contact/"
+            class="inline-block bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-xl transition-all backdrop-blur-sm"
+          >
+            Ask Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

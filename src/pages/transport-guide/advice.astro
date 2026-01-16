@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Car Transport Checklist | Preparation Advice';
+const description =
+  'Essential advice for preparing your vehicle for interstate transport. Follow this checklist to ensure a smooth pickup and delivery.';
+
+const checklistItems = [
+  {
+    title: 'Photographic Evidence',
+    desc: 'Take clear photos of your vehicle from all angles before pickup. Note any existing scratches, dents, or stone chips. This is your record of the vehicle’s condition.',
+    icon: 'M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z',
+  },
+  {
+    title: 'Remove Toll Tags',
+    desc: 'Remove E-Tags and toll passes. If left in the vehicle, detectors may trigger charges as the truck passes through gantries.',
+    icon: 'M15 5v2a5 5 0 015 5v6h-2v-4.5a2.5 2.5 0 00-5 0V18h-2v-4.5a2.5 2.5 0 00-5 0V18H4v-6a5 5 0 015-5V5a2 2 0 014 0z',
+  },
+  {
+    title: 'Managing Keys',
+    desc: 'Provide one full set of working keys (ignition, door, boot). Keep all spare sets with you. Do not attach bulky keychains.',
+    icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z',
+  },
+  {
+    title: 'Secure The Exterior',
+    desc: 'Fold back mirrors and lower antennas. Remove roof racks, fog lights, and custom spoilers if possible to reduce height and damage risk.',
+    icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4',
+  },
+  {
+    title: 'Check For Leaks',
+    desc: 'Inspect your vehicle for oil, fluid, or fuel leaks. Transport trucks may refuse vehicles that are leaking to prevent damage to other cars.',
+    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+  },
+  {
+    title: 'Disable Measurables',
+    desc: 'Turn off alarm systems and immobilizers. If there is a special start procedure ("knack"), leave a clear note on the driver\'s seat.',
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-500 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-amber-500/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        Transport Guide
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8">
+        Preparation <span class="text-amber-500">Checklist</span>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        A few minutes of preparation can prevent delays and extra costs. Use
+        this checklist to get your car ready for the truck.
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      {/* Intro */}
+      <div class="prose prose-lg prose-slate mx-auto mb-16 text-center">
+        <p class="text-xl leading-relaxed text-[var(--color-neutral-600)]">
+          Drivers need to load and unload your vehicle efficiently. Items like
+          loose roof racks or toll tags can cause issues during the journey.
+          Please ensure the following steps are completed before collection.
+        </p>
+      </div>
+
+      {/* Checklist Grid */}
+      <div class="grid md:grid-cols-2 gap-8 mb-20">
+        {
+          checklistItems.map((item) => (
+            <div class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-amber-500">
+              <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={item.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-primary-900)] mb-3">
+                {item.title}
+              </h3>
+              <p class="text-[var(--color-neutral-600)] leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Warning Box: Personal Items */}
+      <div
+        class="bg-red-50 border border-red-100 rounded-2xl p-8 md:p-12 mb-20"
+      >
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div
+            class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-red-900 mb-4">
+              Strict Rule: Dangerous Goods
+            </h3>
+            <p class="text-red-800 leading-relaxed mb-6">
+              Never under any circumstance can you have firearms, flammable
+              materials, gases, or liquids in the car. Carriers will inspect
+              your car and, if found, transport may be rejected.
+            </p>
+            <a
+              href="/transporting-cars-with-items-inside/"
+              class="text-red-700 font-bold underline hover:text-red-900"
+            >
+              Read Full Personal Items Policy &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Next Steps */}
+      <div
+        class="bg-[var(--color-primary-900)] text-white p-12 rounded-[2rem] text-center"
+      >
+        <h2 class="text-3xl font-bold mb-6">Ready to Book?</h2>
+        <p class="text-[var(--color-neutral-400)] mb-8 max-w-2xl mx-auto">
+          Once you have prepared your vehicle, getting it moved is easy.
+        </p>
+        <a
+          href="https://ratecheck.movingcars.com.au/quote/v2"
+          class="inline-block bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-10 rounded-xl transition-all"
+        >
+          Get an Instant Quote
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
