@@ -8,6 +8,7 @@ const PAGES = [
   '/transport-non-drivable-cars/',
   '/classic-and-vintage-car-transport-services/',
   '/transport-luxury-prestige-cars/',
+  '/transport-boat-caravan-trailer/',
 ];
 
 async function checkPage(path) {

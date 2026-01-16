@@ -181,7 +181,7 @@ export async function onRequest({ request }, next) {
     '/terms',
     '/contact',
     '/thank-you-for-booking',
-    '/caravan-transport-quote',
+    '/transport-boat-caravan-trailer', // Consolidated Boat/Caravan
     '/classic-and-vintage-car-transport-services',
     '/enclosed-quote',
     '/enclosed-car-transport',
@@ -189,8 +189,6 @@ export async function onRequest({ request }, next) {
     '/transporting-cars-with-items-inside',
     '/transport-luxury-prestige-cars',
     '/transporting-cars-auction',
-    '/boat-transport',
-    '/trailer-transport-quote',
     '/transport-non-drivable-cars',
     // Removed Legacy Hubs (they will be caught by redirect logic below)
     '/how-do-i-get-a-quote-for-drivable-vehicle',
@@ -221,6 +219,20 @@ export async function onRequest({ request }, next) {
   if (normalizedPath === '/quote') {
     return Response.redirect(
       new URL('https://ratecheck.movingcars.com.au/quote/v2/', request.url),
+      301
+    );
+  }
+
+  // Consolidate Boat/Caravan/Trailer -> /transport-boat-caravan-trailer/
+  const boatRedirects = [
+    '/boat-transport',
+    '/caravan-transport-quote',
+    '/trailer-transport-quote',
+  ];
+
+  if (boatRedirects.includes(normalizedPath)) {
+    return Response.redirect(
+      new URL('/transport-boat-caravan-trailer/', request.url),
       301
     );
   }

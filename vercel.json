@@ -53,6 +53,21 @@
       "permanent": true
     },
     {
+      "source": "/boat-transport",
+      "destination": "/transport-boat-caravan-trailer/",
+      "permanent": true
+    },
+    {
+      "source": "/caravan-transport-quote",
+      "destination": "/transport-boat-caravan-trailer/",
+      "permanent": true
+    },
+    {
+      "source": "/trailer-transport-quote",
+      "destination": "/transport-boat-caravan-trailer/",
+      "permanent": true
+    },
+    {
       "source": "/move-car-adelaide-south-australia",
       "destination": "/car-transport/",
       "permanent": true
