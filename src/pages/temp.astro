@@ -6,123 +6,179 @@ const description = 'Temporary index of all site pages for review.';
 
 const sections = [
   {
-    title: 'Core Pages',
+    title: 'Core Page & Lead Gen',
     pages: [
       { url: '/', title: 'Home' },
-      { url: '/contact', title: 'Contact Us' },
-      { url: '/reviews', title: 'Reviews' },
-      { url: '/faq', title: 'FAQ' },
-      { url: '/quote', title: 'Quote Form' },
+      { url: '/quote/', title: 'Quote Landing Page (Upgraded)' },
+      { url: '/contact/', title: 'Contact Us (Upgraded)' },
+      { url: '/reviews/', title: 'Client Reviews & Testimonials' },
+      { url: '/faq/', title: 'Frequently Asked Questions' },
+      { url: '/thank-you-for-booking/', title: 'Thank You Page' },
     ],
   },
   {
-    title: 'Pillar: Car Transport',
-    pages: [{ url: '/car-transport', title: 'Car Transport Hub' }],
-  },
-  {
-    title: 'Pillar: Cheap Rates',
+    title: 'Service Pillars',
     pages: [
-      { url: '/cheap-car-transport-rates', title: 'Cheap Rates & Costs' },
-    ],
-  },
-  {
-    title: 'Pillar: Specialised Transport',
-    pages: [
+      { url: '/car-transport/', title: 'Standard Car Transport Hub' },
       {
-        url: '/specialised-vehicle-transport',
+        url: '/cheap-car-transport-rates/',
+        title: 'Cheap Rates & Costs Pillar',
+      },
+      {
+        url: '/specialised-vehicle-transport/',
         title: 'Specialised Transport Hub',
       },
-      { url: '/enclosed-car-transport', title: 'Enclosed Transport' },
+    ],
+  },
+  {
+    title: 'Specialised & Topic Cluster',
+    pages: [
+      { url: '/enclosed-car-transport/', title: 'Enclosed Car Transport' },
       {
-        url: '/transport-luxury-prestige-cars',
+        url: '/transport-luxury-prestige-cars/',
         title: 'Luxury & Prestige (VIP)',
       },
       {
-        url: '/classic-and-vintage-car-transport-services',
-        title: 'Classic & Vintage',
-      },
-      { url: '/transport-non-drivable-cars', title: 'Non-Drivable / Salvage' },
-      {
-        url: '/transport-boat-caravan-trailer',
-        title: 'Boats & Caravans (New)',
+        url: '/classic-and-vintage-car-transport-services/',
+        title: 'Classic & Vintage Car Transport',
       },
       {
-        url: '/transporting-cars-with-items-inside',
-        title: 'Goods in Car Policy (New)',
+        url: '/transport-non-drivable-cars/',
+        title: 'Non-Drivable & Salvage Transport',
       },
       {
-        url: '/transporting-cars-auction',
-        title: 'Auction Transport (Pending)',
+        url: '/transport-boat-caravan-trailer/',
+        title: 'Boats, Caravans & Trailers',
+      },
+      { url: '/transporting-cars-auction/', title: 'Auction Collection Guide' },
+      {
+        url: '/transporting-cars-with-items-inside/',
+        title: 'Personal Effects Policy',
       },
     ],
   },
   {
-    title: 'Legal & Utility',
+    title: 'Transport Guide (Help Centre)',
+    desc: 'New consolidated information hub for logistics and compliance.',
     pages: [
-      { url: '/privacy-policy', title: 'Privacy Policy' },
-      { url: '/terms', title: 'Terms & Conditions' },
-      { url: '/thank-you-for-booking', title: 'Thank You Page' },
+      { url: '/transport-guide/', title: 'Help Centre Index' },
+      { url: '/transport-guide/advice/', title: 'Preparation Checklist' },
+      {
+        url: '/transport-guide/transit-times/',
+        title: 'Estimated Transit Times',
+      },
+      {
+        url: '/transport-guide/transit-warranty/',
+        title: 'Transit Warranty Policy',
+      },
+      { url: '/transport-guide/depots/', title: 'Depot & Meeting Locations' },
+      { url: '/transport-guide/delays/', title: 'Delays & Schedule Advisory' },
     ],
   },
   {
-    title: 'Pending / Legacy Info Pages',
-    desc: 'These pages are slated for consolidation into a Help Centre.',
+    title: 'Legal & Compliance',
     pages: [
-      {
-        url: '/advice-to-follow-when-transporting-a-car-interstate',
-        title: 'Transport Advice',
-      },
-      { url: '/call-meet-areas', title: 'Call/Meet Areas' },
-      { url: '/delays-in-transit', title: 'Delays Policy' },
-      { url: '/transit-warranty', title: 'Transit Warranty' },
-      {
-        url: '/estimated-transit-times-for-car-transport',
-        title: 'Transit Times',
-      },
-      {
-        url: '/national-car-carrying-depots-australia-wide',
-        title: 'Depot List',
-      },
-      { url: '/enclosed-quote', title: 'Enclosed Quote (Legacy)' },
+      { url: '/privacy-policy/', title: 'Privacy Policy' },
+      { url: '/terms/', title: 'Terms of Service' },
     ],
   },
 ];
 ---
 
 <Layout title={title} description={description}>
-  <main class="bg-gray-50 min-h-screen py-20">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h1 class="text-4xl font-bold mb-4 text-slate-900">Site Page Index</h1>
-      <p class="text-slate-600 mb-12">
-        A temporary list of all active pages for internal review.
-      </p>
+  <main class="bg-gray-50 min-h-screen py-20 pb-40">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h1 class="text-4xl font-bold text-slate-900 mb-2">
+            Site Page Index
+          </h1>
+          <p class="text-slate-600">
+            A temporary map of the restructured Moving Cars website.
+          </p>
+        </div>
+        <div
+          class="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full text-sm"
+        >
+          Status: Restructure Complete
+        </div>
+      </div>
 
       <div class="space-y-12">
         {
           sections.map((section) => (
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
-              <h2 class="text-2xl font-bold mb-2 text-slate-800">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+              <h2 class="text-2xl font-bold mb-2 text-slate-800 flex items-center gap-3">
+                <span class="w-1.5 h-6 bg-blue-500 rounded-full" />
                 {section.title}
               </h2>
               {section.desc && (
-                <p class="text-sm text-slate-500 mb-6 italic">{section.desc}</p>
+                <p class="text-sm text-slate-500 mb-6 italic pl-4">
+                  {section.desc}
+                </p>
               )}
-              <div class="grid md:grid-cols-2 gap-4">
+              <div class="grid md:grid-cols-2 gap-4 mt-6">
                 {section.pages.map((page) => (
                   <a
                     href={page.url}
-                    class="flex items-center p-3 rounded-lg hover:bg-blue-50 text-blue-600 hover:text-blue-800 transition-colors border border-transparent hover:border-blue-100"
+                    class="group flex items-center p-4 rounded-xl hover:bg-slate-50 border border-slate-100 transition-all hover:border-blue-200 hover:shadow-sm"
                   >
-                    <span class="font-medium">{page.title}</span>
-                    <span class="ml-auto text-xs text-slate-400 font-mono pl-4">
-                      {page.url}
-                    </span>
+                    <div class="flex flex-col">
+                      <span class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {page.title}
+                      </span>
+                      <span class="text-[10px] text-slate-400 font-mono mt-1 group-hover:text-blue-400">
+                        {page.url}
+                      </span>
+                    </div>
+                    <svg
+                      class="ml-auto w-5 h-5 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
                   </a>
                 ))}
               </div>
             </div>
           ))
         }
+      </div>
+
+      {/* Footer Info */}
+      <div class="mt-20 p-8 bg-slate-900 rounded-3xl text-white">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div>
+            <h3 class="text-xl font-bold mb-2">Development Complete</h3>
+            <p class="text-slate-400 text-sm">
+              All legacy pages have been successfully migrated or consolidated.
+              Redirects are active for all previous URL structures.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <a
+              href="/"
+              class="px-6 py-2 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors"
+            >
+              View Home
+            </a>
+            <a
+              href="https://ratecheck.movingcars.com.au/quote/v2"
+              class="px-6 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-400 transition-colors"
+            >
+              Test Quote
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
