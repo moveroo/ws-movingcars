@@ -1,30 +1,212 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = 'Transporting Cars With Items Inside';
+const title = 'Transporting Cars With Items Inside | Personal Effects Policy';
 const description =
-  'Professional car transport services for Transporting Cars With Items Inside. Get an instant quote for interstate vehicle shipping.';
+  'Understand the rules for leaving personal items in your car during interstate transport. Weight limits, packaging requirements, and prohibited items.';
+
+const allowedItems = [
+  'Clothing and linen packed in suitcases.',
+  'Books and toys in sealed boxes.',
+  'Standard tools (jack, spare tyre).',
+  'Child seats (must be secured).',
+  'Up to 80kg total weight (Route dependent - check quote).',
+];
+
+const prohibitedItems = [
+  'Dangerous Goods (Fuel, LPG cylinders, Batteries).',
+  'Perishable foods or plants.',
+  'Weapons, firearms, or ammunition.',
+  'Loose items not in boxes/bags.',
+  'Goods obstructing the driver’s view (rear window line).',
+];
 ---
 
 <Layout title={title} description={description}>
-  <main class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-8">{title}</h1>
-    <div class="prose prose-lg max-w-none">
-      <p>Content for Transporting Cars With Items Inside is being migrated.</p>
+  {/* Hero Section */}
+  <section
+    class="relative bg-[var(--color-primary-900)] text-white pt-24 pb-32 overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-950)]/90 to-[var(--color-primary-900)]/50 z-10"
+      >
+      </div>
+      <svg
+        class="w-full h-full text-[var(--color-primary-800)]"
+        fill="currentColor"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <path d="M0 100 C 20 0 50 0 100 100 Z"></path>
+      </svg>
+    </div>
 
-      <div class="bg-amber-50 p-8 rounded-xl border border-amber-200 mt-12">
-        <h2 class="text-2xl font-bold mb-4 text-slate-900 mt-0">
-          Ready for a Quote?
-        </h2>
-        <p class="mb-6">
-          Get an instant, no-obligation quote for your car transport needs.
-        </p>
-        <a
-          href="https://ratecheck.movingcars.com.au/quote/v2"
-          class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-colors"
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+      <div
+        class="inline-flex items-center gap-2 bg-[var(--color-accent-500)]/10 text-[var(--color-accent-500)] px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 border border-[var(--color-accent-500)]/20"
+      >
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent-500)]"></span>
+        Policy Guide
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-8">
+        Transporting <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-400)] to-[var(--color-accent-600)]"
+          >Personal Items</span
         >
-          Get Instant Quote
-        </a>
+      </h1>
+      <p
+        class="text-xl text-[var(--color-neutral-400)] leading-relaxed max-w-2xl mx-auto mb-10"
+      >
+        Can you pack your car? Yes, but strict rules apply. Failure to follow
+        these guidelines may result in refusal to transport or additional fees.
+      </p>
+    </div>
+  </section>
+
+  <main class="bg-[var(--color-neutral-50)] py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      {/* Intro Warning */}
+      <div
+        class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-amber-500 mb-16"
+      >
+        <h2 class="text-2xl font-bold text-[var(--color-primary-900)] mb-4">
+          ⚠️ Important Liability Notice
+        </h2>
+        <p class="text-[var(--color-neutral-600)] leading-relaxed">
+          You bear all risks of loss or damage to personal items left in the
+          car. Transit insurance <strong>covers the vehicle only</strong>, not
+          the goods inside. Moving Cars accepts no responsibility for theft or
+          damage caused by shifting loads.
+        </p>
+      </div>
+
+      {/* Rules Grid */}
+      <div class="grid md:grid-cols-2 gap-12 mb-20">
+        <div>
+          <h3
+            class="text-2xl font-bold text-green-700 flex items-center gap-3 mb-6"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+            >
+            Allowed (The Rules)
+          </h3>
+          <ul class="space-y-4">
+            {
+              allowedItems.map((item) => (
+                <li class="flex items-start gap-3 text-[var(--color-neutral-700)]">
+                  <span class="mt-1 w-2 h-2 rounded-full bg-green-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div
+            class="mt-8 bg-green-50 p-6 rounded-xl border border-green-100 text-sm text-green-800"
+          >
+            <strong>Packaging Rule:</strong> All goods must be securely packed in
+            removalist boxes or suitcases. No plastic bags or loose items.
+          </div>
+        </div>
+
+        <div>
+          <h3
+            class="text-2xl font-bold text-red-700 flex items-center gap-3 mb-6"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path></svg
+            >
+            Strictly Prohibited
+          </h3>
+          <ul class="space-y-4">
+            {
+              prohibitedItems.map((item) => (
+                <li class="flex items-start gap-3 text-[var(--color-neutral-700)]">
+                  <span class="mt-1 w-2 h-2 rounded-full bg-red-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div
+            class="mt-8 bg-red-50 p-6 rounded-xl border border-red-100 text-sm text-red-800"
+          >
+            <strong>Warning:</strong> Drivers have the right to inspect all packages.
+            If prohibited items are found, transport may be refused.
+          </div>
+        </div>
+      </div>
+
+      {/* Specific Scenarios */}
+      <div class="space-y-12">
+        <section>
+          <h2
+            class="text-3xl font-bold text-[var(--color-primary-900)] mb-6 border-b pb-4 border-[var(--color-neutral-200)]"
+          >
+            Specific Guidelines
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Station Wagons & SUVs</h4>
+              <p
+                class="text-[var(--color-neutral-600)] text-sm leading-relaxed"
+              >
+                Items must be kept <strong>below the window line</strong>.
+                Drivers need full visibility through the rearview mirror for
+                loading and unloading safety.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Tasmania Biosecurity</h4>
+              <p
+                class="text-[var(--color-neutral-600)] text-sm leading-relaxed"
+              >
+                Travelling to Tasmania? You must verify strict biosecurity
+                rules. No plants, soil, or fresh produce can be in the vehicle.
+                A declaration form ensures smooth entry.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div
+          class="bg-[var(--color-neutral-900)] text-white p-12 rounded-[2rem] text-center"
+        >
+          <h2 class="text-3xl font-bold mb-6">Need to move more stuff?</h2>
+          <p class="text-[var(--color-neutral-400)] mb-8 max-w-2xl mx-auto">
+            If you have a full house to move, don't try to stuff it all in the
+            car. It puts your vehicle at risk. We can recommend trusted
+            removalists.
+          </p>
+          <a
+            href="https://ratecheck.movingcars.com.au/quote/v2"
+            class="inline-block bg-[var(--color-accent-500)] hover:bg-[var(--color-accent-400)] text-[var(--color-primary-950)] font-bold py-4 px-10 rounded-xl transition-all"
+          >
+            Get Quote (Vehicle + standard allowance)
+          </a>
+        </div>
       </div>
     </div>
   </main>

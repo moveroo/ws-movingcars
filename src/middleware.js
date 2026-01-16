@@ -185,7 +185,6 @@ export async function onRequest({ request }, next) {
     '/classic-and-vintage-car-transport-services',
     '/enclosed-quote',
     '/enclosed-car-transport',
-    '/transporting-cars-with-items-inside-standard',
     '/transporting-cars-with-items-inside',
     '/transport-luxury-prestige-cars',
     '/transporting-cars-auction',
@@ -233,6 +232,14 @@ export async function onRequest({ request }, next) {
   if (boatRedirects.includes(normalizedPath)) {
     return Response.redirect(
       new URL('/transport-boat-caravan-trailer/', request.url),
+      301
+    );
+  }
+
+  // Redirect 'Standard' Goods page to the main policy page
+  if (normalizedPath === '/transporting-cars-with-items-inside-standard') {
+    return Response.redirect(
+      new URL('/transporting-cars-with-items-inside/', request.url),
       301
     );
   }

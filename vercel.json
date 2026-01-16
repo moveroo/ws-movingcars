@@ -68,6 +68,11 @@
       "permanent": true
     },
     {
+      "source": "/transporting-cars-with-items-inside-standard",
+      "destination": "/transporting-cars-with-items-inside/",
+      "permanent": true
+    },
+    {
       "source": "/move-car-adelaide-south-australia",
       "destination": "/car-transport/",
       "permanent": true
