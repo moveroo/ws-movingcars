@@ -103,6 +103,11 @@
       "permanent": true
     },
     {
+      "source": "/enclosed-quote",
+      "destination": "/quote/",
+      "permanent": true
+    },
+    {
       "source": "/move-car-adelaide-south-australia",
       "destination": "/car-transport/",
       "permanent": true

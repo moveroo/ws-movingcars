@@ -184,22 +184,18 @@ export async function onRequest({ request }, next) {
     '/thank-you-for-booking',
     '/transport-boat-caravan-trailer', // Consolidated Boat/Caravan
     '/classic-and-vintage-car-transport-services',
-    '/enclosed-quote',
     '/enclosed-car-transport',
     '/transporting-cars-with-items-inside',
     '/transport-luxury-prestige-cars',
     '/transporting-cars-auction',
     '/transport-non-drivable-cars',
-    '/transport-guide/advice', // New Guide Page
+    '/transport-guide', // Hub Index
+    '/transport-guide/advice',
     '/transport-guide/transit-times',
     '/transport-guide/transit-warranty',
     '/transport-guide/depots',
     '/transport-guide/delays',
-    // Removed Legacy Hubs (they will be caught by redirect logic below)
-    '/how-do-i-get-a-quote-for-drivable-vehicle',
-    '/delays-in-transit',
-    '/transit-warranty',
-    '/estimated-transit-times-for-car-transport',
+    '/quote', // New Quote Landing Page
     '/privacy-policy',
     '/faq',
   ];
@@ -282,6 +278,9 @@ export async function onRequest({ request }, next) {
       new URL('/transport-guide/delays/', request.url),
       301
     );
+  }
+  if (normalizedPath === '/enclosed-quote') {
+    return Response.redirect(new URL('/quote/', request.url), 301);
   }
 
   // Legacy Regional Hubs -> Redirect to /car-transport/
