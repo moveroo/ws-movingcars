@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Site Page Index (Temp)';
+const description = 'Temporary index of all site pages for review.';
+
+const sections = [
+  {
+    title: 'Core Pages',
+    pages: [
+      { url: '/', title: 'Home' },
+      { url: '/contact', title: 'Contact Us' },
+      { url: '/reviews', title: 'Reviews' },
+      { url: '/faq', title: 'FAQ' },
+      { url: '/quote', title: 'Quote Form' },
+    ],
+  },
+  {
+    title: 'Pillar: Car Transport',
+    pages: [{ url: '/car-transport', title: 'Car Transport Hub' }],
+  },
+  {
+    title: 'Pillar: Cheap Rates',
+    pages: [
+      { url: '/cheap-car-transport-rates', title: 'Cheap Rates & Costs' },
+    ],
+  },
+  {
+    title: 'Pillar: Specialised Transport',
+    pages: [
+      {
+        url: '/specialised-vehicle-transport',
+        title: 'Specialised Transport Hub',
+      },
+      { url: '/enclosed-car-transport', title: 'Enclosed Transport' },
+      {
+        url: '/transport-luxury-prestige-cars',
+        title: 'Luxury & Prestige (VIP)',
+      },
+      {
+        url: '/classic-and-vintage-car-transport-services',
+        title: 'Classic & Vintage',
+      },
+      { url: '/transport-non-drivable-cars', title: 'Non-Drivable / Salvage' },
+      {
+        url: '/transport-boat-caravan-trailer',
+        title: 'Boats & Caravans (New)',
+      },
+      {
+        url: '/transporting-cars-with-items-inside',
+        title: 'Goods in Car Policy (New)',
+      },
+      {
+        url: '/transporting-cars-auction',
+        title: 'Auction Transport (Pending)',
+      },
+    ],
+  },
+  {
+    title: 'Legal & Utility',
+    pages: [
+      { url: '/privacy-policy', title: 'Privacy Policy' },
+      { url: '/terms', title: 'Terms & Conditions' },
+      { url: '/thank-you-for-booking', title: 'Thank You Page' },
+    ],
+  },
+  {
+    title: 'Pending / Legacy Info Pages',
+    desc: 'These pages are slated for consolidation into a Help Centre.',
+    pages: [
+      {
+        url: '/advice-to-follow-when-transporting-a-car-interstate',
+        title: 'Transport Advice',
+      },
+      { url: '/call-meet-areas', title: 'Call/Meet Areas' },
+      { url: '/delays-in-transit', title: 'Delays Policy' },
+      { url: '/transit-warranty', title: 'Transit Warranty' },
+      {
+        url: '/estimated-transit-times-for-car-transport',
+        title: 'Transit Times',
+      },
+      {
+        url: '/national-car-carrying-depots-australia-wide',
+        title: 'Depot List',
+      },
+      { url: '/enclosed-quote', title: 'Enclosed Quote (Legacy)' },
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-gray-50 min-h-screen py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4 text-slate-900">Site Page Index</h1>
+      <p class="text-slate-600 mb-12">
+        A temporary list of all active pages for internal review.
+      </p>
+
+      <div class="space-y-12">
+        {
+          sections.map((section) => (
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <h2 class="text-2xl font-bold mb-2 text-slate-800">
+                {section.title}
+              </h2>
+              {section.desc && (
+                <p class="text-sm text-slate-500 mb-6 italic">{section.desc}</p>
+              )}
+              <div class="grid md:grid-cols-2 gap-4">
+                {section.pages.map((page) => (
+                  <a
+                    href={page.url}
+                    class="flex items-center p-3 rounded-lg hover:bg-blue-50 text-blue-600 hover:text-blue-800 transition-colors border border-transparent hover:border-blue-100"
+                  >
+                    <span class="font-medium">{page.title}</span>
+                    <span class="ml-auto text-xs text-slate-400 font-mono pl-4">
+                      {page.url}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -174,6 +174,7 @@ export async function onRequest({ request }, next) {
 
   const knownPages = [
     '/',
+    '/temp', // Temp Site Index
     '/car-transport', // New Hub
     '/cheap-car-transport-rates', // New Pillar
     '/specialised-vehicle-transport', // New Pillar (Specialised)
