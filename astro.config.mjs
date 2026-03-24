@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://movingcars.com.au',
+  site: process.env.PUBLIC_SITE_URL || process.env.SITE_URL || 'https://example.com',
   output: 'static',
   trailingSlash: 'always',
   build: {
