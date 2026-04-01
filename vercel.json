@@ -3,6 +3,17 @@
   "framework": "astro",
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.movingcars.com.au"
+        }
+      ],
+      "destination": "https://movingcars.com.au/$1",
+      "permanent": true
+    },
+    {
       "source": "/moving-cars-reviews-by-customer",
       "destination": "/reviews/",
       "permanent": true
