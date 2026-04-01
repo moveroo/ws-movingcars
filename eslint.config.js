@@ -7,6 +7,14 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   {
+    files: ['*.config.{js,mjs,cjs}', 'astro.config.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+      },
+    },
+  },
+  {
     ignores: ['dist/', 'node_modules/', '.astro/', 'scripts/'],
   }
 );
