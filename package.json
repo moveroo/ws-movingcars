@@ -24,7 +24,7 @@
     "check": "npm run lint && npm run format:check && npm run build"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/sitemap": "^3.7.0",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/montserrat": "^5.2.8",
     "@tailwindcss/vite": "^4.1.18",
