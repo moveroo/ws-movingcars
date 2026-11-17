@@ -139,6 +139,13 @@ const {
     </script>
 
     <slot name="head" />
+    <style is:global>
+      /* CWV Optimization: Skip layout & paint for off-screen sections on long pages */
+      main > section + section {
+        content-visibility: auto;
+        contain-intrinsic-block-size: auto 520px;
+      }
+    </style>
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-neutral-50)]">
     <Header />
