@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wsmovingcars.com.au/sitemap-index.xml

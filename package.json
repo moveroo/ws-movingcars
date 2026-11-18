@@ -21,7 +21,8 @@
     "validate": "node scripts/validate-structure.mjs",
     "check:structure": "node scripts/analyze-heading-structure.mjs",
     "check:links": "node scripts/analyze-internal-links.mjs",
-    "check": "npm run lint && npm run format:check && npm run build"
+    "check": "npm run lint && npm run format:check && npm run build",
+    "contract:check": "node scripts/check-contract.mjs && node scripts/check-agent-discovery.mjs && node scripts/check-lead-intent-contract.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
