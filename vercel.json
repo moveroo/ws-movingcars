@@ -158,5 +158,6 @@
       "destination": "/car-transport/",
       "permanent": true
     }
-  ]
+  ],
+  "trailingSlash": true
 }
