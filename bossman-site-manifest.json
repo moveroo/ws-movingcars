@@ -1,11 +1,11 @@
 {
   "schemaVersion": "bossman.site-manifest.v1",
   "site": {
-    "name": "moving-cars",
-    "canonicalUrl": "https://wsmovingcars.com.au",
-    "domain": "wsmovingcars.com.au",
-    "siteRole": "marketing",
-    "lifecycleStatus": "active",
+    "name": "moving-cars (Staging)",
+    "canonicalUrl": null,
+    "domain": null,
+    "siteRole": "staging",
+    "lifecycleStatus": "staging",
     "priorityTier": null,
     "repositoryUrl": "https://github.com/moveroo/ws-movingcars"
   },
