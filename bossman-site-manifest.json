@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "bossman.site-manifest.v1",
+  "site": {
+    "name": "moving-cars",
+    "canonicalUrl": "https://wsmovingcars.com.au",
+    "domain": "wsmovingcars.com.au",
+    "siteRole": "marketing",
+    "lifecycleStatus": "active",
+    "priorityTier": null,
+    "repositoryUrl": "https://github.com/moveroo/ws-movingcars"
+  },
+  "standards": [
+    "legalPages",
+    "imageQuality",
+    "languageQuality",
+    "search",
+    "quoteLinkSecurity",
+    "appBuild"
+  ],
+  "metadata": {
+    "brandName": "moving-cars",
+    "siteCategory": "lead_generation",
+    "platform": "astro",
+    "deployTarget": "Cloudflare",
+    "owner": "bossman-fleet",
+    "appRole": "fleet_marketing_site",
+    "quoteTargets": [
+      "https://removalist.net/quote"
+    ]
+  }
+}
